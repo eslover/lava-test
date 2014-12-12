@@ -16,7 +16,7 @@ install:
 run:
     steps:
         - 'lava-test-case linux-linaro-ubuntu-pwd --shell pwd'
-	- './scripts/lava-vte.sh'
+        - './scripts/lava-vte.sh'
 
 parse:
     pattern: "[ a-zA-Z]+ (?P<test_case_id>[a-zA-Z0-9]+):\\s(?P<result>PASS|FAIL|SKIP)"
