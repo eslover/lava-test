@@ -90,9 +90,9 @@ echo `pwd`
 
 lava_mytest="lava-vte-mytest.sh"
 
-cp -f ./${lava_mytest} /mnt/${vte}
+cp -f ./scripts/${lava_mytest} /mnt/${vte}
 
-cp -f ./${testfile} /mnt/${vte}/runtest
+cp -f ./scripts/${testfile} /mnt/${vte}/runtest
 
 cd /mnt/${vte}
 . ./manual_test
