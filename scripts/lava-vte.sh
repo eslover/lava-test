@@ -86,6 +86,8 @@ mount -t nfs -o nolock 10.192.244.6:/rootfs/wb /mnt
 echo ${vte}
 echo ${testfile}
 
+echo `pwd` 
+
 lava_mytest="lava-vte-mytest.sh"
 
 cp -f ./${lava_mytest} /mnt/${vte}
