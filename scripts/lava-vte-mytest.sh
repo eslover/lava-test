@@ -286,5 +286,12 @@ append_md5=$(md5sum ${TEST_PATH}/output/${ARCH_PLATFORM}_${CMDFILE}_log_$tday | 
 mv ${TEST_PATH}/output/${ARCH_PLATFORM}_${CMDFILE}_log_$tday ${TEST_PATH}/output/${ARCH_PLATFORM}_${CMDFILE}_log_${tday}_${append_md5}
 mv ${TEST_PATH}/output/LTP_RUN_ON-${ARCH_PLATFORM}_${CMDFILE}_log_${tday}.failed ${TEST_PATH}/output//LTP_RUN_ON-${ARCH_PLATFORM}_${CMDFILE}_log_${tday}_${append_md5}.failed
 mv ${TEST_PATH}/results/${ARCH_PLATFORM}_${TEST_TYPE}_${CMDFILE}_$tday.txt ${TEST_PATH}/results/${ARCH_PLATFORM}_${TEST_TYPE}_${CMDFILE}_${tday}_${append_md5}.txt
+
+echo "==========VTE test log=================================================="
+cat ${TEST_PATH} /output/${ARCH_PLATFORM} _${CMDFILE} _log_${tday} _${append_md5} 
+
+echo "==========VTE test result=================================================="
+cat ${TEST_PATH}/results/${ARCH_PLATFORM}_${TEST_TYPE}_${CMDFILE}_${tday}_${append_md5}
+
 echo "FREESCALE LBG TEST END"
 umount /tmp
