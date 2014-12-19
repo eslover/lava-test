@@ -268,9 +268,9 @@ else
 #1 fisrt run reset counter
 	echo 1 >  ${TEST_PATH}/temp_cnt_${CMDFILE}_$tday
 fi
-${TEST_PATH}/runltp -p -q ${ADDOPT} -l ${ARCH_PLATFORM}_${TEST_TYPE}_${CMDFILE}_$tday.txt -f temp_test_${CMDFILE}_$tday -o ${TEST_PATH}/output/${ARCH_PLATFORM}_${CMDFILE}_log_$tday
+${TEST_PATH}/runltp -p ${ADDOPT} -l ${ARCH_PLATFORM}_${TEST_TYPE}_${CMDFILE}_$tday.txt -f temp_test_${CMDFILE}_$tday -o ${TEST_PATH}/output/${ARCH_PLATFORM}_${CMDFILE}_log_$tday
 else
-${TEST_PATH}/runltp -p -q ${ADDOPT} -l ${ARCH_PLATFORM}_${TEST_TYPE}_${CMDFILE}_$tday.txt -f $CMDFILE -o ${TEST_PATH}/${ARCH_PLATFORM}_${CMDFILE}_log_$tday
+${TEST_PATH}/runltp -p ${ADDOPT} -l ${ARCH_PLATFORM}_${TEST_TYPE}_${CMDFILE}_$tday.txt -f $CMDFILE -o ${TEST_PATH}/${ARCH_PLATFORM}_${CMDFILE}_log_$tday
 #${TEST_PATH}/runalltests.sh -v -p -l ${ARCH_PLATFORM}_${TEST_TYPE}_test.txt
 fi
 lastcmd=$(cat ${TEST_PATH}/runtest/$CMDFILE | grep -v "#" |grep "TGE-" | tail -n 1| awk '{print $1}')
