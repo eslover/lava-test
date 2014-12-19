@@ -1,4 +1,4 @@
-#!/bin/sh -x
+#!/bin/sh
 
 ADDOPT=
 
@@ -293,7 +293,7 @@ if [ -z $(echo $lastcmd) ];then
 	echo "==========================================================================="
 else
 	echo "==========VTE case failed=================================================="
-	echo ${TEST_PATH}/output//LTP_RUN_ON-${ARCH_PLATFORM}_${CMDFILE}_log_${tday}_${append_md5}.failed
+	cat ${TEST_PATH}/output//LTP_RUN_ON-${ARCH_PLATFORM}_${CMDFILE}_log_${tday}_${append_md5}.failed
 fi
 
 echo "==========VTE test summary=================================================="
