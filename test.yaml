@@ -15,7 +15,6 @@ install:
 
 run:
     steps:
-        - 'lava-test-case linux-linaro-ubuntu-pwd --shell pwd'
         - 'lava-test-case linux-vte-test --shell ./scripts/lava-vte.sh'
 
 parse:
