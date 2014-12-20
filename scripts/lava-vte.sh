@@ -101,6 +101,5 @@ echo $*
 
 $*
 
-umount /mnt
-
+# No need umount /mnt here #
 #./${lava_mytest} ${testfile}
