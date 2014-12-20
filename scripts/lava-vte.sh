@@ -97,9 +97,8 @@ echo `pwd`
 cd /mnt/${vte}
 . ./manual_test
 
-echo $*
+bash -x -c "$*"
 
-$*
-
+#$*
 # No need umount /mnt here #
 #./${lava_mytest} ${testfile}
