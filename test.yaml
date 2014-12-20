@@ -15,7 +15,15 @@ install:
 
 run:
     steps:
-        - 'lava-test-case linux-vte-test --shell ./scripts/lava-vte.sh'
+        - lava-test-case TGE-LV-KERNEL-SMP-0002 --shell ./scripts/lava-vte.sh [ $(cat /proc/cpuinfo | grep processor | wc -l ) -eq 2 ]
+        - lava-test-case TGE-LV-V4L2-0010 --shell ./scripts/lava-vte.sh v4l_capture_testapp -T 10
+        - lava-test-case TGE-LV-VPU-0001 --shell ./scripts/lava-vte.sh vpu_dec_test.sh 1
+        - lava-test-case TGE-LV-VPU-0002 --shell ./scripts/lava-vte.sh vpu_dec_test.sh 2
+        - lava-test-case TGE-LV-VPU-0004 --shell ./scripts/lava-vte.sh vpu_dec_test.sh 4
+        - lava-test-case TGE-LV-VPU-0005 --shell ./scripts/lava-vte.sh vpu_dec_test.sh 5
+        - lava-test-case TGE-LV-VPU-0006 --shell ./scripts/lava-vte.sh vpu_dec_test.sh 6
+        - lava-test-case TGE-LV-VPU-0007 --shell ./scripts/lava-vte.sh vpu_dec_test.sh 7
+        - lava-test-case TGE-LV-VPU-0008 --shell ./scripts/lava-vte.sh vpu_dec_test.sh 8
 
 parse:
     pattern: "[ a-zA-Z]+ (?P<test_case_id>[a-zA-Z0-9]+):\\s(?P<result>PASS|FAIL|SKIP)"
