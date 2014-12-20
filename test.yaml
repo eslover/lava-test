@@ -37,10 +37,10 @@ run:
         - lava-test-case TGE-LV-VPU-1017 --shell ./scripts/lava-vte.sh vpu_dec_test.sh 15
         - lava-test-case TGE-LV-VPU-1018 --shell ./scripts/lava-vte.sh vpu_dec_test.sh 16
         - lava-test-case TGE-LV-VPU-CLOCK-0001 --shell ./scripts/lava-vte.sh clk.sh vpu
-        - lava-test-case TGE-LV-VPU-1019 --shell ./scripts/lava-vte.sh vdoa=`find /sys/ -name "mxc_vdoa"` && cat $vdoa/*.vdoa/modalias && cat $vdoa/*.vdoa/uevent
+        - lava-test-case TGE-LV-VPU-1019 --shell ./scripts/lava-vte.sh 'vdoa=`find /sys/ -name "mxc_vdoa"` && cat $vdoa/*.vdoa/modalias && cat $vdoa/*.vdoa/uevent'
         - lava-test-case TGE-LV-VPU-1025 --shell ./scripts/lava-vte.sh vpu_performance.sh 3
         - lava-test-case TGE-LV-VPU-0016 --shell ./scripts/lava-vte.sh vpu_dec_test.sh 16
-        - lava-test-case TGE-LV-VPU-2013 --shell ./scripts/lava-vte.sh /unit_tests/mxc_vpu_test.out -D  "-i /mnt/nfs/test_stream/video/TB_to_BT.mpeg2 -f 4"  && /unit_tests/mxc_vpu_test.out -D  "-i /mnt/nfs/test_stream/video/TB_to_BT.mpeg2 -f 4" | grep "total fps=" | grep 30
+        - lava-test-case TGE-LV-VPU-2013 --shell ./scripts/lava-vte.sh '/unit_tests/mxc_vpu_test.out -D  "-i /mnt/nfs/test_stream/video/TB_to_BT.mpeg2 -f 4"  && /unit_tests/mxc_vpu_test.out -D  "-i /mnt/nfs/test_stream/video/TB_to_BT.mpeg2 -f 4" | grep "total fps=" | grep 30'
         - lava-test-case TGE-LV-VPU-10000 --shell ./scripts/lava-vte.sh vpu_enc_test.sh 1
         - lava-test-case TGE-LV-VPU-10010 --shell ./scripts/lava-vte.sh vpu_enc_test.sh 2
         - lava-test-case TGE-LV-VPU-10020 --shell ./scripts/lava-vte.sh vpu_enc_test.sh 3
