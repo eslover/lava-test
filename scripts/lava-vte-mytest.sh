@@ -305,8 +305,8 @@ echo "==========Remove VTE tempfile from server=================================
 rm -rf ${TEST_PATH}/output//LTP_RUN_ON-${ARCH_PLATFORM}_${CMDFILE}_log_${tday}_${append_md5}.failed
 rm -rf ${TEST_PATH}/results/${ARCH_PLATFORM}_${TEST_TYPE}_${CMDFILE}_${tday}_${append_md5}.txt
 rm -rf ${TEST_PATH}/output/${ARCH_PLATFORM}_${CMDFILE}_log_${tday}_${append_md5}
+rm -rf ${TEST_PATH}/temp_cnt_${CMDFILE}_${tday}
 
-echo "FREESCALE LBG TEST END"
 umount /tmp
 
 if [ -z $(echo $lastcmd) ];then

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 
 # Find platform type in DT kernel
 determine_platform_dt()
@@ -83,17 +83,24 @@ determine_platform_dt
 
 mount -t nfs -o nolock 10.192.244.6:/rootfs/wb /mnt
 
-echo ${vte}
-echo ${testfile}
+#echo ${vte}
+#echo ${testfile}
 
 echo `pwd` 
 
-lava_mytest="lava-vte-mytest.sh"
+#lava_mytest="lava-vte-mytest.sh"
 
-cp -f ./scripts/${lava_mytest} /mnt/${vte}
+#cp -f ./scripts/${lava_mytest} /mnt/${vte}
 
-cp -f ./scripts/${testfile} /mnt/${vte}/runtest
+#cp -f ./scripts/${testfile} /mnt/${vte}/runtest
 
 cd /mnt/${vte}
 . ./manual_test
-./${lava_mytest} ${testfile}
+
+echo $*
+
+$*
+
+umount /mnt
+
+#./${lava_mytest} ${testfile}
