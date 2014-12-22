@@ -17,7 +17,61 @@ run:
     steps:
 
         - lava-test-case TGE-LV-KERNEL-SMP-0002 --shell ./scripts/lava-vte.sh [ $(cat /proc/cpuinfo | grep processor | wc -l ) -eq 2 ]
-        - lava-test-case TGE-LV-V4L2-0010 --shell ./scripts/lava-vte.sh v4l_capture_testapp -T 10
+        - lava-test-case TGE-LV-V4L2-0010  --shell ./scripts/lava-vte.sh v4l_capture_testapp -T 10
+        - lava-test-case TGE-LV-V4L2-0011  --shell ./scripts/lava-vte.sh v4l_capture_testapp -T 300
+        - lava-test-case TGE-LV-V4L2-0012  --shell ./scripts/lava-vte.sh v4l_capture_testapp -H 320 -W 240
+        - lava-test-case TGE-LV-V4L2-0013  --shell ./scripts/lava-vte.sh v4l_capture_testapp -H 160 -W 120
+        - lava-test-case TGE-LV-V4L2-0015  --shell ./scripts/lava-vte.sh v4l_capture_testapp -H 100 -W 100
+        - lava-test-case TGE-LV-V4L2-0016  --shell ./scripts/lava-vte.sh v4l_capture_testapp -H 10 -W 200
+        - lava-test-case TGE-LV-V4L2-0017  --shell ./scripts/lava-vte.sh v4l_capture_testapp -H 220 -W 176
+        - lava-test-case TGE-LV-V4L2-0018  --shell ./scripts/lava-vte.sh v4l_capture_testapp -S
+        - lava-test-case TGE-LV-V4L2-0019  --shell ./scripts/lava-vte.sh v4l_capture_testapp -B 0,0,100,100 -v 1
+        - lava-test-case TGE-LV-V4L2-0020  --shell ./scripts/lava-vte.sh v4l_capture_testapp -B 0,0,320,240 -v 1
+        - lava-test-case TGE-LV-V4L2-0021  --shell ./scripts/lava-vte.sh v4l_capture_testapp -B 100,100,320,240 -v 1
+        - lava-test-case TGE-LV-V4L2-0022  --shell ./scripts/lava-vte.sh v4l_capture_testapp -B 10,10,320,240 -v 1
+        - lava-test-case TGE-LV-V4L2-0023  --shell ./scripts/lava-vte.sh v4l_capture_testapp -B 50,50,96,96 -v 1
+        - lava-test-case TGE-LV-V4L2-0024  --shell ./scripts/lava-vte.sh v4l_capture_testapp -B 0,0,220,176 -v 1
+        - lava-test-case TGE-LV-V4L2-0025  --shell ./scripts/lava-vte.sh v4l_capture_testapp -B 100,100,96,96 -v 1
+        - lava-test-case TGE-LV-V4L2-0026  --shell ./scripts/lava-vte.sh v4l_capture_testapp -B 0,200,96,96 -v 1
+        - lava-test-case TGE-LV-V4L2-0028  --shell ./scripts/lava-vte.sh v4l_capture_testapp -B 320,240,96,96 -v 1
+        - lava-test-case TGE-LV-V4L2-0029  --shell ./scripts/lava-vte.sh v4l_capture_testapp -B 0,0,640,480 -v 1
+        - lava-test-case TGE-LV-V4L2-0031  --shell ./scripts/lava-vte.sh v4l_capture_testapp -R 2 -C 1
+        - lava-test-case TGE-LV-V4L2-0032  --shell ./scripts/lava-vte.sh v4l_capture_testapp -R 3 -C 1
+        - lava-test-case TGE-LV-V4L2-0033  --shell ./scripts/lava-vte.sh v4l_capture_testapp -R 4 -C 1
+        - lava-test-case TGE-LV-V4L2-0034  --shell ./scripts/lava-vte.sh v4l_capture_testapp -R 5 -C 1
+        - lava-test-case TGE-LV-V4L2-0035  --shell ./scripts/lava-vte.sh v4l_capture_testapp -R 6 -C 1
+        - lava-test-case TGE-LV-V4L2-0036  --shell ./scripts/lava-vte.sh v4l_capture_testapp -R 7 -C 1
+        - lava-test-case TGE-LV-V4L2-0039  --shell ./scripts/lava-vte.sh v4l_capture_testapp -Y1
+        - lava-test-case TGE-LV-V4L2-0050  --shell ./scripts/lava-vte.sh v4l_capture_testapp -C 3 -O BGR24 -o ./output
+        - lava-test-case TGE-LV-V4L2-0051  --shell ./scripts/lava-vte.sh v4l_capture_testapp -C 3 -O BGR32 -o ./output
+        - lava-test-case TGE-LV-V4L2-0052  --shell ./scripts/lava-vte.sh v4l_capture_testapp -C 3 -O RGB565 -o ./output
+        - lava-test-case TGE-LV-V4L2-0053  --shell ./scripts/lava-vte.sh v4l_capture_testapp -C 3 -O RGB24 -o ./output
+        - lava-test-case TGE-LV-V4L2-0054  --shell ./scripts/lava-vte.sh v4l_capture_testapp -C 3 -O RGB32 -o ./output
+        - lava-test-case TGE-LV-V4L2-0055  --shell ./scripts/lava-vte.sh v4l_capture_testapp -C 3 -M 6 -r 15 -O YUV422P -o ./output && cp output_YUV422P /mnt/nfs/temp/ipu_YUV422P_240_190.bin && rm -f output_YUV422P
+        - lava-test-case TGE-LV-V4L2-0056  --shell ./scripts/lava-vte.sh v4l_capture_testapp -C 3 -M 6 -r 15 -O YUV420 -o ./output && cp output_YUV420 /mnt/nfs/temp/ipu_YUV420_240_190.bin && rm -rf output_YUV420
+        - lava-test-case TGE-LV-V4L2-0058  --shell ./scripts/lava-vte.sh v4l_capture_testapp -C 3 -H 100  -W 100
+        - lava-test-case TGE-LV-V4L2-0071  --shell ./scripts/lava-vte.sh v4l_output_testapp -C 2 -R 5 -X 75 -Y 50 -S 5 -F $LTPROOT/testcases/bin/red_BGR24
+        - lava-test-case TGE-LV-V4L2-0090  --shell ./scripts/lava-vte.sh v4l_capture_testapp -S -R 1
+        - lava-test-case TGE-LV-V4L2-0091  --shell ./scripts/lava-vte.sh v4l_capture_testapp -S -R 2
+        - lava-test-case TGE-LV-V4L2-0092  --shell ./scripts/lava-vte.sh v4l_capture_testapp -S -R 3
+        - lava-test-case TGE-LV-V4L2-0093  --shell ./scripts/lava-vte.sh v4l_capture_testapp -S -R 4
+        - lava-test-case TGE-LV-V4L2-0094  --shell ./scripts/lava-vte.sh v4l_capture_testapp -S -R 5
+        - lava-test-case TGE-LV-V4L2-0095  --shell ./scripts/lava-vte.sh v4l_capture_testapp -S -R 6
+        - lava-test-case TGE-LV-V4L2-0096  --shell ./scripts/lava-vte.sh v4l_capture_testapp -S -R 7
+        - lava-test-case TGE-LV-V4L2-0100  --shell ./scripts/lava-vte.sh v4l_capture_testapp -R 0 -N 5 -X
+        - lava-test-case TGE-LV-V4L2-0108  --shell ./scripts/lava-vte.sh v4l_capture_testapp -R 1 -N 5 -X
+        - lava-test-case TGE-LV-V4L2-0101  --shell ./scripts/lava-vte.sh v4l_capture_testapp -R 2 -N 5 -X
+        - lava-test-case TGE-LV-V4L2-0102  --shell ./scripts/lava-vte.sh v4l_capture_testapp -R 3 -N 5 -X
+        - lava-test-case TGE-LV-V4L2-0103  --shell ./scripts/lava-vte.sh v4l_capture_testapp -R 4 -N 5 -X
+        - lava-test-case TGE-LV-V4L2-0104  --shell ./scripts/lava-vte.sh v4l_capture_testapp -R 5 -N 5 -X
+        - lava-test-case TGE-LV-V4L2-0105  --shell ./scripts/lava-vte.sh v4l_capture_testapp -R 6 -N 5 -X
+        - lava-test-case TGE-LV-V4L2-0106  --shell ./scripts/lava-vte.sh v4l_capture_testapp -R 7 -N 5 -X
+        - lava-test-case TGE-LV-V4L2-0107  --shell ./scripts/lava-vte.sh v4l_capture_testapp -R 2 -N 5  -T 5
+        - lava-test-case TGE-LV-V4L2-0038  --shell ./scripts/lava-vte.sh v4l_capture_testapp -Y2
+        - lava-test-case TGE-LV-V4L2-0120  --shell ./scripts/lava-vte.sh v4l_capture_testapp -C 3 -H 240  -W 320
+        - lava-test-case TGE-LV-V4L2-0130  --shell ./scripts/lava-vte.sh v4l2_basic_test.sh
+        - lava-test-case TGE-LV-V4L2-0131  --shell ./scripts/lava-vte.sh v4l2_still_test.sh
+        - lava-test-case TGE-LV-V4L2-0059  --shell ./scripts/lava-vte.sh v4l_capture_testapp -C 3 -H 480  -W 640
         - lava-test-case TGE-LV-VPU-0001 --shell ./scripts/lava-vte.sh vpu_dec_test.sh 1
         - lava-test-case TGE-LV-VPU-0002 --shell ./scripts/lava-vte.sh vpu_dec_test.sh 2
         - lava-test-case TGE-LV-VPU-0004 --shell ./scripts/lava-vte.sh vpu_dec_test.sh 4
@@ -57,6 +111,62 @@ run:
         - lava-test-case TGE-LV-IPU_DEV-0020 --shell ./scripts/lava-vte.sh ipu_test.sh 2
         - lava-test-case TGE-LV-IPU_DEV-0030 --shell ./scripts/lava-vte.sh ipu_test.sh 3
         - lava-test-case TGE-LV-IPU_DEV-0040 --shell ./scripts/lava-vte.sh ipu_test.sh 4
-        - lava-test-case TGE-LV-GPU-XEGL-Stress-0001 --shell ./scripts/lava-vte.sh glesx_viv.sh 7
+        - lava-test-case TGE-LV-ALSA-0501  --shell ./scripts/lava-vte.sh adc_test1.sh -f S16_LE -d 5 -c 1 -r 8000 -A
+        - lava-test-case TGE-LV-ALSA-0502  --shell ./scripts/lava-vte.sh adc_test1.sh -f S16_LE -d 5 -c 1 -r 11025 -A
+        - lava-test-case TGE-LV-ALSA-0503  --shell ./scripts/lava-vte.sh adc_test1.sh -f S16_LE -d 5 -c 1 -r 16000 -A
+        - lava-test-case TGE-LV-ALSA-0504  --shell ./scripts/lava-vte.sh adc_test1.sh -f S16_LE -d 5 -c 1 -r 22050 -A
+        - lava-test-case TGE-LV-ALSA-0505  --shell ./scripts/lava-vte.sh adc_test1.sh -f S16_LE -d 5 -c 1 -r 24000
+        - lava-test-case TGE-LV-ALSA-0506  --shell ./scripts/lava-vte.sh adc_test1.sh -f S16_LE -d 5 -c 1 -r 32000 -A
+        - lava-test-case TGE-LV-ALSA-0507  --shell ./scripts/lava-vte.sh adc_test1.sh -f S16_LE -d 5 -c 1 -r 44100 -A
+        - lava-test-case TGE-LV-ALSA-0508  --shell ./scripts/lava-vte.sh adc_test1.sh -f S16_LE -d 5 -c 1 -r 48000 -A
+        - lava-test-case TGE-LV-ALSA-0509  --shell ./scripts/lava-vte.sh adc_test1.sh -f S16_LE -d 5 -c 1 -r 88200 -A
+        - lava-test-case TGE-LV-ALSA-0510  --shell ./scripts/lava-vte.sh adc_test1.sh -f S16_LE -d 5 -c 1 -r 96000 -A
+        - lava-test-case TGE-LV-ALSA-0511  --shell ./scripts/lava-vte.sh adc_test1.sh -f S16_LE -d 5 -c 2 -r 8000 -A
+        - lava-test-case TGE-LV-ALSA-0513  --shell ./scripts/lava-vte.sh adc_test1.sh -f S16_LE -d 5 -c 2 -r 16000 -A
+        - lava-test-case TGE-LV-ALSA-0516  --shell ./scripts/lava-vte.sh adc_test1.sh -f S16_LE -d 5 -c 2 -r 32000 -A
+        - lava-test-case TGE-LV-ALSA-0518  --shell ./scripts/lava-vte.sh adc_test1.sh -f S16_LE -d 5 -c 2 -r 48000 -A
+        - lava-test-case TGE-LV-ALSA-0519  --shell ./scripts/lava-vte.sh adc_test1.sh -f S16_LE -d 5 -c 2 -r 88200 -A
+        - lava-test-case TGE-LV-ALSA-0520  --shell ./scripts/lava-vte.sh adc_test1.sh -f S16_LE -d 5 -c 2 -r 96000 -A
+        - lava-test-case TGE-LV-ALSA-0101  --shell ./scripts/lava-vte.sh dac_test1.sh -f $STREAM_PATH/alsa_stream/audio8k16M.wav -A
+        - lava-test-case TGE-LV-ALSA-0102  --shell ./scripts/lava-vte.sh dac_test1.sh -f $STREAM_PATH/alsa_stream/audio11k16M.wav -A
+        - lava-test-case TGE-LV-ALSA-0103  --shell ./scripts/lava-vte.sh dac_test1.sh -f $STREAM_PATH/alsa_stream/audio16k16M.wav -A
+        - lava-test-case TGE-LV-ALSA-0104  --shell ./scripts/lava-vte.sh dac_test1.sh -f $STREAM_PATH/alsa_stream/audio22k16M.wav -A
+        - lava-test-case TGE-LV-ALSA-0105  --shell ./scripts/lava-vte.sh dac_test1.sh -f $STREAM_PATH/alsa_stream/audio24k16M.wav -A
+        - lava-test-case TGE-LV-ALSA-0106  --shell ./scripts/lava-vte.sh dac_test1.sh -f $STREAM_PATH/alsa_stream/audio32k16M.wav -A
+        - lava-test-case TGE-LV-ALSA-0108  --shell ./scripts/lava-vte.sh dac_test1.sh -f $STREAM_PATH/alsa_stream/audio48k16M.wav -A
+        - lava-test-case TGE-LV-ALSA-0109  --shell ./scripts/lava-vte.sh dac_test1.sh -f $STREAM_PATH/alsa_stream/audio64k16M.wav -A
+        - lava-test-case TGE-LV-ALSA-0110  --shell ./scripts/lava-vte.sh dac_test1.sh -f $STREAM_PATH/alsa_stream/audio96k16M.wav -A
+        - lava-test-case TGE-LV-ALSA-0111  --shell ./scripts/lava-vte.sh dac_test1.sh -f $STREAM_PATH/alsa_stream/audio8k16S.wav -A
+        - lava-test-case TGE-LV-ALSA-0112  --shell ./scripts/lava-vte.sh dac_test1.sh -f $STREAM_PATH/alsa_stream/audio11k16S.wav -A
+        - lava-test-case TGE-LV-ALSA-0113  --shell ./scripts/lava-vte.sh dac_test1.sh -f $STREAM_PATH/alsa_stream/audio16k16S.wav -A
+        - lava-test-case TGE-LV-ALSA-0114  --shell ./scripts/lava-vte.sh dac_test1.sh -f $STREAM_PATH/alsa_stream/audio22k16S.wav -A
+        - lava-test-case TGE-LV-ALSA-0115  --shell ./scripts/lava-vte.sh dac_test1.sh -f $STREAM_PATH/alsa_stream/audio24k16S.wav -A
+        - lava-test-case TGE-LV-ALSA-0116  --shell ./scripts/lava-vte.sh dac_test1.sh -f $STREAM_PATH/alsa_stream/audio32k16S.wav -A
+        - lava-test-case TGE-LV-ALSA-0117  --shell ./scripts/lava-vte.sh dac_test1.sh -f $STREAM_PATH/alsa_stream/audio44k16S.wav -A
+        - lava-test-case TGE-LV-ALSA-0118  --shell ./scripts/lava-vte.sh dac_test1.sh -f $STREAM_PATH/alsa_stream/audio48k16S.wav -A
+        - lava-test-case TGE-LV-ALSA-0119  --shell ./scripts/lava-vte.sh dac_test1.sh -f $STREAM_PATH/alsa_stream/audio64k16S.wav -A
+        - lava-test-case TGE-LV-ALSA-0120  --shell ./scripts/lava-vte.sh dac_test1.sh -f $STREAM_PATH/alsa_stream/audio96k16S.wav -A
+        - lava-test-case TGE-LV-ALSA-0121  --shell ./scripts/lava-vte.sh dac_test1.sh -f $STREAM_PATH/alsa_stream/audio8k24M-S24_LE.wav -A
+        - lava-test-case TGE-LV-ALSA-0122  --shell ./scripts/lava-vte.sh dac_test1.sh -f $STREAM_PATH/alsa_stream/audio11k24M-S24_LE.wav -A
+        - lava-test-case TGE-LV-ALSA-0123  --shell ./scripts/lava-vte.sh dac_test1.sh -f $STREAM_PATH/alsa_stream/audio16k24M-S24_LE.wav -A
+        - lava-test-case TGE-LV-ALSA-0124  --shell ./scripts/lava-vte.sh dac_test1.sh -f $STREAM_PATH/alsa_stream/audio22k24M-S24_LE.wav -A
+        - lava-test-case TGE-LV-ALSA-0125  --shell ./scripts/lava-vte.sh dac_test1.sh -f $STREAM_PATH/alsa_stream/audio32k24M-S24_LE.wav -A
+        - lava-test-case TGE-LV-ALSA-0126  --shell ./scripts/lava-vte.sh dac_test1.sh -f $STREAM_PATH/alsa_stream/audio44k24M-S24_LE.wav -A
+        - lava-test-case TGE-LV-ALSA-0127  --shell ./scripts/lava-vte.sh dac_test1.sh -f $STREAM_PATH/alsa_stream/audio48k24M-S24_LE.wav -A
+        - lava-test-case TGE-LV-ALSA-0128  --shell ./scripts/lava-vte.sh dac_test1.sh -f $STREAM_PATH/alsa_stream/audio64k24M-S24_LE.wav -A
+        - lava-test-case TGE-LV-ALSA-0129  --shell ./scripts/lava-vte.sh dac_test1.sh -f $STREAM_PATH/alsa_stream/audio88k24M-S24_LE.wav -A
+        - lava-test-case TGE-LV-ALSA-0130  --shell ./scripts/lava-vte.sh dac_test1.sh -f $STREAM_PATH/alsa_stream/audio96k24M-S24_LE.wav -A
+        - lava-test-case TGE-LV-ALSA-0131  --shell ./scripts/lava-vte.sh dac_test1.sh -f $STREAM_PATH/alsa_stream/audio8k24S-S24_LE.wav
+        - lava-test-case TGE-LV-ALSA-0132  --shell ./scripts/lava-vte.sh dac_test1.sh -f $STREAM_PATH/alsa_stream/audio11k24S-S24_LE.wav
+        - lava-test-case TGE-LV-ALSA-0133  --shell ./scripts/lava-vte.sh dac_test1.sh -f $STREAM_PATH/alsa_stream/audio16k24S-S24_LE.wav
+        - lava-test-case TGE-LV-ALSA-0134  --shell ./scripts/lava-vte.sh dac_test1.sh -f $STREAM_PATH/alsa_stream/audio22k24S-S24_LE.wav
+        - lava-test-case TGE-LV-ALSA-0135  --shell ./scripts/lava-vte.sh dac_test1.sh -f $STREAM_PATH/alsa_stream/audio24k24S-S24_LE.wav -A
+        - lava-test-case TGE-LV-ALSA-0136  --shell ./scripts/lava-vte.sh dac_test1.sh -f $STREAM_PATH/alsa_stream/audio32k24S-S24_LE.wav
+        - lava-test-case TGE-LV-ALSA-0137  --shell ./scripts/lava-vte.sh dac_test1.sh -f $STREAM_PATH/alsa_stream/audio44k24S-S24_LE.wav
+        - lava-test-case TGE-LV-ALSA-0138  --shell ./scripts/lava-vte.sh dac_test1.sh -f $STREAM_PATH/alsa_stream/audio48k24S-S24_LE.wav
+        - lava-test-case TGE-LV-ALSA-0139  --shell ./scripts/lava-vte.sh dac_test1.sh -f $STREAM_PATH/alsa_stream/audio64k24S-S24_LE.wav -A
+        - lava-test-case TGE-LV-ALSA-0140  --shell ./scripts/lava-vte.sh dac_test1.sh -f $STREAM_PATH/alsa_stream/audio96k24S-S24_LE.wav -A -D
+        - lava-test-case TGE-LV-ALSA-0150  --shell ./scripts/lava-vte.sh dac_test1.sh -f $STREAM_PATH/alsa_stream/audio88k16S.wav -A
+        - lava-test-case TGE-LV-ALSA-0151  --shell ./scripts/lava-vte.sh dac_test1.sh -f $STREAM_PATH/alsa_stream/audio88k16M.wav -A
 parse:
     pattern: "[ a-zA-Z]+ (?P<test_case_id>[a-zA-Z0-9]+):\\s(?P<result>PASS|FAIL|SKIP)"
