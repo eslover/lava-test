@@ -81,7 +81,17 @@ determine_platform_dt()
 
 determine_platform_dt
 
-mount -t nfs -o nolock 10.192.244.6:/rootfs/wb /mnt
+if [ ! -d /mnt ]
+then
+    mkidr mnt
+fi
+
+if [ ! -d /mnt/nfs ]
+then
+    mkdir /mnt/nfs
+fi
+
+mount -t nfs -o nolock 10.192.244.6:/rootfs/wb /mnt/nfs
 
 #echo ${vte}
 #echo ${testfile}
@@ -94,7 +104,7 @@ echo `pwd`
 
 #cp -f ./scripts/${testfile} /mnt/${vte}/runtest
 
-cd /mnt/${vte}
+cd /mnt/nfs/${vte}
 . ./manual_test
 
 bash -x -c "$*"
