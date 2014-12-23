@@ -17,12 +17,12 @@ run:
     steps:
 
         - lava-test-case TGE-LV-KERNEL-SMP-0002 --shell ./scripts/lava-vte.sh '[ $(cat /proc/cpuinfo | grep processor | wc -l ) -eq 2 ]'
-        - lava-test-case TGE-LV-V4L2-0010  --shell ./scripts/lava-vte.sh 'v4l_capture_testapp -T 10'
-        - lava-test-case TGE-LV-V4L2-0011  --shell ./scripts/lava-vte.sh 'v4l_capture_testapp -T 300'
+        #- lava-test-case TGE-LV-V4L2-0010  --shell ./scripts/lava-vte.sh 'v4l_capture_testapp -T 10'
+        #- lava-test-case TGE-LV-V4L2-0011  --shell ./scripts/lava-vte.sh 'v4l_capture_testapp -T 300'
         - lava-test-case TGE-LV-V4L2-0012  --shell ./scripts/lava-vte.sh 'v4l_capture_testapp -H 320 -W 240'
         - lava-test-case TGE-LV-V4L2-0013  --shell ./scripts/lava-vte.sh 'v4l_capture_testapp -H 160 -W 120'
         - lava-test-case TGE-LV-V4L2-0015  --shell ./scripts/lava-vte.sh 'v4l_capture_testapp -H 100 -W 100'
-        - lava-test-case TGE-LV-V4L2-0016  --shell ./scripts/lava-vte.sh 'v4l_capture_testapp -H 10 -W 200'
+        #- lava-test-case TGE-LV-V4L2-0016  --shell ./scripts/lava-vte.sh 'v4l_capture_testapp -H 10 -W 200'
         - lava-test-case TGE-LV-V4L2-0017  --shell ./scripts/lava-vte.sh 'v4l_capture_testapp -H 220 -W 176'
         - lava-test-case TGE-LV-V4L2-0018  --shell ./scripts/lava-vte.sh 'v4l_capture_testapp -S'
         - lava-test-case TGE-LV-V4L2-0019  --shell ./scripts/lava-vte.sh 'v4l_capture_testapp -B 0,0,100,100 -v 1'

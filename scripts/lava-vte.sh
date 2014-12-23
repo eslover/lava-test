@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 
 # Find platform type in DT kernel
 determine_platform_dt()
@@ -107,7 +107,7 @@ echo `pwd`
 cd /mnt/nfs/${vte}
 . ./manual_test
 
-bash -x -c "$*"
+bash -c "$*"
 
 #$*
 # No need umount /mnt here #
