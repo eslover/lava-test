@@ -1,0 +1,22 @@
+
+metadata:
+    format: Lava-MM Auto Test 
+    name: test
+    description: "Basic lava test"
+    maintainer:
+    os:
+        - Linux
+    scope:
+        - functional
+    devices:
+        - imx6dl-sabresd
+install:
+    git-repos:
+        - https://github.com/eslover/sandbox-test
+
+run:
+    steps:
+        - lava-test-case MM_AUTO_TEST --shell ./scripts/mm_auto/auto_test.sh
+
+parse:
+    pattern: "[ a-zA-Z]+ (?P<test_case_id>[a-zA-Z0-9]+):\\s(?P<result>PASS|FAIL|SKIP)"

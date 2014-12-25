@@ -1,0 +1,503 @@
+/ This file only record gstreamer failed cases
+
+##############################################################################################
+# lines start with # or // are comment lines and will be ignored.
+# specify the full pathname other than just a file name or part of pathname
+# eg, ttVector/file1.avi and ttVector/SHAVectors/file1.avi
+# will be considered as two different files
+# common format is:
+#                 path_name:[command 1]|[command 2]|reason 1:reason 2
+# eg. 
+#    ttVector/SHAVectors/WMAEnc/TestTeam_16khz_mono.wav
+#    any error of this file will be ignored
+#
+#    ttVector/SHAVectors/WMAEnc/TestTeam_16khz_mono.wav:[a]|[t]|[e 1]
+#    only a,t,and e 1 command failed will be ignored, other errors will be reported
+#
+#    ttVector/SHAVectors/WMAEnc/TestTeam_16khz_mono.wav:[z]|[c -2]|Start play failed
+#    only z, c -2 and "Start play failed" error will be ignored, others will be reported
+#
+#    ttVector/SHAVectors/WMAEnc/TestTeam_16khz_mono.wav:[s]:timeout
+#    only timeout error of s command will be ignored, others will be reported
+##############################################################################################
+
+// rotation failed as video is EOS.
+ttVector/SHAVectors/H264Dec/Conformance/BP/H264_BP30_64x64_29.97_5821_AACLC_44.1_207_2_Epson.mp4:[t]
+ttVector/SHAVectors/H264Dec/Conformance/FrameRate/H264_BP11_640x480_25_10936_AAC_44_170_2_YambMux.mp4:[t]
+ttVector/SHAVectors/MPEG4Dec/Stress/Mpeg4_352x288_30_3364_aac_44_86_2_YambMux.mp4:[t]
+
+// ADPC + Sorenson not supported
+ttVector/SHAVectors/FLV/Conformance/ADPCM/Sorenson_640x352_12_769_ADPCM_11_1_mono.flv
+ttVector/SHAVectors/FLV/Conformance/ADPCM/Sorenson_640x352_12_768_ADPCM_22.05_1_mono.flv
+ttVector/SHAVectors/FLV/Conformance/ADPCM/Sorenson_640x352_12_769_ADPCM_44.1_1_mono.flv
+ttVector/SHAVectors/FLV/Conformance/ADPCM/Sorenson_640x352_12_769_ADPCM_44.1_2_stereo.flv
+ttVector/SHAVectors/FLV/Conformance/ADPCM/Sorenson_640x352_12_769_ADPCM_22.05_2_stereo.flv
+ttVector/SHAVectors/FLV/Conformance/ADPCM/Sorenson_640x352_12_768_ADPCM_11_2_stereo.flv
+ttVector/SHAVectors/FLV/Stress/Sorenson_160x120_12_1236_undef_22.05_1.flv
+ttVector/SHAVectors/FLV/Stress/Sorenson_160x120_12_47_undef_22.05_1_zelda.flv
+ttVector/SHAVectors/FLV/Conformance/Sorenson/Sorenson_720x480_24_1695_MP3_44.1_192_JS_Madagascar.flv
+ttVector/SHAVectors/FLV/Conformance/Sorenson/Sorenson_720x480_18_1116_MP3_44.1_112_JS_Watchmen.flv
+ttVector/SHAVectors/FLV/Conformance/Sorenson/Sorenson_640x368_24_1124_MP3_22.05_92_2_JS_The_Spy_Next_Door.flv
+ttVector/SHAVectors/FLV/Conformance/Sorenson/Sorenson_640x480_18_1359_MP3_44.1_243_JS_RachelGettingMarried.flv
+ttVector/SHAVectors/FLV/Conformance/Sorenson/Sorenson_640x480_25_552_MP3_22.05_56_1_mono_sheep_MetaInjector_FLV1.1.flv
+ttVector/SHAVectors/FLV/Conformance/Sorenson/Sorenson_346x240_25_315_MP3_44.1_96_2_JS.flv
+ttVector/SHAVectors/FLV/Conformance/Sorenson/Sorenson_320x256_15_229_MP3_22.05_52_2_JS.flv
+ttVector/SHAVectors/FLV/Conformance/Sorenson/Sorenson_720x576_30_2603_MP3_44.1_223_JS_TheHouseBunny.flv
+ttVector/SHAVectors/FLV/Conformance/Sorenson/Sorenson_480x360_29.97fps_567Kbps_AACLC_44.1KHz_2ch.flv
+ttVector/SHAVectors/FLV/Conformance/Sorenson/Sorenson_720x306_24_539_NoAudio_bad_decode.flv
+ttVector/SHAVectors/FLV/Conformance/Sorenson/Sorenson_720x480_18_1032_MP3_44.1_98_JS_backcountry_FFMux.flv
+ttVector/SHAVectors/FLV/Conformance/Sorenson/Sorenson_320x240_25_314_MP3_22.05_32_2_JS.flv
+ttVector/SHAVectors/FLV/Conformance/Nellymoser/Sorenson_320x240_5.5_526_nellymosser_44.1_1_silence_transcoding_problem.flv
+ttVector/SHAVectors/mm/rtsp/DarwinStreamingSrvrlinux-Linux/sample_100kbit.mov
+ttVector/SHAVectors/FLV/Stress/Sorenson_320x240_4.6_85_undef_5.5_1_flv2mpg_error.flv
+
+// no video so rotate failed
+ttVector/SHAVectors/FLV/Conformance/VP6/VP6_480x272_24_434_MP3_22.05_96_2_JS_harrypotter.flv:[t]
+ttVector/SHAVectors/FLV/Conformance/VP6/VP6_512x384_30_474_MP3_44.1_128_mono_artifactsvp6.flv:[t]
+ttVector/SHAVectors/FLV/Conformance/VP6/VP6_480x320_29.97_453_MP3_44.1_96_1_Smirnoff_Gizmo_Agency_NoSlate_30.flv:[t]
+ttVector/SHAVectors/FLV/Conformance/VP6/VP6_720x480_30_428_MP3_44.1_96_JS_EndProgramFinal.flv:[t]
+ttVector/SHAVectors/FLV/Conformance/VP6/VP6_720x480_29.96_803_MP3_44.1_128_2_JS_Dominos_Fudgems_30agencyV1.flv:[t]
+ttVector/SHAVectors/FLV/Conformance/VP6/VP6_720x480_29.96_409_MP3_44.1_96_1_Cheesenipswebvideo.flv:[t]
+ttVector/SHAVectors/FLV/Conformance/VP6/VP6_320x176_24_200_MP3_22.05_48_2_JS_mrandmrssmith.flv:[t]
+ttVector/SHAVectors/FLV/Conformance/VP6/VP6_640x480_30_520_MP3_44.1_96_1_Instant_chrismasmonkeys.flv:[t]
+ttVector/SHAVectors/FLV/Conformance/VP6alpha/VP6_alpha_320x464_10_129_MP3_44.1_48_1_mono.flv:[t]
+ttVector/SHAVectors/FLV/Conformance/VP6alpha/VP6_alpha_320x240_25_176_MP3_22.05_32_1_mono_lection2-2.flv:[t]
+ttVector/SHAVectors/FLV/Conformance/Sorenson/Sorenson_320x240_15_258_MP3_22.05_59_mono_playsWayTooFast.flv:[t]
+ttVector/SHAVectors/FLV/Conformance/Sorenson/Sorenson_720x480_24_1695_MP3_44.1_192_JS_Madagascar.flv:[t]
+ttVector/SHAVectors/FLV/Conformance/Sorenson/Sorenson_720x480_18_1116_MP3_44.1_112_JS_Watchmen.flv:[t]
+ttVector/SHAVectors/FLV/Conformance/Sorenson/Sorenson_640x368_24_1124_MP3_22.05_92_2_JS_The_Spy_Next_Door.flv:[t]
+ttVector/SHAVectors/FLV/Conformance/Sorenson/Sorenson_640x480_18_1359_MP3_44.1_243_JS_RachelGettingMarried.flv:[t]
+ttVector/SHAVectors/FLV/Conformance/Sorenson/Sorenson_320x172_15_190_MP3_22.05_49.6_2_VBR_jiepou.flv:[t]
+ttVector/SHAVectors/FLV/Conformance/Sorenson/Sorenson_346x240_25_315_MP3_44.1_96_2_JS.flv:[t]
+ttVector/SHAVectors/FLV/Conformance/Sorenson/Sorenson_320x256_15_229_MP3_22.05_52_2_JS.flv:[t]
+ttVector/SHAVectors/FLV/Conformance/Sorenson/Sorenson_320x192_25.029_119_MP3_44.1_96_2_CBR_ARCHOS.flv:[t]
+ttVector/SHAVectors/FLV/Conformance/Sorenson/Sorenson_320x240_15_194_MP3_22.05_34_2_JS_Youku.flv:[t]
+ttVector/SHAVectors/FLV/Conformance/Sorenson/Sorenson_320x240_15_371_MP3_22.05_48_2_JS.flv:[t]
+ttVector/SHAVectors/FLV/Conformance/Sorenson/Sorenson_720x576_30_2603_MP3_44.1_223_JS_TheHouseBunny.flv:[t]
+ttVector/SHAVectors/FLV/Conformance/Sorenson/Sorenson_320x240_25_314_MP3_22.05_32_2_JS.flv:[t]
+ttVector/SHAVectors/CodecP1VectorsICS/FLV/Conformance/Sorenson/Sorenson_640x480_18_1359_MP3_44.1_243_JS_RachelGettingMarried.flv:[t]
+ttVector/SHAVectors/CodecP1AllVideoforICS/Sorenson_640x480_18_1359_MP3_44.1_243_JS_RachelGettingMarried.flv:[t]
+
+// Video input crop should 32 pixel align. so crop should be [left: 96,ritht: 24,top: 32,bottom: 45]. input parameter is invalid for the stream. 
+ttVector/SHAVectors/VC1Dec/Conformance/Resolution/WMV9_MPML_100x480_30fps_4000K_4seckf_5min.wmv:[k]
+ttVector/SHAVectors/MPEG4Dec/Conformance/Resolution/Mpeg4_64x64_25_45_mp3_44.1_60_2.mp4:[k]
+
+
+#release VPU FW donot support Divx streams
+ttVector/SHAVectors/DivxDec/Conformance/GMC/Divx5_720x480_29.970_3996_s05_smpte_gmc_bframes_qpel_NoAudio.avi
+ttVector/SHAVectors/DivxDec/Conformance/GMC/divx5x_gmc_qpel_320x240_24_316_01_NoAudio.avi
+ttVector/SHAVectors/DivxDec/Conformance/1080/divx511_1280x1024_25fps_7795_vtm_video_NoAudio.avi
+ttVector/SHAVectors/DivxDec/Conformance/1080/Divx4_1920x1080p_25fps_11Mbps_mp3_48KHz_61kbps_2_ChiBi.avi
+ttVector/SHAVectors/DivxDec/Conformance/720/Divx4_1080x720p_30fps_5430kbps_NoAudio.avi
+ttVector/SHAVectors/DivxDec/Conformance/Resolution/Divx511_bf_acdc_1280x1024_25_7793_vtm_video.avi
+ttVector/SHAVectors/DivxDec/Conformance/Resolution/Divx4_960x544_4962kbps_mp3_44KHz_195kbps_IVY_960x544p-Divx.avi
+ttVector/SHAVectors/DivxDec/Conformance/Divx3/divx3_352x288_30_1166_divx-fast-3000.avi
+ttVector/SHAVectors/DivxDec/Conformance/Divx3/Divx3_352x176_23.976_500_a_Mp3_44.1_vbr128_2_a06_port_divx311.avi
+ttVector/SHAVectors/DivxDec/Conformance/Divx3/divx3_352x288_30_1166_divx-fast-3000_NoAudio.avi
+ttVector/SHAVectors/DivxDec/Conformance/Divx3/divx3_512x512_24fps_56kbps_vftest2.avi
+ttVector/SHAVectors/DivxDec/Conformance/Divx3/divx3_352x240_25_784_Xmen-DivX-1800-fast.avi
+ttVector/SHAVectors/DivxDec/Conformance/Divx3/divx3_512x512_24fps_56kbps_vftest2_NoAudio.avi
+ttVector/SHAVectors/DivxDec/Conformance/Divx3/divx3_352x240_25_784_Xmen-DivX-1800-fast_NoAudio.avi
+ttVector/SHAVectors/DivxDec/Conformance/Divx4/divx4_352x288_30_1216_odivx-vbr1-q85_NoAudio.avi
+ttVector/SHAVectors/DivxDec/Conformance/Divx4/Divx4_720x480_29.970_3061_b02_prog_NoAudio.avi
+ttVector/SHAVectors/DivxDec/Conformance/Divx4/divx4_480x256_24_1144_01-divx-1200_NoAudio.avi
+ttVector/SHAVectors/DivxDec/Conformance/Divx4/divx4_480x256_24_1144_01-divx-1200.avi
+ttVector/SHAVectors/DivxDec/Conformance/Divx4/divx4_352x288_30_1216_odivx-vbr1-q85.avi
+ttVector/SHAVectors/DivxDec/Conformance/Divx5/Divx5_720x480_29.970_3856_b04_divx51b_NoAudio.avi
+ttVector/SHAVectors/DivxDec/Conformance/MKV/Divx3_576x432_29.97_2191_simpleblocks_NoAudio.mkv
+ttVector/SHAVectors/DivxDec/Conformance/MKV/Divx4_SP1_1280x720_30_7709_NoAudio.mkv
+ttVector/SHAVectors/DivxDec/Conformance/MKV/Divx4_1280x720_30_5560_720p_NoAudio.mkv
+ttVector/SHAVectors/DivxDec/Conformance/MKV/Divx4_720x480_29.97_3133_NoAudio.mkv
+ttVector/SHAVectors/DivxDec/Performance/Deinterlace/divx511_interlaced_720x480_30_2951_sp_interlaced_NoAudio.avi
+ttVector/SHAVectors/DivxDec/Performance/Deinterlace/Divx5_720x480_29.970_2908_d01_interlaced_botfieldfirst_smpte_NoAudio.avi
+ttVector/SHAVectors/TVout/Divx/divx505_noAudio_720x480_2mbps_s01_smpte_bframes.avi
+ttVector/SHAVectors/TVout/Divx/divx511_1280x1024_25fps_7795_vtm_video.avi
+ttVector/SHAVectors/DivxDec/Conformance/Divx4/divx4_480x256_24_1144_01-divx-1200.avi
+ttVector/SHAVectors/DivxDec/Conformance/Divx4/divx4_480x256_24_1144_01-divx-1200_NoAudio.avi
+ttVector/SHAVectors/DivxDec/Conformance/Divx5/Divx5_512x288_23.976_999_a_mp3_44.1_128_2_c02_dibx505b.avi
+ttVector/SHAVectors/MPEG4Dec/Conformance/MKV/MPEG4_SP1_1280x720_30_5312_aaclc_48_2_sample.mkv
+ttVector/SHAVectors/CodecP1Vectors/I16_M10_PAR_12x11_01.avi
+ttVector/SHAVectors/DivxDec/Conformance/Divx4/divx4_480x256_24_1144_01-divx-1200.avi
+ttVector/SHAVectors/DivxDec/Conformance/Divx6/divx640_720x480_30fps_2496_a_mp3_48_128_2_song_3pass_I300_Friends.avi
+
+SHAVectors/DivxDec/Conformance/Divx5/Divx5_640x480_23.976_1013_a_mp3_48_158_2_1st-key-frame-is-the-2nd-frame_11.Search-for-the-Full-Moon-02.avi
+SHAVectors/DivxDec/Stress/FrameCorrupted/Divx6_320x240_29.970_498_a_mp3_44_128_2_I04_M10_corrupted_VOPheader_1stkeyframe_01.avi
+
+#fuzz seek
+ttVector/SHAVectors/CodecP1AllVideoforICS/Sorenson_640x480_18_1359_MP3_44.1_243_JS_RachelGettingMarried.flv:[e 0]
+ttVector/SHAVectors/CodecP1VectorsICS/FLV/Conformance/Sorenson/Sorenson_640x480_18_1359_MP3_44.1_243_JS_RachelGettingMarried.flv:[e 0]
+ttVector/SHAVectors/FLV/Conformance/Sorenson/Sorenson_640x480_18_1359_MP3_44.1_243_JS_RachelGettingMarried.flv:[e 0]
+ttVector/SHAVectors/mm/f10/ToyStory3_Trailer2/ToyStory3_Trailer2_480P.flv:[e 0]
+ttVector/SHAVectors/AACPlusDec/Conformance/BitRate/AAC_Plus_22kHz_62kbps_2_CBR.aac:[e 0]
+ttVector/SHAVectors/CodecP1Vectors/AAC_Plus_22kHz_62kbps_2_CBR.aac:[e 0]
+ttVector/SHAVectors/SysCodec/AAC/AACPlus/AAC_Plus_22kHz_62kbps_2_CBR.aac:[e 0]
+ttVector/SHAVectors/MP3Dec/Stress/Mpeg1L3_44_192_s_ywgly_error.mp3:[e 0]
+ttVector/SHAVectors/TVout/MPEG2/MPEG2PS_PCM_MPML_720x480_29.97fps_9800kbps_a.vob:[e 0]
+ttVector/SHAVectors/FLV/Conformance/AVC/AVC_MP30_854x460_23.976_398_AACLC_44.1_96_2_IamNumberFour.flv:[e 0]
+ttVector/SHAVectors/MPEG2Dec/Conformance/VobMpegLPCM/MPEG2PS_LPCM_MPML_720x480_29.97fps_9800kbps_a_LPCM_2ch_ConfideInMe.vob:[e 0]
+ttVector/SHAVectors/FLV/Conformance/VP6/VP6_480x272_24_434_MP3_22.05_96_2_JS_harrypotter.flv:[e 0] 
+ttVector/SHAVectors/FLV/Conformance/VP6/VP6_320x176_24_200_MP3_22.05_48_2_JS_mrandmrssmith.flv:[e 0] 
+
+
+# not wma case only 526bytes size
+ttVector/SHAVectors/PowerManagement/Audio/128kbps_44khz_s_wma.wma
+
+#not correct PCM format (aplay can't play also)
+ttVector/SHAVectors/WMAEnc/TestTeam_16khz_mono.wav
+
+#PCM format (channel/bit depth / samplerate) not support
+ttVector/SHAVectors/WAVDec/SampleRate/PCM_8khz_512kbps_2_IEEE-float-format.wav
+ttVector/SHAVectors/WAVDec/ADPCM/DVIADPCM_8khz_32kbps_1ch_4bit_try1.wav
+ttVector/SHAVectors/WAVDec/ADPCM/ADPCM_8khz_65kbps_2_16bit.wav
+ttVector/SHAVectors/WAVDec/ADPCM/DVIADPCM_8khz_32kbps_1ch_16bit_try1.wav
+ttVector/SHAVectors/WAVDec/ADPCM/ADPCM_44.1khz_177kbps_1_16bit.wav
+ttVector/SHAVectors/WAVDec/ADPCM/ADPCM_11.025khz_90kbps_2_16bit.wav
+
+ttVector/SHAVectors/WMAEnc/TestTeam_16khz_mono.wav
+ttVector/SHAVectors/WAVDec/SampleRate/PCM_88.2khz_8.5kbps_6_16bit.wav
+ttVector/SHAVectors/WAVDec/SampleRate/PCM_176.4khz_25.4kbps_6_24bit.wav
+ttVector/SHAVectors/ASRC/PCM_88.2khz_8.5kbps_6_16bit.wav
+ttVector/SHAVectors/WMAProDec/Conformance/M3/M3_Classical_88_24_8_636000_Q90_2_16.wma
+ttVector/SHAVectors/CodecP1VectorsJB/WAVDec/SampleRate/PCM_88.2khz_8.5kbps_6_16bit.wav
+ttVector/SHAVectors/WMALosslessDec/Conformance/N2/N2_88_6_24_1152kbps-dBpower_f8e140_4s.wma
+ttVector/SHAVectors/FLACDec/Conformance/BitRate/FLAC_88.2_5839_6_24_libFLAC1.1.4.flac
+ttVector/SHAVectors/FLACDec/Conformance/SampleRate/FLAC_88.2_1000_6_24_surround88.flac
+
+#WMV9 not support
+ttVector/SHAVectors/VC1Dec/Conformance/Resolution/WMV9_MPML_720x16_30fps_1000K_4sec_2min.wmv
+ttVector/SHAVectors/VC1Dec/Conformance/Resolution/WMV9_MPLL_16x16_30fps_1000K_4sec_2min.wmv
+ttVector/SHAVectors/H264Dec/Conformance/XP/H264_XP21_720x288_25_249_NoAudio.avi
+ttVector/SHAVectors/VC1Dec/Conformance/Interlaced/WMV9_MPML_640x480_PAR1x1_29.97fps_Interlaced_CBR_1000kbps_5key_5buffer_WMA9_2ch_48kHz_64kbps_16bit.wmv
+ttVector/SHAVectors/VC1Dec/Conformance/MKV/WMV9_160x88_24_30_wma_11_10_1_kelsy_56K.mkv
+ttVector/SHAVectors/H263Dec/Conformance/MP4/H263_P3_L70_480x320_5.994_275_AACLC_44.1_64_88_2.mp4
+ttVector/SHAVectors/H263Dec/MP4/H263_P3_L70_480x320_5.994_275_AACLC_44.1_64_88_2.mp4
+ttVector/SHAVectors/MPEG4Dec/Conformance/H263/H263_P3_L70_480x320_5.994_275_AACLC_44.1_64_88_2.mp4
+ttVector/SHAVectors/VC1Dec/Conformance/BitRate/WMV9_SPLL_160x88_24fps_27kbps_a_11_10_1_kelsy_56K.wmv
+ttVector/SHAVectors/VC1Dec/Conformance/WMV3CP/WMV9_CP_160x88_12fps_27kbps_a_11_10_1_kelsy_56.wmv
+ttVector/SHAVectors/VC1Dec/Stress/Fuzz/WMV9_MPML_720x576_mmm0067_5678_100_10000_1_10.wmv
+ttVector/SHAVectors/VC1Dec/Conformance/WMV3CP/wmv9_CP_352x288_10fps_295kbps_sample-wmv9-complex-CP_NoAudio.wmv
+ttVector/SHAVectors/VC1Dec/Conformance/WMV3CP/wmv9_CP_352x288_10fps_295kbps_sample-wmv9-complex-CP.wmv
+ttVector/SHAVectors/VC1Dec/Conformance/LongDuration/WMV9_SPML_dotnet-9hrs-transcoded.wmv
+
+#mp3 duration is not correct
+ttVector/SHAVectors/MP3Dec/Conformance/MP3/Mpeg2L3_44.1kHz_128kbps_stereo_Track2.mp3:[e 1]|[e 0]
+
+#long interleave case
+ttVector/SHAVectors/VC1Dec/Stress/Fuzz/WMV9_MPLL_320x240_24fps_1500kbps_4sec_10min_VBR.wmv:[e 1]|[e 0]|[c]
+ttVector/SHAVectors/VC1Dec/Conformance/WMV3CP/wmv9_CP_240x180_26fps_263kbps_vc1.cmplx.wmv:[e 1]|[e 0]|[c]
+
+#Fuzz case
+ttVector/SHAVectors/AACPlusDec/Stress/AAC_Plus_56kHz_64kbps_2_fsaac32_6789_1000_10000_1_10.mp4
+ttVector/SHAVectors/DivxDec/Stress/FrameCorrupted/Divx6_320x240_29.970_498_a_CCITTA-Law_44_706_2_I15_M10_unsupported_audio_01.avi
+ttVector/SHAVectors/OGGDec/Stress/Ogg_11.127khz_29kbps_1ch.ogg
+ttVector/SHAVectors/WMAProDec/Fuzz/Classical_44_16_2_192000_1_1_M0_1234_100_3000_1_10.wma
+ttVector/SHAVectors/WMALosslessDec/Fuzz/N2_Country1_1234_100_1000_1_10.wma
+ttVector/SHAVectors/WMALosslessDec/Fuzz/N2_Country1_6789_1000_1000_3_30.wma
+ttVector/SHAVectors/WMALosslessDec/Fuzz/N2_Country1_6789_1000_10000_1_10.wma
+ttVector/SHAVectors/WMAStdDec/Stress/WMA_v8_64kbps_44KHz_2_02.05.wma
+ttVector/SHAVectors/WMAStdDec/Stress/WMA_v8_64kbps_44KHz_2_03.06.wma
+ttVector/SHAVectors/WMAStdDec/Stress/WMA_v9_128kbps_44KHz_2-20.Astrud.wma
+ttVector/SHAVectors/WMAStdDec/Fuzz/wma8_44kHz_128kbps_2_WMP71_5678_100_7000_1_10.wma
+ttVector/SHAVectors/WMAStdDec/Fuzz/wma8_44kHz_128kbps_2_WMP71_5678_100_8000_1_10.wma
+ttVector/SHAVectors/WMAStdDec/Fuzz/wma8_44kHz_128kbps_2_WMP71_1234_100_5000_1_10.wma
+ttVector/SHAVectors/WAVDec/Stress/CreativeADPCM_44.1khz_176kbps_1ch_16bit_intro_CannotBeOpenned.wav
+ttVector/SHAVectors/WAVDec/Stress/Truespeech_8khz_8536bps_1ch_16bit_a6.wav
+ttVector/SHAVectors/WAVDec/Stress/CreativeADPCM_44.1khz_176kbps_1ch_16bit_intro.wav
+ttVector/SHAVectors/WAVDec/Stress/IMC_8khz_16kbps_1ch_16bit_imc.wav
+ttVector/SHAVectors/WMAProDec/Fuzz/Classical_44_16_2_192000_1_1_M0_1234_100_2000_1_10.wma
+ttVector/SHAVectors/WMAProDec/Fuzz/Classical_44_16_2_192000_1_1_M0_1234_100_5000_1_10.wma
+ttVector/SHAVectors/WMAProDec/Fuzz/Country_48_24_2_Q50_2_2_M1_3456_10_15_5_10.wma
+ttVector/SHAVectors/WMAProDec/Fuzz/Classical_44_16_2_192000_1_1_M0_5678_100_6000_1_10.wma
+ttVector/SHAVectors/AACLCDec/Stress/AAC_LC_44kHz_173kbps_2_3456_30_100_10_20.aac
+ttVector/SHAVectors/WAVDec/Stress/CreativeADPCM_44.1khz_176kbps_1ch_16bit_intro_CannotBeOpenned.wav
+ttVector/SHAVectors/WAVDec/Stress/Truespeech_8khz_8536bps_1ch_16bit_a6.wav
+ttVector/SHAVectors/WAVDec/Stress/CreativeADPCM_44.1khz_176kbps_1ch_16bit_intro.wav
+ttVector/SHAVectors/WAVDec/Stress/IMC_8khz_16kbps_1ch_16bit_imc.wav
+ttVector/SHAVectors/MPEG4Dec/Fuzz/mp4v_mp3_6789_100_4000_10_50.avi
+ttVector/SHAVectors/VC1Dec/Stress/Fuzz/WMV9_MPML_720x576_mmm0067_5678_100_9000_1_10.wmv
+ttVector/SHAVectors/WMAStdDec/Fuzz/wma8_44kHz_128kbps_2_WMP71_1234_100_1000_1_10.wma
+ttVector/SHAVectors/WMAStdDec/Fuzz/wma8_44kHz_128kbps_2_WMP71_1234_100_1000_1_10.wma
+ttVector/SHAVectors/WMAStdDec/Fuzz/wma8_44kHz_128kbps_2_WMP71_1234_100_1000_1_10.wma
+ttVector/SHAVectors/WMAStdDec/Fuzz/wma8_44kHz_128kbps_2_WMP71_1234_100_1000_1_10.wma
+ttVector/SHAVectors/VC1Dec/Stress/Fuzz/Fitness_Error.wmv
+ttVector/SHAVectors/M4a/Stress/AAC_44_56kbps_f_1234_100_1000_1_10.m4a
+ttVector/SHAVectors/M4a/Stress/AAC_44_56kbps_f_4567_50_100_10_20_1.m4a
+ttVector/SHAVectors/WMAProDec/Fuzz/Country_48_24_2_Q50_2_2_M1_3456_20_30_8_15.wma
+ttVector/SHAVectors/WMAProDec/Fuzz/Country_48_24_2_Q50_2_2_M1_3456_30_50_10_20.wma
+ttVector/SHAVectors/WMAProDec/Fuzz/Country_48_24_2_Q50_2_2_M1_3456_50_80_20_50.wma
+ttVector/SHAVectors/WMAProDec/Fuzz/Country_48_24_2_Q50_2_2_M1_3456_80_100_50_60.wma
+ttVector/SHAVectors/WMAStdDec/Stress/WMA_v8_64kbps_44KHz_2_03.06.wma
+ttVector/SHAVectors/VC1Dec/Stress/Fuzz/WMV9_MPML_720x576_mmm0067_3456_80_100_50_60.wmv
+ttVector/SHAVectors/MPEG4Dec/Fuzz/mp4v_mp3_4567_10_15_5_10.avi
+ttVector/SHAVectors/PowerManagement/Video/wmv_remoter_wmv9_SP_qvga_25fps@256kbps_wma9_441000Hz_128kbps.wmv
+ttVector/SHAVectors/WMAProDec/Fuzz/Classical_44_16_2_192000_1_1_M0_1234_100_1000_1_10.wma
+ttVector/SHAVectors/WMAProDec/Fuzz/Classical_44_16_2_192000_1_1_M0_5678_100_7000_1_10.wma
+ttVector/SHAVectors/MPEG4Dec/Fuzz/mp4v_mp3_SANY1116_4567_50_100_10_20.mp4
+ttVector/SHAVectors/AACLCDec/Stress/AAC_LC_44kHz_173kbps_2_3456_10_15_3_8.aac
+ttVector/SHAVectors/AACPlusDec/Stress/AAC_Plus_44kHz_173kbps_2_3456_10_15_3_8.aac
+ttVector/SHAVectors/AACPlusDec/Stress/AAC_Plus_44kHz_173kbps_2_3456_30_100_10_20.aac
+ttVector/SHAVectors/WMAStdDec/Fuzz/test1_WMA_v9_1pCBR_64kbps_44kHz_2_NC_L1_3456_20_30_8_15.WMA
+ttVector/SHAVectors/WMAStdDec/Fuzz/test1_WMA_v9_1pCBR_64kbps_44kHz_2_NC_L1_3456_30_50_10_20.WMA
+ttVector/SHAVectors/WMAStdDec/Fuzz/test1_WMA_v9_1pCBR_64kbps_44kHz_2_NC_L1_3456_50_80_20_50.WMA
+ttVector/SHAVectors/WMAStdDec/Fuzz/test1_WMA_v9_1pCBR_64kbps_44kHz_2_NC_L1_3456_80_100_50_60.WMA
+ttVector/SHAVectors/MPEG4Dec/Fuzz/mp4v_mp3_1234_100_1000_1_100.avi
+ttVector/SHAVectors/MPEG4Dec/Fuzz/mp4v_mp3_6789_100_4000_10_50.avi
+ttVector/SHAVectors/DivxDec/Conformance/Divx5/Divx5_512x288_23.976_999_a_mp3_44.1_128_2_c02_dibx505b.avi
+ttVector/SHAVectors/FLV/Conformance/Sorenson/Sorenson_346x240_25_315_MP3_44.1_96_2_JS.flv
+ttVector/SHAVectors/VC1Dec/Stress/AVI/WMV9_mp3_640x480_23.976fps_2235kbps_wmv3.avi
+ttVector/SHAVectors/VC1Dec/Stress/Fuzz/WMV9_MPML_720x576_mmm0067_1234_100_1000_1_10.wmv
+ttVector/SHAVectors/VC1Dec/Stress/Fuzz/WMV9_MPML_720x576_mmm0067_3456_10_15_5_10.wmv
+ttVector/SHAVectors/VC1Dec/Conformance/WVC1/WVC1_APL1_720x480_29.97fps_1000kbps_NoAudio_MA10060.WMV
+ttVector/SHAVectors/MP3Dec/Stress/Mpeg1L3_44kHz_192kbps_S_4_London_Philharmonic_Orchestra_Dont_Cry.mp3
+ttVector/SHAVectors/WMAStdDec/Fuzz/10-Truly08_error.wma
+ttVector/SHAVectors/WMAStdDec/Fuzz/wma8_44kHz_128kbps_2_WMP71_1234_100_2000_1_10.wma
+ttVector/SHAVectors/WMAStdDec/Fuzz/wma8_44kHz_128kbps_2_WMP71_5678_100_6000_1_10.wma
+ttVector/SHAVectors/WMAStdDec/Fuzz/wma8_44kHz_128kbps_2_WMP71_5678_100_9000_1_10.wma
+ttVector/SHAVectors/AACPlusDec/Stress/AAC_Plus_21kHz_44kbps_2_nihaoduError.m4a
+ttVector/SHAVectors/VC1Dec/Stress/MSS1/WMV7Screen_400x240_9.644fps_79kbps_GipsyGuitar.wmv
+ttVector/SHAVectors/mm/rtsp/DarwinStreamingSrvrlinux-Linux/sample_300kbit.mov
+ttVector/SHAVectors/AACLCDec/Stress/AAC_LC_44kHz_90kbps_s_yongqi_internet_1234_100_3000_1_4.aac
+ttVector/SHAVectors/AACLCDec/Stress/AAC_LC_44kHz_90kbps_1_yongqi_internet_5678_100_10000_1_20.aac
+
+
+#Real format not support 
+ttVector/SHAVectors/RVDec/MKV/RV10_1080x720_30_9853_NoAudio.mkv
+ttVector/SHAVectors/RVDec/MKV/RV9_1080x720_30_9590_NoAudio.mkv
+ttVector/SHAVectors/RVDec/MKV/RV9_640x480_527_ra_44_2_shengdoushi.mkv
+ttVector/SHAVectors/RVDec/MKV/RV8_1280x720_29.97_4017_NoAudio.mkv
+ttVector/SHAVectors/RVDec/MKV/RV8_1280x720_29.97_4904_ra_44_96_Stereo.mkv
+ttVector/SHAVectors/RVDec/MKV/RV9_640x480_527_ra_44_2_shengdoushi.mkv
+ttVector/SHAVectors/RVDec/MKV/RV8_1280x720_29.97_4904_ra_44_96_Stereo.mkv
+
+#alac format not support
+ttVector/SHAVectors/ALACDec/Conformance/16Bit/ALAC_8khz_82.2kbps_VBR_1ch_16bit_1second.m4a
+ttVector/SHAVectors/ALACDec/Conformance/16Bit/ALAC_44.1KHz_607kbps_VBR_16bit_2ch_Ghosts I.m4a
+ttVector/SHAVectors/Metadata/MP4/ALAC/ALAC_44.1KHz_607kbps_VBR_16bit_2ch_Ghosts I.m4a
+ttVector/SHAVectors/Metadata/MP4/M4A/ALAC_44.1KHz_607kbps_VBR_16bit_2ch_Ghosts I.m4a
+ttVector/SHAVectors/ALACDec/Conformance/16Bit/ALAC_22.05KHz_127kbps_VBR__16bit_2ch_LPC19_LR.m4a
+ttVector/SHAVectors/ALACDec/Conformance/16Bit/ALAC_11.025KHz_150kbps_VBR_16bit_1ch_short.m4a
+ttVector/SHAVectors/ALACDec/Conformance/16Bit/ALAC_16KHz_431kbps_VBR_16bit_2ch_Medium.m4a
+ttVector/SHAVectors/ALACDec/Conformance/24Bit/ALAC_44.1KHz_4959_2_24_test192.m4a
+ttVector/SHAVectors/ALACDec/Conformance/16Bit/ALAC_11.025khz_255kbps_VBR_2ch_16bit_madbear.m4a
+ttVector/SHAVectors/ALACDec/Conformance/24Bit/ALAC_44.1KHz_1453_2_24_children.hall.m4a
+ttVector/SHAVectors/ALACDec/Conformance/24Bit/ALAC_44.1KHz_2650kbps_2ch_24bit_DVD-Audio-testfile.m4a
+ttVector/SHAVectors/ALACDec/Conformance/24Bit/ALAC_96KHz_2655kbps_VBR_2ch_24bit_DVD-Audio-testfile.m4a
+ttVector/SHAVectors/ALACDec/Conformance/24Bit/ALAC_48KHz_807kbps_1_24_level8.m4a
+ttVector/SHAVectors/ALACDec/Conformance/16Bit/ALAC_44.1khz_640kbps_VBR_2ch_16bit_zuoche.m4a
+ttVector/SHAVectors/Metadata/MP4/ALAC/ALAC_192KHz_11mbps_VBR_6ch_24bit.m4a
+ttVector/SHAVectors/Metadata/MP4/M4A/ALAC_192KHz_11mbps_VBR_6ch_24bit.m4a
+ttVector/SHAVectors/ALACDec/Conformance/16Bit/ALAC_44.1KHz_1023Kbps_2ch_16bit_NoTagDispla.m4a
+ttVector/SHAVectors/ALACDec/Conformance/16Bit/ALAC_32khz_544kbps_VBR_2ch_16bit.m4a
+ttVector/SHAVectors/ALACDec/Conformance/16Bit/ALAC_16khz_202kbps_VBR_1ch_16bit.m4a
+ttVector/SHAVectors/M4a/alac_luckynight.m4a
+ttVector/SHAVectors/ALACDec/Conformance/16Bit/ALAC_22.05khz_235kbps_VBR_1ch_16bit.m4a
+ttVector/SHAVectors/ALACDec/Conformance/16Bit/ALAC_8KHz_252kbps_VBR_2ch_16bit_GAUSS17_MS.m4a
+ttVector/SHAVectors/ALACDec/Conformance/16Bit/ALAC_48khz_759kbps_2ch_16bit.m4a
+ttVector/SHAVectors/ALACDec/Conformance/16Bit/ALAC_48KHz_765kbps_VBR_2ch_16bit.m4a
+ttVector/SHAVectors/ALACDec/Conformance/16Bit/ALAC_44.1KHz_339kbps_VBR_16bit_2ch.m4a
+ttVector/SHAVectors/M4a/alac_quicktime-newcodec-applelosslessaudiocodec.m4a
+
+#mp3 free format not support
+ttVector/SHAVectors/MP3Dec/Conformance/Free Format/MP3_FreeFormat_600kbps.mp3
+ttVector/SHAVectors/MP3Dec/Conformance/Free Format/MP3_FreeFormat_300kbps.mp3
+ttVector/SHAVectors/MP3Dec/Conformance/Free Format/MP3_FreeFormat_400kbps.mp3
+ttVector/SHAVectors/MP3Dec/Conformance/Free Format/MP3_FreeFormat_500kbps.mp3
+ttVector/SHAVectors/MP3Dec/Conformance/Free Format/MP3_FreeFormat_200kbps.mp3
+
+#ADPCM not support
+ttVector/SHAVectors/WAVDec/ADPCM/DVIADPCM_8khz_65kbps_2_16bit.wav
+ttVector/SHAVectors/WAVDec/ADPCM/DVIADPCM_11.025khz_45kbps_1_16bit.wav
+ttVector/SHAVectors/WAVDec/ADPCM/DVIADPCM_16khz_65kbps_1_16bit.wav
+ttVector/SHAVectors/WAVDec/ADPCM/DVIADPCM_22.05khz_89kbps_1_16bit.wav
+ttVector/SHAVectors/WAVDec/ADPCM/DVIADPCM_11.025khz_45kbps_1_16bit.wav
+ttVector/SHAVectors/WAVDec/ADPCM/DVIADPCM_16khz_65kbps_1_16bit.wav
+
+#MSS not support
+ttVector/SHAVectors/VC1Dec/Stress/MSS2/WMV9Screen_704x528_4fps_200kbps_ a_1ch.wimax.wmv
+
+#speex not support
+ttVector/SHAVectors/FLV/Conformance/Speex/Speex_5.5_1_audio-only.flv
+
+#video/x-flash-video no plugin to play
+ttVector/SHAVectors/FLV/Conformance/Screen/Screen_466x311_3_388_NoAudio.flv
+ttVector/SHAVectors/FLV/Conformance/Sorenson/Sorenson_320x256_15_229_MP3_22.05_52_2_JS.flv
+
+#Nellymoer audio not support
+ttVector/SHAVectors/FLV/Conformance/Nellymoser/Nellymoser_22.05_1_audio-only.flv
+
+
+# no video case
+ttVector/SHAVectors/CodecP1Vectors/I16_M10_PAR_12x11_01.avi:[t]
+
+#corrupt case, size not correct
+ttVector/SHAVectors/PowerManagement/Audio/128kbps_44khz_s_wma.wma
+ttVector/SHAVectors/test.mov
+ttVector/SHAVectors/MP3Dec/Stress/File_Size_0_fromTXT.mp3
+ttVector/SHAVectors/VC1Dec/Conformance/WVC1/WVC1_APL4_16x16_30fps_46kbps_NoAudio_MA40263.WMV
+ttVector/SHAVectors/AACPlusDec/Conformance/Channel/AAC_Plus_16kHz_24kbps_1_Ch.aac
+ttVector/SHAVectors/VC1Dec/Conformance/WVC1/WVC1_APL1_720x576_25fps_2500kbps_NoAudio_MA10115.WMV
+ttVector/SHAVectors/PowerManagement/Video/mpge4_25fps_aac_44khz.mp4
+ttVector/SHAVectors/PowerManagement/Audio/128kbps_44khz_s_wma.wma
+ttVector/SHAVectors/MPEG2Dec/Conformance/MPGMpegES/MPEG1ES_NoAudio_16x16_29.97fps_15592kbps_ccm1.mpg
+ttVector/SHAVectors/PowerManagement/Video/h264_equilibrium_qvga25fps@384kbps_level1.2_3ref_4x4mv_mp3cbr128kbps@44.1khz.avi
+ttVector/SHAVectors/ALACDec/Conformance/16Bit/ALAC_8khz_82.2kbps_VBR_1ch_16bit_1second.m4a
+
+
+#type not determine
+ttVector/SHAVectors/VC1Dec/Conformance/WVC1/WVC1_APL2_388x1080_25fps_2488kbps_NoAudio_MA20086.WMV
+
+#no index table not support FB
+ttVector/SHAVectors/3D/Demo of full HD 3D stereoscopic TV   user interface supporting MVC - YouTube.flv:[c]
+ttVector/SHAVectors/CodecP1AllVideoforICS/AVC_MP30_854x356_23.976_679_AACLC_44.1_96_2_TRON_ LEGACY.flv:[c]
+ttVector/SHAVectors/CodecP1VectorsICS/FLV/Conformance/AVC/AVC_MP30_854x356_23.976_679_AACLC_44.1_96_2_TRON_ LEGACY.flv:[c]
+ttVector/SHAVectors/FLV/Conformance/AVC/AVC_MP30_854x356_23.976_679_AACLC_44.1_96_2_TRON_ LEGACY.flv:[c]
+ttVector/SHAVectors/FLV/Conformance/AVC/AVC_MP30_854x356_23.976_679_AACLC_44.1_96_2_TRON_LEGACY.flv:[c]
+ttVector/SHAVectors/FLV/Conformance/AVC/AVC_MP5.1_1280x720_24fps_3000Kbps_MP3_44.1KHz_128Kbps_2ch_317.flv:[c]
+ttVector/SHAVectors/FLV/Conformance/AVC/C107_FLV_AAC-LC(44.1kHz@24bit@240Kbps@5.1ch)_AVC(MP@L5.1@1080p@20Mbps@30fps)_CT43209639.flv:[c]
+ttVector/SHAVectors/FLV/Conformance/Nellymoser/Sorenson_320x240_5.5_526_nellymosser_44.1_1_silence_transcoding_problem.flv:[c]
+ttVector/SHAVectors/FLV/Conformance/Sorenson/Sorenson_320x240_25_314_MP3_22.05_32_2_JS.flv:[c]
+ttVector/SHAVectors/FLV/Conformance/Sorenson/Sorenson_480x360_29.97fps_567Kbps_AACLC_44.1KHz_2ch.flv:[c]
+ttVector/SHAVectors/FLV/Conformance/Sorenson/Sorenson_640x368_24_1124_MP3_22.05_92_2_JS_The_Spy_Next_Door.flv:[c]
+ttVector/SHAVectors/FLV/Conformance/Sorenson/Sorenson_640x480_25_552_MP3_22.05_56_1_mono_sheep_MetaInjector_FLV1.1.flv:[c]
+ttVector/SHAVectors/FLV/Conformance/Sorenson/Sorenson_720x306_24_539_NoAudio_bad_decode.flv:[c]
+ttVector/SHAVectors/FLV/Conformance/Sorenson/Sorenson_720x480_18_1032_MP3_44.1_98_JS_backcountry_FFMux.flv:[c]
+ttVector/SHAVectors/FLV/Conformance/Sorenson/Sorenson_720x480_18_1116_MP3_44.1_112_JS_Watchmen.flv:[c]
+ttVector/SHAVectors/FLV/Conformance/Sorenson/Sorenson_720x576_30_2603_MP3_44.1_223_JS_TheHouseBunny.flv:[c]
+ttVector/SHAVectors/FLV/Stress/Sorenson_320x240_4.6_85_undef_5.5_1_flv2mpg_error.flv:[c]
+ttVector/SHAVectors/H263Dec/Conformance/FLV/h263_30.0f_1627k_800x592_mp3_22.05KHz_56.0k_c1_31s_jinxingsh_Letou.flv:[c]
+ttVector/SHAVectors/FLV/Conformance/VP6alpha/VP6_alpha_320x464_10_129_MP3_44.1_48_1_mono.flv:[c]
+ttVector/SHAVectors/FLV/Conformance/VP6alpha/VP6_alpha_480x432_15_309_MP3_44.1_80_mono.flv:[c]
+ttVector/SHAVectors/FLV/Conformance/VP6/VP6_480x320_29.97_453_MP3_44.1_96_1_Smirnoff_Gizmo_Agency_NoSlate_30.flv:[c]
+ttVector/SHAVectors/FLV/Conformance/VP6/VP6_640x480_30_520_MP3_44.1_96_1_Instant_chrismasmonkeys.flv:[c]
+ttVector/SHAVectors/FLV/Conformance/VP6/VP6_720x480_29.96_409_MP3_44.1_96_1_Cheesenipswebvideo.flv:[c]
+ttVector/SHAVectors/FLV/Conformance/VP6/VP6_720x480_29.96_803_MP3_44.1_128_2_JS_Dominos_Fudgems_30agencyV1.flv:[c]
+ttVector/SHAVectors/FLV/Conformance/VP6/VP6_720x480_30_428_MP3_44.1_96_JS_EndProgramFinal.flv:[c]
+ttVector/SHAVectors/FLV/Conformance/AVC/C107_FLV_AAC-LC(44.1kHz@24bit@240Kbps@5.1ch)_AVC(MP@L5.1@1080p@20Mbps@30fps)_CT43209639.flv:[c]
+ttVector/SHAVectors/FLV/Conformance/VP6/VP6_480x352_30_774_MP3_44.1_160_Stereo_venture_030_ivcp_001_8bit.flv
+
+MJPG-B not support
+ttVector/SHAVectors/MJPEGDec/Conformance/MJPEG-B/MJPEG-B_Low_320x240_2792kbps_30fps_422_a_PCM_24_768kbps_2_QTP1000083.MOV
+ttVector/SHAVectors/MJPEGDec/Conformance/MJPEG-B/MJPEG-B_Best_320x240_18Mbps_30fps_422_a_PCM_24_768kbps_2_QTP1000083.MOV
+ttVector/SHAVectors/MJPEGDec/Conformance/MJPEG-B/MJPEG-B_320x240_4863kbps_30fps_422_a_PCM_24_768kbps_2_QTP1000084.MOV
+
+format not support
+ttVector/SHAVectors/H264Dec/Conformance/Hi444P/H264_Hi444P40_640x480_24_20000_NoAudio.mp4
+
+#index table corrupt
+ttVector/SHAVectors/VC1Dec/Conformance/WVC1/WVC1_APL2_1280x720_25fps_4500kbps_NoAudio_MA20083.WMV:[e]
+
+#video not support , rotate resize is not support
+ttVector/SHAVectors/FLV/Conformance/VP6alpha/VP6_alpha_320x240_25_176_MP3_22.05_32_1_mono_lection2-2.flv:[t]|[z]
+ttVector/SHAVectors/FLV/Conformance/VP6alpha/VP6_alpha_320x464_10_129_MP3_44.1_48_1_mono.flv:[t]|[z]
+ttVector/SHAVectors/FLV/Conformance/VP6alpha/VP6_alpha_480x432_15_309_MP3_44.1_80_mono.flv:[t]|[z]
+ttVector/SHAVectors/FLV/Conformance/VP6/VP6_480x272_24_434_MP3_22.05_96_2_JS_harrypotter.flv:[t]|[z]
+ttVector/SHAVectors/FLV/Conformance/VP6/VP6_480x320_29.97_453_MP3_44.1_96_1_Smirnoff_Gizmo_Agency_NoSlate_30.flv:[t]|[z]
+ttVector/SHAVectors/FLV/Conformance/VP6/VP6_512x384_30_474_MP3_44.1_128_mono_artifactsvp6.flv:[t]|[z]
+ttVector/SHAVectors/VC1Dec/Conformance/WMV3CP/wmv9_CP_240x180_26fps_263kbps_vc1.cmplx.wmv:[t]|[z]
+ttVector/SHAVectors/DivxDec/Conformance/Divx5/Divx5_156x100_11.988_200_a_mp3_24_cbr64_c06_hh.avi:[t]|[z]
+ttVector/SHAVectors/DivxDec/Conformance/Divx5/Divx5_484x264_23.976_1000_a_mp3_44_128_2_c05_divx505b.avi:[t]|[z]
+ttVector/SHAVectors/DivxDec/Conformance/PAR/Divx6_300x224_25_597_a_mp3_44_2_128_I18_M10_PAR_16x11_01.avi:[t]|[z]
+ttVector/SHAVectors/DivxDec/Conformance/PAR/Divx6_300x240_25_597_a_mp3_44_128_2_I16_M10_PAR_12x11_01.avi:[t]|[z]
+ttVector/SHAVectors/FLV/Conformance/VP6/VP6_320x176_24_200_MP3_22.05_48_2_JS_mrandmrssmith.flv:[t]|[z]
+ttVector/SHAVectors/FLV/Conformance/VP6/VP6_640x480_30_520_MP3_44.1_96_1_Instant_chrismasmonkeys.flv:[t]|[z]
+ttVector/SHAVectors/FLV/Conformance/VP6/VP6_720x480_29.96_409_MP3_44.1_96_1_Cheesenipswebvideo.flv:[t]|[z]
+ttVector/SHAVectors/FLV/Conformance/VP6/VP6_720x480_29.96_803_MP3_44.1_128_2_JS_Dominos_Fudgems_30agencyV1.flv:[t]|[z]
+ttVector/SHAVectors/FLV/Conformance/VP6/VP6_720x480_30_428_MP3_44.1_96_JS_EndProgramFinal.flv:[t]|[z]
+ttVector/SHAVectors/H264Dec/Conformance/BP/H264_BP30_64x64_29.97_5821_AACLC_44.1_207_2_Epson.mp4:[t]|[z]
+ttVector/SHAVectors/Metadata/MP4/MP4/AAC_44_224kbps_LoveAndTheCity_ARTWORK.mp4:[t]|[z]
+ttVector/SHAVectors/MJPEGDec/Conformance/YUV400/colorbar_720x480_400.mp4:[t]|[z]
+ttVector/SHAVectors/MPEG4Dec/Stress/Mpeg4_352x288_30_3364_aac_44_86_2_YambMux.mp4:[t]|[z]
+ttVector/SHAVectors/VC1Dec/Conformance/WMV1/WMV7_PL_360x240_WMA2_S44K_64K_file3.wmv:[t]|[z]
+
+#not seekable
+ttVector/SHAVectors/FLV/Conformance/VP6/VP6_480x352_30_774_MP3_44.1_160_Stereo_venture_030_ivcp_001_8bit.flv:[c]
+
+#Only has one Key frame
+ttVector/SHAVectors/H264Dec/Stress/H264_BP21_720x576_25_1001_audiofirst_MP3_48_128_mplayer.avi:[e]
+
+#corrupted stream, only has part of media data
+ttVector/SHAVectors/H264Dec/Conformance/HiP/H264_HiP51_640x480_23.976_1296_MP3v1_48_128_16_2_CBR_fromphilips.mp4:[e]
+
+#gmc format not supported
+ttVector/SHAVectors/XvidDec/Conformance/GMC/Xvid_ASP5_gmc_800x336_23.976_1241_a_AC3_48_382_6_FromOppo_TTXJ.avi
+
+#VP6 is not supported, need add them into ignore list:
+/mnt/streams/ttVector/SHAVectors/FLV/Conformance/VP6alpha/VP6_alpha_320x240_25_176_MP3_22.05_32_1_mono_lection2-2.flv
+/mnt/streams/ttVector/SHAVectors/FLV/Conformance/VP6/VP6_512x384_30_474_MP3_44.1_128_mono_artifactsvp6.flv
+
+#HEVC/H265 is not support, add them to ignore list:
+ttVector/SHAVectors/H265Dec/Conformance/FLV/HEVC_640x480_23.976fps_736Kbps_AC3_48Khz_192Kbps_Successful-Mission.asf
+ttVector/SHAVectors/H265Dec/Conformance/MP4/HEVC_720x480_1748Kbpx_23.976fps_NoAudio.mp4
+ttVector/SHAVectors/H265Dec/Conformance/MP4/HEVC_1280x720_25fps_1484Kbps_APE_44.1Khz_2ch_520Kbps.MOV
+ttVector/SHAVectors/H265Dec/Conformance/MKV/HEVC_3840x2160_30fps_NoAudio.mkv
+ttVector/SHAVectors/H265Dec/Conformance/AVI/HEVC_848x480_434Kbps_AC3_48Khz_2ch_256Kbps_Sintel-Trailer.avi
+ttVector/SHAVectors/H265Dec/Conformance/VC1/HEVC_1280x720_25fps_1201Kbps_AAC_44.1Khz_2ch_36Kbps.WMV
+ttVector/SHAVectors/H265Dec/Conformance/TS/HEVC_1280x720_surfing.ts
+
+#YUV400 not supported, add to ignore list:
+ttVector/SHAVectors/MJPEGDec/Conformance/YUV400/circle_1024x768_400.mp4
+ttVector/SHAVectors/MJPEGDec/Conformance/YUV400/colorbar_720x480_400.mp4
+
+
+# 1.0 issue (same with ubuntu)
+SHAVectors/FLACDec/Conformance/BitDepth/FLAC_8_63_2_8_M1F1-uint8-AFsp.flac
+SHAVectors/Metadata/Vorbis/flac_44.1_928_2_16_whenigrowup_metadata.flac
+
+
+# software decoder performance is bad
+SHAVectors/FLV/Conformance/Sorenson/Sorenson_1920x800_23.976fps_MP3_11.025Khz_16Kbps_1ch.flv:[e 0]
+
+# 444 is not supported by overlaysink
+SHAVectors/MJPEGDec/Conformance/YUV444/WhatBox_720x480_444_q2.avi
+
+# seek cost longer time
+SHAVectors/MPEG4Dec/Stress/Mpeg4_SP1_4mv_352x160_25_198_aac_88_64_6_red_mp3on4.mp4:[c 0.5]
+SHAVectors/AACPlusDec/Conformance/SampleRate/AAC_Plus_48khz_128Kbps_2_SBR.aac:[e 1]
+SHAVectors/MP3Dec/Stress/Mpeg1L3_44_128_sm_LongComplex.mp3:[e 1]
+
+# only has one second
+SHAVectors/H264Dec/Conformance/HiP/H264_HiP51_640x480_23.976_1296_MP3v1_48_128_16_2_CBR_fromphilips.mp4:[e 0]
+
+# corrupted
+SHAVectors/AACPlusDec/Stress/AAC_Plus_32kHz_24kbps_2_stress_4567_50_100_10_20.mp4
+AACPlusDec/Stress/AAC_LC_44kHz_10kbps_2_JitaError.aac
+
+# ALAC not supported
+SHAVectors/ALACDec/Conformance/24Bit/ALAC_192KHz_4959_2_24_test192.m4a
+
+# resolution larger than 1920x1080, not supported
+SHAVectors/WebM/Conformance/Resolution/VP8_2048x1108_30fps_AACLC_44.1_2ch_50M.mkv
+
+# VBR case, duration is not accurate at start, seek position beyond duration
+SHAVectors/AACLCDec/Conformance/Channel/AAC_LC_88kHz_121kbps_2_Ch.aac:[e 1]
+SHAVectors/AACLCDec/Conformance/Channel/_MPEG2_AAC_LC_88kHz_121kbps_2_Ch.aac:[e 1]
+
+# not supported
+SHAVectors/RADec/Stress/mp3_in_rm_iwantcandy.rm
+
+# only one key frame, accurate seek cost long time
+H264Dec/Stress/H264_BP21_720x576_25_1001_audiofirst_MP3_48_128_mplayer.avi:[e 1]
+
+# fuzzy seek expected behaviour
+VC1Dec/Conformance/WMV2/WMV8_1280x720_5820Kbps_24fps_WMA2_44.1Khz_128Kbps_2ch_Hello.wmv:[e 0]
+
+# When playback with 4x or 8x, parser will search stss atom to get the sample
+# index. Then, parser try to get the sample but failed as sample size is
+# invalid. So demux will report error and quit the playback.
+MPEG4Dec/Conformance/3GP/Mpeg4_SP3_160x120_15_AACLC_22.05_1_MadTVTerminator3Parody.3gp:[c 4]
+MPEG4Dec/Stress/Mpeg4_SP3_160x120_15_AACLC_22.05_1_MadTVTerminator3Parody.3gp:[c 4]
+
+
+# mpg2 file too short, and only few key frames
+MPEG2Dec/Conformance/MpgMpegSS/MPEG1SS_MP2_320x240_25fps_NoBframeIFrame_a_32kbps_32KHz_1ch_cica.mpg:[c -4]
+
+
+# 6 channel ra not supported
+RADec/Channel/ra6_44.1khz_131kbps_6_Surround.ra
+RADec/Channel/ra6_131kbps_44.1hhz_6_multichannel.ra
+RADec/Channel/ra6_44.1khz_131kbps_6_multichannel.ra
+RADec/Channel/ra6_131kbps_44.1hhz_6_Surround.ra
+
+# not supported
+RADec/Stress/mp3_in_rm_iwantcandy.rm
+
