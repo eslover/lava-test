@@ -171,7 +171,7 @@ run:
         #- lava-test-case TGE-LV-FB-EPDC-0016 --shell ./scripts/lava-vte.sh 'epdc_test -T 8 -y 10'
         #- lava-test-case TGE-LV-FB-EPDC-0017 --shell ./scripts/lava-vte.sh 'epdc_test -T 0 -S 0 && epdc_test -T 0 -S 1 && epdc_test -T 0 -S 2'
         #- lava-test-case TGE-LV-KERNEL-CLOCK-0001 --shell ./scripts/lava-vte.sh 'count=`cat /proc/timer_list | grep clock | wc -l`; [ $count -gt 0 ]'
-        - lava-test-case TGE-LV-KERNEL-SMP-0008 --shell ./scripts/lava-vte.sh 'smp_test.sh 3'
+        #- lava-test-case TGE-LV-KERNEL-SMP-0008 --shell ./scripts/lava-vte.sh 'smp_test.sh 3'
         #- lava-test-case TGE-LV-GPU-XEGL-Stress-0001 --shell ./scripts/lava-vte.sh 'glesx_viv.sh 7'
 
 parse:
