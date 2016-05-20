@@ -1,7 +1,7 @@
 metadata:
     format: Lava-Test Test 
     name: test
-    description: "Basic lava test"
+    description: "Basic lava test for the i.MX"
     maintainer:
     os:
         - Linux
@@ -12,7 +12,6 @@ metadata:
 install:
     git-repos:
         - https://github.com/eslover/sandbox-test
-
 run:
     steps:
         - lava-test-case TGE-LV-KERNEL-SMP-0002 --shell ./scripts/lava-vte.sh '[ $(cat /proc/cpuinfo | grep processor | wc -l ) -eq 2 ]'
