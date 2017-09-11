@@ -28,6 +28,21 @@ determine_platform_dt()
     then
         vte=vte_mx62_d
     fi
+    find=`grep "MX8QM" /sys/devices/soc0/soc_id |wc -l`
+    if [ $find -eq 1 ]
+    then
+        vte=vte_mx82
+    fi
+    find=`grep "MX8QXP" /sys/devices/soc0/soc_id |wc -l`
+    if [ $find -eq 1 ]
+    then
+        vte=vte_mx81
+    fi
+    find=`grep "MX8MQ" /sys/devices/soc0/soc_id |wc -l`
+    if [ $find -eq 1 ]
+    then
+        vte=vte_mx82
+    fi
     find=`grep "MX6 Quad SABRE Smart Device" /sys/devices/soc0/machine |wc -l`
     if [ $find -eq 1 ]
     then
@@ -91,7 +106,7 @@ then
     mkdir /mnt/nfs
 fi
 
-mount -t nfs -o nolock 10.192.244.6:/rootfs/wb /mnt/nfs
+mount -t nfs -o nolock 10.192.244.37:/rootfs/wb /mnt/nfs
 
 #echo ${vte}
 #echo ${testfile}

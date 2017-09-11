@@ -24,7 +24,10 @@ while read CMD; do
 	x=`echo "$CMD" | cut -d ' ' -f 1`
 	y=`echo "$CMD" | cut -d ' ' -f 2-`
 	z=`echo $y | rev`
-	p=`echo $z | cut -c 2- | rev`
+	# if dos format
+	# p=`echo $z | cut -c 2- | rev`
+	# else by default, Linux format
+	p=`echo $z | cut -c 1- | rev`
 	echo '       ' - lava-test-case ${x}  --shell ./scripts/lava-vte.sh \'${p}\' >> $2 
 done < "$1"
 
