@@ -135,7 +135,7 @@ run:
         - lava-test-case TGE-LV-GPT-0010 --shell ./scripts/lava-vte.sh 'gpt_testapp'
         - lava-test-case TGE-LV-HRT-0020 --shell ./scripts/lava-vte.sh 'insmod ${LTPROOT}/testcases/bin/hrtimer_test.ko && sleep 1 && rmmod hrtimer_test && dmesg | grep hrtimer_callback'
         - lava-test-case TGE-LV-TIMER-FREQ-0001 --shell ./scripts/lava-vte.sh 'timer_interrupt'
-  	# - lava-test-case TGE-LV-HDMI-0009 --shell ./scripts/lava-vte.sh 'res_req.sh HDMI && hdmi_test.sh 6 && clr_handler.sh -p $? -t HDMI'
+  	#- lava-test-case TGE-LV-HDMI-0009 --shell ./scripts/lava-vte.sh 'res_req.sh HDMI && hdmi_test.sh 6 && clr_handler.sh -p $? -t HDMI'
         - lava-test-case TGE-LV-KMEM-0001 --shell ./scripts/lava-vte.sh 'insmod ${LTPROOT}/testcases/bin/memory_test.ko && rmmod memory_test'
         - lava-test-case TGE-LV-KERNEL-CLOCK-0001 --shell ./scripts/lava-vte.sh 'count=`cat /proc/timer_list | grep clock | wc -l`; [ $count -gt 0 ]'
         - lava-test-case TGE-LV-KERNEL-SMP-0002 --shell ./scripts/lava-vte.sh '[ $(cat /proc/cpuinfo | grep processor | wc -l ) -eq 4 ]'
