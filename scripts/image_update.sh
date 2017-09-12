@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo $PWD
+
 find=`grep "i.MX8QM ARM2" /sys/devices/soc0/machine |wc -l`
 if [ $find -eq 1 ]
 then
@@ -28,7 +30,7 @@ mmcblock=mmcblock1
 fi
 
 # Need use the new wget version, the busybox version not support the advanced features,
-
+cd ./scripts
 tar -xavf ./wget-1.19.tar.gz
 cd ./wget-1.19
 ./configure --prefix=/usr      \

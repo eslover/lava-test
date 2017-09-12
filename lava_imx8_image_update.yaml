@@ -14,7 +14,7 @@ install:
         - https://github.com/eslover/sandbox-test
 run:
     steps:
-        - lava-test-case IMAGE_UPDATE --shell cd ./scripts && ./image_update.sh
+        - lava-test-case IMAGE_UPDATE --shell ./scripts/image_update.sh
 
 parse:
     pattern: "[ a-zA-Z]+ (?P<test_case_id>[a-zA-Z0-9]+):\\s(?P<result>PASS|FAIL|SKIP)"
