@@ -31,11 +31,11 @@ fi
 
 # Need use the new wget version, the busybox version not support the advanced features,
 cd ./scripts
-tar -xavf ./wget-1.19.tar.gz
+tar -xaf ./wget-1.19.tar.gz
 cd ./wget-1.19
-./configure --prefix=/usr      \
+./configure --prefix=/usr -q   \
             --sysconfdir=/etc  \
-            --with-ssl=openssl && make && make install
+            --with-ssl=openssl && make -s && make install
 
 # clean up local boot image
 #rm -f ${bootimage} 
