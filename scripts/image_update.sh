@@ -35,7 +35,9 @@ tar -xaf ./wget-1.19.tar.gz
 cd ./wget-1.19
 ./configure --prefix=/usr -q   \
             --sysconfdir=/etc  \
-            --with-ssl=openssl && make -s && make install
+            --with-ssl=openssl && make -s > /dev/null && make -s install > /dev/null
+
+echo "install wget ...done"
 
 # create mount point
 sudo mkdir /rootfs
@@ -54,8 +56,12 @@ for i in *{nfsroot}*.tar.bz2; do
   if [ -f "$i" ]; then ln -sf $i ${nfsroot}.tar.bz2; fi
 done
 
+echo "update rootfs ...done"
+
 # program the boot image to the sd-card
 sudo dd if=${bootimage} of=/dev/${mmcblock} bs=33k seek=1;sync
+
+echo "update flash.bin ...done"
 
 cd ~
 sudo umount /rootfs
