@@ -32,6 +32,14 @@ rm -f ${bootimage}
 # get the boot image
 wget http://yb2.am.freescale.net/build-output/Linux_IMX_4.9_morty_trunk_next/latest/common_bsp/imx-boot/${bootimage}
 
+# Need use the new wget version, the busybox version not support the advanced features,
+
+tar -xavf ./wget-1.19.tar.gz
+cd ./wget-1.19
+./configure --prefix=/usr      \
+            --sysconfdir=/etc  \
+            --with-ssl=openssl && make && make install
+
 # create mount point
 sudo mkdir /rootfs
 # mount the server nfsroot
