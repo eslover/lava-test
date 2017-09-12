@@ -30,9 +30,12 @@ mmcblock=mmcblock1
 fi
 
 # Need use the new wget version, the busybox version not support the advanced features,
-cd ./scripts
+cp -f ./scripts/wget-1.19.tar.gz /tmp
+cd /tmp
+
 tar -xaf ./wget-1.19.tar.gz
 cd ./wget-1.19
+
 ./configure --prefix=/usr -q   \
             --sysconfdir=/etc  \
             --with-ssl=openssl && make -s > /dev/null && make -s install > /dev/null
