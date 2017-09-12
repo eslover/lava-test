@@ -49,7 +49,7 @@ cd /rootfs
 rm -rf ${nfsroot}.tar.bz2
 rm -f *{nfsroot} *.tar.bz2
 wget -r -l1 -nH --cut-dirs=2 --no-parent -A *{nfsroot}*.tar.bz2 --no-directories \
-	 http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_4.9_morty_trunk_next/143/fsl-imx-internal-xwayland/
+	 http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_4.9_morty_trunk_next/latest/fsl-imx-internal-xwayland/
 
 ln -s *{nfsroot} *.tar.bz2 ${nfsroot} .tar.bz2
 
