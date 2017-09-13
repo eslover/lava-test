@@ -180,7 +180,7 @@ run:
         - lava-test-case TGE-LV-WDOG-0031 --shell ./scripts/lava-vte.sh 'rmmod imx2_wd_test;set_reboot.sh 0 && watchdog_testapp_3 -W 1 ;sleep 60; clr_handler.sh -p 1 -t reboot'
         - lava-test-case TGE-LV-WDOG-0033 --shell ./scripts/lava-vte.sh 'rmmod imx2_wd_test;set_reboot.sh 0 && watchdog_testapp_3 -W 2 ; sleep 60; clr_handler.sh -p 1 -t reboot'
         - lava-test-case TGE-LV-WDOG-0034 --shell ./scripts/lava-vte.sh 'rmmod imx2_wd_test;set_reboot.sh 0 && watchdog_testapp_3 -W 3; sleep 60; clr_handler.sh -p 1 -t reboot'
-        - lava-test-case TGE-LV-WDOG-0035 --shell ./scripts/lava-vte.sh 'rmmod imx2_wd_test;set_reboot.sh 0 && watchdog_testapp_3 -W 4; sleep 30; dmesg | tail -n 5 | grep "watchdog0: pretimeout event"; if [ $? = 0 ]; then sleep 30; else echo "Fail"; clr_handler.sh -p 1 -t reboot; fi'
+        #- lava-test-case TGE-LV-WDOG-0035 --shell ./scripts/lava-vte.sh 'rmmod imx2_wd_test;set_reboot.sh 0 && watchdog_testapp_3 -W 4; sleep 30; dmesg | tail -n 5 | grep "watchdog0: pretimeout event"; if [ $? = 0 ]; then sleep 30; else echo "Fail"; clr_handler.sh -p 1 -t reboot; fi'
         #- lava-test-case TGE-LV-ALSA-1161 --shell ./scripts/lava-vte.sh 'power_test_alsa.sh 1'
         - lava-test-case TGE-LV-QSPI-NOR-0301 --shell ./scripts/lava-vte.sh 'nor_test.sh qspi 1'
         - lava-test-case TGE-LV-QSPI-NOR-0303 --shell ./scripts/lava-vte.sh 'modprobe fsl-quadspi && nor_test.sh qspi 1'
