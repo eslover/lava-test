@@ -28,6 +28,8 @@ while read CMD; do
 	# p=`echo $z | cut -c 2- | rev`
 	# else by default, Linux format
 	p=`echo $z | cut -c 1- | rev`
+	p=`echo ${p}  | sed "s/'/'\"'\"'/g"`
+
 	echo '       ' - lava-test-case ${x}  --shell ./scripts/lava-vte.sh \'${p}\' >> $2 
 done < "$1"
 

@@ -29,10 +29,6 @@
 		    {
 			"git-repo": "https://github.com/eslover/sandbox-test.git",
 			"testdef": "lava_vte_mx8qm_alpha.yaml"
-		    },
-		    {
-			"git-repo": "https://github.com/eslover/sandbox-test.git",
-			"testdef": "lava_imx8_image_update.yaml"
 		    }
 		],
 		"timeout": 86400 
@@ -41,7 +37,7 @@
 	{
             "command": "submit_results_on_host",
             "parameters": {
-                "server": "http://10.192.242.241/RPC2/",
+                "server": "http://10.192.242.176/RPC2/",
                 "stream": "/anonymous/admin/"
             }
         }
