@@ -43,7 +43,7 @@ run:
         - lava-test-case TGE-LV-FEC-0012 --shell ./scripts/lava-vte.sh 'if [ "`platfm.sh`" = "IMX6SX-SABREAUTO" ]; then fec_testapp -T 2 -D eth1; else fec_testapp -T 2; fi'
         - lava-test-case TGE-LV-FEC-0010 --shell ./scripts/lava-vte.sh 'fec_testapp -T 0'
         - lava-test-case TGE-LV-KERNEL-10002 --shell ./scripts/lava-vte.sh 'timer_resolution'
-        - lava-test-case TGE-LV-BENCH-10003 --shell ./scripts/lava-vte.sh 'c-ray.sh'
+        #- lava-test-case TGE-LV-BENCH-10003 --shell ./scripts/lava-vte.sh 'c-ray.sh'
         #- lava-test-case TGE-LV-MEM-0321 --shell ./scripts/lava-vte.sh 'mem_concurrent.sh 2'
         - lava-test-case TGE-LV-FB-8003 --shell ./scripts/lava-vte.sh 'dd if=/dev/urandom of=/dev/fb0 bs=1K count=5K'
         - lava-test-case TGE-LV-FB-8004 --shell ./scripts/lava-vte.sh 'fbdep_def=$(fbset -fb /dev/fb0 | grep geometry | cut -d " " -f 10) && lcd_testapp -T 1 -B /dev/fb0 -D $fbdep_def -X 10'
