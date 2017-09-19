@@ -11,11 +11,11 @@ cd ${wd}
 rm -rf test-internal-qt5-imx8qxpmek-license.manifest*
 touch test-internal-qt5-imx8qxpmek-license.manifest
 
-#nfs=(imx8qxpmek imx8qmlpddr4arm2)
-#plt=(imx8qxp_mek imx8qm_arm2)
+nfs=(imx8qxpmek imx8qmlpddr4arm2)
+plt=(imx8qxp_mek imx8qm_arm2)
 
-nfs=(imx8qxpmek)
-plt=(imx8qxp_mek)
+#nfs=(imx8qxpmek)
+#plt=(imx8qxp_mek)
 
 N_nfs=${#nfs[@]}
 N_plt=${#plt[@]}
