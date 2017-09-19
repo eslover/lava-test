@@ -49,7 +49,7 @@ run:
         - lava-test-case TGE-LV-FB-8004 --shell ./scripts/lava-vte.sh 'fbdep_def=$(fbset -fb /dev/fb0 | grep geometry | cut -d " " -f 10) && lcd_testapp -T 1 -B /dev/fb0 -D $fbdep_def -X 10'
         - lava-test-case TGE-LV-FB-8005 --shell ./scripts/lava-vte.sh 'fbdep_def=$(fbset -fb /dev/fb0 | grep geometry | cut -d " " -f 10) && lcd_testapp -T 1 -B /dev/fb0 -D $fbdep_def -X 10 -N 10'
         - lava-test-case TGE-LV-ETHERNET-1007 --shell ./scripts/lava-vte.sh 'touch readme && ftpget -u anonymous 10.193.101.65 readme readme && cat readme | grep welcome && rm readme'
-        - lava-test-case TGE-LV-MEM-0320 --shell ./scripts/lava-vte.sh 'testmem_k=$(expr `cat /proc/meminfo |grep MemTotal |awk '"'"'{print $2}'"'"'` / 2); time -p memtester ${testmem_k}K 1'
+        - lava-test-case TGE-LV-MEM-0320 --shell ./scripts/lava-vte.sh 'testmem_k=$(expr `cat /proc/meminfo |grep MemTotal |awk '"'"'{print $2}'"'"'` / 20); time -p memtester ${testmem_k}K 1'
         - lava-test-case TGE-LV-ESLCD-0704 --shell ./scripts/lava-vte.sh 'fbdep_def=$(fbset -fb /dev/fb0 | grep geometry | cut -d " " -f 10) && lcd_testapp -T 4 -B /dev/fb0 -D $fbdep_def'
         - lava-test-case TGE-LV-USB-HOST-0010 --shell ./scripts/lava-vte.sh 'get_scsi.sh usbs'
         - lava-test-case TGE-LV-ESLCD-0700 --shell ./scripts/lava-vte.sh 'fbdep_def=$(fbset -fb /dev/fb0 | grep geometry | cut -d " " -f 10) && fbset -depth 16 && lcd_testapp -T 1 -B /dev/fb0 -D 16 -X 10 && fbset -depth $fbdep_def'
