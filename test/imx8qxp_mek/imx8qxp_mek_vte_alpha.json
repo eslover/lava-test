@@ -10,7 +10,7 @@
             "command": "deploy_linaro_kernel",
             "parameters": {
                 "kernel": "http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_4.9_morty_trunk_next/latest/common_bsp/Image-imx8qxpmek.bin",
-                "dtb": "http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_4.9_morty_trunk_next/166/common_bsp/Image-fsl-imx8qxp-mek-lvds0-it6263.dtb",
+                "dtb": "http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_4.9_morty_trunk_next/latest/common_bsp/Image-fsl-imx8qxp-mek-lvds0-it6263.dtb",
 		"nfsrootfs": "file:///nfsroot/imx8qxp_mek/imx8qxpmek.tar.bz2",
                 "login_prompt": "imx8qxpmek login:",
                 "username": "root"
