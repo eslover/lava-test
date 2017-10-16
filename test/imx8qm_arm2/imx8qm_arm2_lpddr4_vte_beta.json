@@ -2,24 +2,24 @@
 {
     "health_check": false,
     "logging_level": "DEBUG",
-    "job_name": "imx8qxp_mek_vte_alpha",
-    "target": "imx8qxp-mek",
+    "job_name": "imx8qm_arm2_lpddr4_vte_beta",
+    "target": "imx8qm-arm2-lpddr4",
     "timeout": 3000,
     "actions": [
         {
             "command": "deploy_linaro_kernel",
             "parameters": {
-                "kernel": "file:///nfsroot/imx8qxp_mek/Image-imx8qxpmek.bin",
-                "dtb": "file:///nfsroot/imx8qxp_mek/Image-fsl-imx8qxp-mek-lvds0-it6263.dtb",
-		"nfsrootfs": "file:///nfsroot/imx8qxp_mek/imx8qxpmek.tar.bz2",
-                "login_prompt": "imx8qxpmek login:",
+                "kernel": "file:///nfsroot/imx8qm_arm2/Image-imx8qmlpddr4arm2.bin",
+                "dtb": "file:///nfsroot/imx8qm_arm2/Image-fsl-imx8qm-lpddr4-arm2.dtb",
+		"nfsrootfs": "file:///nfsroot/imx8qm_arm2/imx8qmlpddr4arm2.tar.bz2",
+                "login_prompt": "imx8qmlpddr4arm2 login:",
                 "username": "root"
             }
         },
         {
             "command": "boot_linaro_image",
             "parameters": {
-                "test_image_prompt": "root@imx8qxpmek:~#"
+                "test_image_prompt": "root@imx8qmlpddr4arm2:~#"
             }
         },
 	{
@@ -28,10 +28,10 @@
 		"testdef_repos": [
 		    {
 			"git-repo": "https://github.com/eslover/sandbox-test.git",
-			"testdef": "lava_vte_mx8qxp_alpha.yaml"
+			"testdef": "lava_vte_mx8qm_beta.yaml"
 		    }
 		],
-		"timeout": 86400
+		"timeout": 86400 
 	    }
 	},
 	{

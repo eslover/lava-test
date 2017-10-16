@@ -13,6 +13,7 @@ touch test-internal-qt5-imx8qxpmek-license.manifest
 
 nfs=(imx8qxpmek imx8qmlpddr4arm2)
 plt=(imx8qxp_mek imx8qm_arm2)
+soc=(imx8qxp imx8qm)
 
 #nfs=(imx8qxpmek)
 #plt=(imx8qxp_mek)
@@ -40,7 +41,13 @@ while [ 1 ]; do
 				echo "going to delopy platform: ${plt[$i-1]}"
 				mkdir -p ${plt[$i-1]}
 				cd ${plt[$i-1]}
-				rm -rf *.tar.bz2
+				rm -rf *.tar.bz2 *.dtb *.bin
+
+				wget -N -q --backups=1 -r -l1 -nH --cut-dirs=2 --no-parent -A "*${soc[$i-1]}*.dtb" --no-directories \
+					http://yb2.am.freescale.net/build-output/Linux_IMX_MX8_BETA/11/common_bsp/
+
+				wget -N -q --backups=1 -r -l1 -nH --cut-dirs=2 --no-parent -A "*${soc[$i-1]}*.bin" --no-directories \
+					http://yb2.am.freescale.net/build-output/Linux_IMX_MX8_BETA/11/common_bsp/
 
 				wget -N -q --backups=1 -r -l1 -nH --cut-dirs=2 --no-parent -A "*${nfs[$i-1]}*.tar.bz2" --no-directories \
 					http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_MX8_BETA/latest/fsl-imx-internal-xwayland/
