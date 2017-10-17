@@ -1,7 +1,7 @@
 metadata:
     format: Lava-Test Test 
     name: alpha_vte_test 
-    description: "i.MX8QM Alpha VTE test"
+    description: "i.MX8QM Beta VTE test"
     maintainer:
     os:
         - Linux
@@ -14,7 +14,6 @@ install:
         - https://github.com/eslover/sandbox-test
 run:
     steps:
-        - lava-test-case TGE-LV-FB-1002 --shell ./scripts/lava-vte.sh 'fbset && fbdep_def=$(fbset -fb /dev/fb0 | grep geometry | cut -d " " -f 10) && fbset -depth 32 &&  fbset -depth 16 && fbset -depth 24 && fbset -depth 32 && fbset -depth $fbdep_def'
         - lava-test-case TGE-LV-OTP-0001 --shell ./scripts/lava-vte.sh 'otp_test.sh'
         - lava-test-case TGE-LV-USB-OTG-0069 --shell ./scripts/lava-vte.sh 'mount | grep -i gadgetfs && umount /dev/gadget; mkdir -p /dev/gadget && mount -t gadgetfs gadgetfs /dev/gadget && [ -e /dev/gadget/*usb ]'
         - lava-test-case TGE-LV-APP-0001 --shell ./scripts/lava-vte.sh 'gst-inspect-1.0'
