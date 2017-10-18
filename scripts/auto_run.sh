@@ -44,10 +44,10 @@ while [ 1 ]; do
 				rm -rf *.tar.bz2 *.dtb *.bin
 
 				wget -N -q --backups=1 -r -l1 -nH --cut-dirs=2 --no-parent -A "*${soc[$i-1]}*.dtb" --no-directories \
-					http://yb2.am.freescale.net/build-output/Linux_IMX_MX8_BETA/11/common_bsp/
+					http://yb2.am.freescale.net/build-output/Linux_IMX_MX8_BETA/latest/common_bsp/
 
 				wget -N -q --backups=1 -r -l1 -nH --cut-dirs=2 --no-parent -A "*${soc[$i-1]}*.bin" --no-directories \
-					http://yb2.am.freescale.net/build-output/Linux_IMX_MX8_BETA/11/common_bsp/
+					http://yb2.am.freescale.net/build-output/Linux_IMX_MX8_BETA/latest/common_bsp/
 
 				wget -N -q --backups=1 -r -l1 -nH --cut-dirs=2 --no-parent -A "*${nfs[$i-1]}*.tar.bz2" --no-directories \
 					http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_MX8_BETA/latest/fsl-imx-internal-xwayland/
