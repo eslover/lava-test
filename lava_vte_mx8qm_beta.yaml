@@ -1,6 +1,6 @@
 metadata:
-    format: Lava-Test Test 
-    name: alpha_vte_test 
+    format: Lava-Test Test
+    name: imx8qm_beta_vte_test
     description: "i.MX8QM Beta VTE test"
     maintainer:
     os:
