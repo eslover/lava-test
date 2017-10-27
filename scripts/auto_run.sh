@@ -25,12 +25,11 @@ while [ 1 ]; do
 
 	cd ${wd}
 
-	wget -q --backups=1 http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_MX8_BETA/latest/fsl-imx-internal-xwayland/test-internal-qt5-imx8qxpmek-license.manifest
+	wget -q --backups=1 http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_MX8_BETA/latest/common_bsp/Image-imx8qxpmek.bin
 
 	if [ $? -eq 0 ]
 	then
-
-		cmp test-internal-qt5-imx8qxpmek-license.manifest test-internal-qt5-imx8qxpmek-license.manifest.1
+		cmp Image-imx8qxpmek.bin Image-imx8qxpmek.bin.1
 
 		if [ $? -eq 0 ]
 		then
@@ -43,14 +42,27 @@ while [ 1 ]; do
 				cd ${plt[$i-1]}
 				rm -rf *.tar.bz2 *.dtb *.bin
 
-				wget -N -q --backups=1 -r -l1 -nH --cut-dirs=2 --no-parent -A "*${soc[$i-1]}*.dtb" --no-directories \
-					http://yb2.am.freescale.net/build-output/Linux_IMX_MX8_BETA/latest/common_bsp/
+				while !( ls *.dtb &> /dev/null );
+				do
 
-				wget -N -q --backups=1 -r -l1 -nH --cut-dirs=2 --no-parent -A "*${soc[$i-1]}*.bin" --no-directories \
-					http://yb2.am.freescale.net/build-output/Linux_IMX_MX8_BETA/latest/common_bsp/
+					wget -N -q --backups=1 -r -l1 -nH --cut-dirs=2 --no-parent -A "*${soc[$i-1]}*.dtb" --no-directories \
+						http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_MX8_BETA/latest/common_bsp/
+					sleep 60
+				done
 
-				wget -N -q --backups=1 -r -l1 -nH --cut-dirs=2 --no-parent -A "*${nfs[$i-1]}*.tar.bz2" --no-directories \
-					http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_MX8_BETA/latest/fsl-imx-internal-xwayland/
+				while !( ls *.bin &> /dev/null );
+				do
+					wget -N -q --backups=1 -r -l1 -nH --cut-dirs=2 --no-parent -A "*${soc[$i-1]}*.bin" --no-directories \
+						http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_MX8_BETA/latest/common_bsp/
+					sleep 60
+				done
+
+				while !( ls *.tar.bz2 &> /dev/null );
+				do
+					wget -N -q --backups=1 -r -l1 -nH --cut-dirs=2 --no-parent -A "*${nfs[$i-1]}*.tar.bz2" --no-directories \
+						http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_MX8_BETA/latest/fsl-imx-internal-xwayland/
+					sleep 60
+				done
 
 				ln -sf *${nfs[$i-1]}*.tar.bz2 ${nfs[$i-1]}.tar.bz2;
 
