@@ -36,7 +36,7 @@ determine_platform_dt()
     find=`grep "MX8QXP" /sys/devices/soc0/soc_id |wc -l`
     if [ $find -eq 1 ]
     then
-        vte=vte_mx82
+        vte=vte_mx81
     fi
     find=`grep "MX8MQ" /sys/devices/soc0/soc_id |wc -l`
     if [ $find -eq 1 ]
