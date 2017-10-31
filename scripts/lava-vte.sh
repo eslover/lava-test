@@ -31,7 +31,8 @@ determine_platform_dt()
     find=`grep "MX8QM" /sys/devices/soc0/soc_id |wc -l`
     if [ $find -eq 1 ]
     then
-        vte=vte_mx82
+        #vte=vte_mx82
+	vte=vte_IMX8QM-ARM2
     fi
     find=`grep "MX8QXP" /sys/devices/soc0/soc_id |wc -l`
     if [ $find -eq 1 ]
@@ -111,7 +112,7 @@ mount -t nfs -o nolock 10.192.244.37:/rootfs/wb /mnt/nfs
 #echo ${vte}
 #echo ${testfile}
 
-echo `pwd` 
+echo `pwd`
 
 #lava_mytest="lava-vte-mytest.sh"
 
