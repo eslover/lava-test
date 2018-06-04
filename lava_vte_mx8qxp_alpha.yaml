@@ -1,7 +1,7 @@
 metadata:
     format: Lava-Test Test 
-    name: alpha_vte_test 
-    description: "i.MX8XP Alpha VTE test"
+    name: lava_vte_test 
+    description: "i.MX8XP VTE test"
     maintainer:
     os:
         - Linux

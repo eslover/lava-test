@@ -2,16 +2,16 @@
 {
     "health_check": false,
     "logging_level": "DEBUG",
-    "job_name": "imx8qxp_mek_vte_beta2",
+    "job_name": "imx8qxp_mek_vte_master",
     "target": "imx8qxp-mek",
     "timeout": 3000,
     "actions": [
         {
             "command": "deploy_linaro_kernel",
             "parameters": {
-                "kernel": "file:///nfsroot/imx8qxp_mek/Image-imx8qxpmek.bin",
-                "dtb": "file:///nfsroot/imx8qxp_mek/Image-fsl-imx8qxp-mek.dtb",
-		"nfsrootfs": "file:///nfsroot/imx8qxp_mek/imx8qxpmek.tar.bz2",
+                "kernel": "file:///nfsroot/imx8qxpmekmaster/image/Image-imx8qxpmek.bin",
+                "dtb": "file:///nfsroot/imx8qxpmekmaster/image/Image-fsl-imx8qxp-mek.dtb",
+		"nfsrootfs": "file:///nfsroot/imx8qxpmekmaster/image/imx8qxpmek.tar.bz2",
                 "login_prompt": "imx8qxpmek login:",
                 "username": "root"
             }
