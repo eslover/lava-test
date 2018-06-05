@@ -16,6 +16,7 @@ run:
     steps:
         #- lava-test-case TGE-LV-RTC-0010 --shell ./scripts/lava-vte.sh 'rtc_testapp_1'
         #- lava-test-case TGE-LV-RTC-0100 --shell ./scripts/lava-vte.sh 'rtc_test.sh 2'
+        - lava-test-case LAVA-TEST-GPU-001 --shell ./scripts/gpu_auto/auto_test.sh
         - lava-test-case TGE-LV-ALSA-0551 --shell ./scripts/lava-vte.sh 'adc_test1.sh -f S24_LE -d 5 -c 2 -r 11025'
         - lava-test-case TGE-LV-ALSA-0553 --shell ./scripts/lava-vte.sh 'adc_test1.sh -f S24_LE -d 5 -c 2 -r 22050'
         - lava-test-case TGE-LV-ALSA-0514 --shell ./scripts/lava-vte.sh 'adc_test1.sh -f S16_LE -d 5 -c 2 -r 22050'
