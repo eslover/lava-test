@@ -110,7 +110,7 @@ fi
 findmnt /mnt/nfs
 
 if [ $? -ne 0 ];then
-    mount -t nfs -o nolock 10.192.244.37:/rootfs/wb /mnt/nfs
+    mount -t nfs -o nolock,vers=3 10.192.244.37:/rootfs/wb /mnt/nfs
 fi
 
 #echo ${vte}
