@@ -9,10 +9,10 @@ echo "working directory for the nfsroofs: ${wd} "
 cd ${wd}
 
 #IMPORTANT: board and soc should be paired, if add one board, please also specify the SOC
-SOC=(imx6sl)
+SOC=(imx6sl imx7d)
 N_SOC=${#SOC[@]}
 
-BOARD=(evk)
+BOARD=(evk sabresd)
 N_BOARD=${#BOARD[@]}
 
 #IMPORTANT: main trunk build take first to simplified the script
@@ -22,7 +22,9 @@ BUILD=(master)
 N_BUILD=${#BUILD[@]}
 
 #fresh start
-rm -rf ${wd}/${SOC[0]}*
+for (( i=0; i<${N_SOC}; i++ )); do
+	rm -rf ${wd}/${SOC[0]}*
+done
 
 while [ 1 ]; do
 
