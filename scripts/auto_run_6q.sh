@@ -9,10 +9,10 @@ echo "working directory for the nfsroofs: ${wd} "
 cd ${wd}
 
 #IMPORTANT: board and soc should be paired, if add one board, please also specify the SOC
-SOC=(imx6q)
+SOC=(imx6q imx6q)
 N_SOC=${#SOC[@]}
 
-BOARD=(sabresd)
+BOARD=(sabreauto sabresd)
 N_BOARD=${#BOARD[@]}
 
 #IMPORTANT: main trunk build take first to simplified the script
@@ -22,7 +22,9 @@ BUILD=(master)
 N_BUILD=${#BUILD[@]}
 
 #fresh start
-rm -rf ${wd}/${SOC[0]}*
+for (( i=0; i<${N_SOC}; i++ )); do
+	rm -rf ${wd}/${SOC[0]}*
+done
 
 while [ 1 ]; do
 
@@ -38,11 +40,13 @@ while [ 1 ]; do
 
 			cd ${SOC[$i]}${BOARD[$i]}${BUILD[j]}
 
-			wget -q --backups=1 ${YOCTO_BUILD_WEB[$j]}zImage-${SOC[$i]}${BOARD[$i]}.bin
+			#wget -q --backups=1 ${YOCTO_BUILD_WEB[$j]}zImage-${SOC[$i]}${BOARD[$i]}.bin
+			wget -q --backups=1 ${YOCTO_BUILD_WEB[$j]}zImage-imx6qpdlsolox.bin
 
 			if [ $? -eq 0 ]
 			then
-				cmp zImage-${SOC[$i]}${BOARD[$i]}.bin zImage-${SOC[$i]}${BOARD[$i]}.bin.1
+				#cmp zImage-${SOC[$i]}${BOARD[$i]}.bin zImage-${SOC[$i]}${BOARD[$i]}.bin.1
+				cmp zImage-imx6qpdlsolox.bin zImage-imx6qpdlsolox.bin.1
 
 				if [ $? -eq 0 ]
 				then
