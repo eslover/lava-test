@@ -5,6 +5,31 @@ determine_platform_dt()
 {
     local find=0
 
+    find=`grep "MX8QM" /sys/devices/soc0/soc_id |wc -l`
+    if [ $find -eq 1 ]
+    then
+        #vte=vte_mx82
+	vte=vte_IMX8QM-ARM2
+    fi
+
+    find=`grep "MX8QXP" /sys/devices/soc0/soc_id |wc -l`
+    if [ $find -eq 1 ]
+    then
+        vte=vte_mx81
+    fi
+
+    find=`grep "MX8MQ" /sys/devices/soc0/soc_id |wc -l`
+    if [ $find -eq 1 ]
+    then
+        vte=vte_mx82
+    fi
+
+    find=`grep "MX7D" /sys/devices/soc0/soc_id |wc -l`
+    if [ $find -eq 1 ]
+    then
+        vte=vte_mx7_d
+    fi
+
     find=`grep "MX6Q" /sys/devices/soc0/soc_id |wc -l`
     if [ $find -eq 1 ]
     then
@@ -27,22 +52,6 @@ determine_platform_dt()
     if [ $find -eq 1 ]
     then
         vte=vte_mx62_d
-    fi
-    find=`grep "MX8QM" /sys/devices/soc0/soc_id |wc -l`
-    if [ $find -eq 1 ]
-    then
-        #vte=vte_mx82
-	vte=vte_IMX8QM-ARM2
-    fi
-    find=`grep "MX8QXP" /sys/devices/soc0/soc_id |wc -l`
-    if [ $find -eq 1 ]
-    then
-        vte=vte_mx81
-    fi
-    find=`grep "MX8MQ" /sys/devices/soc0/soc_id |wc -l`
-    if [ $find -eq 1 ]
-    then
-        vte=vte_mx82
     fi
     find=`grep "MX6 Quad SABRE Smart Device" /sys/devices/soc0/machine |wc -l`
     if [ $find -eq 1 ]
