@@ -87,7 +87,6 @@ run:
         - lava-test-case TGE-LV-ASRC-0202 --shell ./scripts/lava-vte.sh 'asrc_test1.sh -to 96000 $STREAM_PATH/asrc_stream/audio48k16S.wav && asrc_test1.sh -to 96000 $STREAM_PATH/asrc_stream/audio48k24S-S24_LE.wav'
         - lava-test-case TGE-LV-ASRC-0203 --shell ./scripts/lava-vte.sh 'asrc_test1.sh -to 88200 $STREAM_PATH/asrc_stream/audio96k16S.wav && asrc_test1.sh -to 88200 $STREAM_PATH/asrc_stream/audio96k24S-S24_LE.wav'
         - lava-test-case TGE-LV-ASRC-0204 --shell ./scripts/lava-vte.sh 'asrc_test1.sh -to 44100 $STREAM_PATH/asrc_stream/audio88k16S.wav && asrc_test1.sh -to 44100 $STREAM_PATH/asrc_stream/audio88k24S-S24_LE.wav'
-        - lava-test-case TGE-LV-RTC-0100 --shell ./scripts/lava-vte.sh 'rtc_test.sh 2'
         - lava-test-case TGE-LV-SD-1800 --shell ./scripts/lava-vte.sh 'cat /proc/partitions | grep mmc'
         - lava-test-case TGE-LV-PM-0100 --shell ./scripts/lava-vte.sh 'i=0; while [ $i -lt 3 ]; do rtc_testapp_6 -T 50 -m standby; i=`expr $i + 1`; done'
         - lava-test-case TGE-LV-ESLCD-0702 --shell ./scripts/lava-vte.sh 'dd if=/dev/urandom of=/dev/fb0 bs=1k count=150'
