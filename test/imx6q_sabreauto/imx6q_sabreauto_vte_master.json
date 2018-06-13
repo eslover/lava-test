@@ -28,7 +28,7 @@
 		"testdef_repos": [
 		    {
 			"git-repo": "https://github.com/eslover/sandbox-test.git",
-			"testdef": "lava_vte_mx6q_master.yaml"
+			"testdef": "lava_vte_mx6q_sabreauto_master.yaml"
 		    }
 		],
 		"timeout": 86400

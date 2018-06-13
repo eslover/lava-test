@@ -14,6 +14,7 @@ N_SOC=${#SOC[@]}
 
 BOARD=(14x14-evk evk sabresd)
 N_BOARD=${#BOARD[@]}
+NFS=(imx6ul7d imx6slevk imx7dsabresd)
 
 #IMPORTANT: main trunk build take first to simplified the script
 YOCTO_BUILD_WEB=("http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_Regression/latest/common_bsp/")
@@ -79,12 +80,12 @@ while [ 1 ]; do
 
 					while !( ls *.tar.bz2 &> /dev/null );
 					do
-						wget -N -q --backups=1 -r -l1 -nH --cut-dirs=2 --no-parent -A "*${SOC[$i]}*.tar.bz2" \
+						wget -N -q --backups=1 -r -l1 -nH --cut-dirs=2 --no-parent -A "*${NFS[$i]}*.tar.bz2" \
 						--no-directories ${YOCTO_BUILD_WEB[$j]}../fsl-imx-internal-xwayland/
 						sleep 60
 					done
 
-					ln -sf *${SOC[$i]}*.tar.bz2 ${SOC[$i]}${BOARD[$i]}.tar.bz2;
+					ln -sf *${NFS[$i]}*.tar.bz2 ${SOC[$i]}${BOARD[$i]}.tar.bz2;
 
 					if (( $j == 0 ))
 					then
