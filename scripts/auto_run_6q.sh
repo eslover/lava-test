@@ -23,7 +23,7 @@ N_BUILD=${#BUILD[@]}
 
 #fresh start
 for (( i=0; i<${N_SOC}; i++ )); do
-	rm -rf ${wd}/${SOC[0]}*
+	rm -rf ${wd}/${SOC[i]}*
 done
 
 while [ 1 ]; do

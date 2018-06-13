@@ -9,10 +9,10 @@ echo "working directory for the nfsroofs: ${wd} "
 cd ${wd}
 
 #IMPORTANT: board and soc should be paired, if add one board, please also specify the SOC
-SOC=(imx6sl imx7d)
+SOC=(imx6ul imx6sl imx7d)
 N_SOC=${#SOC[@]}
 
-BOARD=(evk sabresd)
+BOARD=(14x14-evk evk sabresd)
 N_BOARD=${#BOARD[@]}
 
 #IMPORTANT: main trunk build take first to simplified the script
@@ -23,7 +23,7 @@ N_BUILD=${#BUILD[@]}
 
 #fresh start
 for (( i=0; i<${N_SOC}; i++ )); do
-	rm -rf ${wd}/${SOC[0]}*
+	rm -rf ${wd}/${SOC[i]}*
 done
 
 while [ 1 ]; do
@@ -40,11 +40,13 @@ while [ 1 ]; do
 
 			cd ${SOC[$i]}${BOARD[$i]}${BUILD[j]}
 
-			wget -q --backups=1 ${YOCTO_BUILD_WEB[$j]}zImage-${SOC[$i]}${BOARD[$i]}.bin
+			#wget -q --backups=1 ${YOCTO_BUILD_WEB[$j]}zImage-${SOC[$i]}${BOARD[$i]}.bin
+			wget -q --backups=1 ${YOCTO_BUILD_WEB[$j]}zImage-imx6ul7d.bin
 
 			if [ $? -eq 0 ]
 			then
-				cmp zImage-${SOC[$i]}${BOARD[$i]}.bin zImage-${SOC[$i]}${BOARD[$i]}.bin.1
+				#cmp zImage-${SOC[$i]}${BOARD[$i]}.bin zImage-${SOC[$i]}${BOARD[$i]}.bin.1
+				cmp zImage-imx6ul7d.bin zImage-imx6ul7d.bin.1
 
 				if [ $? -eq 0 ]
 				then
@@ -77,12 +79,12 @@ while [ 1 ]; do
 
 					while !( ls *.tar.bz2 &> /dev/null );
 					do
-						wget -N -q --backups=1 -r -l1 -nH --cut-dirs=2 --no-parent -A "*${SOC[$i]}${BOARD[$i]}*.tar.bz2" \
+						wget -N -q --backups=1 -r -l1 -nH --cut-dirs=2 --no-parent -A "*${SOC[$i]}*.tar.bz2" \
 						--no-directories ${YOCTO_BUILD_WEB[$j]}../fsl-imx-internal-xwayland/
 						sleep 60
 					done
 
-					ln -sf *${SOC[$i]}${BOARD[$i]}*.tar.bz2 ${SOC[$i]}${BOARD[$i]}.tar.bz2;
+					ln -sf *${SOC[$i]}*.tar.bz2 ${SOC[$i]}${BOARD[$i]}.tar.bz2;
 
 					if (( $j == 0 ))
 					then
