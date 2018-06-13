@@ -19,7 +19,7 @@
         {
             "command": "boot_linaro_image",
             "parameters": {
-                "test_image_prompt": "root@imx6qsabresd:~#"
+                "test_image_prompt": "root@imx6qpdlsolox:~#"
             }
         },
 	{
