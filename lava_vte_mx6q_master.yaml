@@ -14,7 +14,7 @@ install:
         - https://github.com/eslover/sandbox-test
 run:
     steps:
-        - lava-test-case TGE-LV-KERNEL-SMP-0002 --shell ./scripts/lava-vte.sh '[ $(cat /proc/cpuinfo | grep processor | wc -l ) -eq 2 ]'
+        - lava-test-case TGE-LV-KERNEL-SMP-0002 --shell ./scripts/lava-vte.sh '[ $(cat /proc/cpuinfo | grep processor | wc -l ) -eq 4 ]'
         - lava-test-case TGE-LV-KERNEL-SMP-0005 --shell ./scripts/lava-vte.sh 'smp_test.sh 1'
         - lava-test-case TGE-LV-VPU-20001 --shell ./scripts/lava-vte.sh 'vpu_app_test.sh 1'
         - lava-test-case TGE-LV-VPU-20004 --shell ./scripts/lava-vte.sh 'vpu_app_test.sh 4'
