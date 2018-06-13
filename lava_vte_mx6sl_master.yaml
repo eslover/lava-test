@@ -8,15 +8,12 @@ metadata:
     scope:
         - functional
     devices:
-        - imx6q-sabresd
+        - imx6sl-evk
 install:
     git-repos:
         - https://github.com/eslover/sandbox-test
 run:
     steps:
-        - lava-test-case TGE-LV-KERNEL-SMP-0002 --shell ./scripts/lava-vte.sh '[ $(cat /proc/cpuinfo | grep processor | wc -l ) -eq 4 ]'
-        - lava-test-case TGE-LV-KERNEL-SMP-0009 --shell ./scripts/lava-vte.sh 'smp_test.sh 4'
-        - lava-test-case TGE-LV-KERNEL-SMP-0010 --shell ./scripts/lava-vte.sh 'smp_test.sh 5'
         - lava-test-case TGE-LV-DVFS-0144 --shell ./scripts/lava-vte.sh 'dvfs_mx61.sh 4'
         - lava-test-case TGE-LV-GPU-1009 --shell ./scripts/lava-vte.sh 'gles_viv.sh 6'
         - lava-test-case TGE-LV-GPU-XEGL-PERF-OPENGLES-0006 --shell ./scripts/lava-vte.sh 'glesx_viv.sh 4'
