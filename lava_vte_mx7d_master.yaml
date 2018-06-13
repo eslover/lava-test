@@ -14,9 +14,6 @@ install:
         - https://github.com/eslover/sandbox-test
 run:
     steps:
-        - lava-test-case TGE-LV-DVFS-0144 --shell ./scripts/lava-vte.sh 'dvfs_mx61.sh 4'
-        - lava-test-case TGE-LV-GPU-1009 --shell ./scripts/lava-vte.sh 'gles_viv.sh 6'
-        - lava-test-case TGE-LV-GPU-XEGL-PERF-OPENGLES-0006 --shell ./scripts/lava-vte.sh 'glesx_viv.sh 4'
         - lava-test-case TGE-LV-ALSA-0512 --shell ./scripts/lava-vte.sh 'adc_test1.sh -f S16_LE -d 5 -c 2 -r 11025'
         - lava-test-case TGE-LV-ALSA-0522 --shell ./scripts/lava-vte.sh 'adc_test1.sh -f S16_LE -d 5 -c 2 -r 12000'
         - lava-test-case TGE-LV-ALSA-0514 --shell ./scripts/lava-vte.sh 'adc_test1.sh -f S16_LE -d 5 -c 2 -r 22050'
