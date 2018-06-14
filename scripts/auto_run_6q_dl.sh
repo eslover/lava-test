@@ -71,7 +71,7 @@ while [ 1 ]; do
 
 					while !( ls *.bin &> /dev/null );
 					do
-						wget -N -q --backups=1 -r -l1 -nH --cut-dirs=2 --no-parent -A "*${SOC[$i]}*.bin" \
+						wget -N -q --backups=1 -r -l1 -nH --cut-dirs=2 --no-parent -A "*imx6*.bin" \
 						--no-directories \
 							${YOCTO_BUILD_WEB[$j]}
 						sleep 60
