@@ -15,7 +15,6 @@ install:
 run:
     steps:
         - lava-test-case TGE-LV-DVFS-0144 --shell ./scripts/lava-vte.sh 'dvfs_mx61.sh 4'
-        - lava-test-case TGE-LV-RTC-0010 --shell ./scripts/lava-vte.sh 'rtc_testapp_1'
         - lava-test-case TGE-LV-RTC-0020 --shell ./scripts/lava-vte.sh 'rtc_testapp_4'
         - lava-test-case TGE-LV-RTC-0011 --shell ./scripts/lava-vte.sh 'rtc_testapp_2'
         - lava-test-case TGE-LV-RTC-0013 --shell ./scripts/lava-vte.sh 'rtc_testapp_5 -T POLL'

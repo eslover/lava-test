@@ -16,12 +16,9 @@ run:
     steps:
         - lava-test-case TGE-LV-KERNEL-SMP-0002 --shell ./scripts/lava-vte.sh '[ $(cat /proc/cpuinfo | grep processor | wc -l ) -eq 4 ]'
         - lava-test-case TGE-LV-KERNEL-SMP-0009 --shell ./scripts/lava-vte.sh 'smp_test.sh 4'
-        - lava-test-case TGE-LV-KERNEL-SMP-0010 --shell ./scripts/lava-vte.sh 'smp_test.sh 5'
-        - lava-test-case TGE-LV-DVFS-0144 --shell ./scripts/lava-vte.sh 'dvfs_mx61.sh 4'
         - lava-test-case TGE-LV-ALSA-0512 --shell ./scripts/lava-vte.sh 'adc_test1.sh -f S16_LE -d 5 -c 2 -r 11025'
         - lava-test-case TGE-LV-ALSA-0522 --shell ./scripts/lava-vte.sh 'adc_test1.sh -f S16_LE -d 5 -c 2 -r 12000'
         - lava-test-case TGE-LV-ALSA-0514 --shell ./scripts/lava-vte.sh 'adc_test1.sh -f S16_LE -d 5 -c 2 -r 22050'
-        - lava-test-case TGE-LV-RTC-0010 --shell ./scripts/lava-vte.sh 'rtc_testapp_1'
         - lava-test-case TGE-LV-RTC-0020 --shell ./scripts/lava-vte.sh 'rtc_testapp_4'
         - lava-test-case TGE-LV-RTC-0011 --shell ./scripts/lava-vte.sh 'rtc_testapp_2'
         - lava-test-case TGE-LV-RTC-0013 --shell ./scripts/lava-vte.sh 'rtc_testapp_5 -T POLL'
