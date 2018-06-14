@@ -27,37 +27,37 @@ determine_platform_dt()
     find=`grep "MX7D" /sys/devices/soc0/soc_id |wc -l`
     if [ $find -eq 1 ]
     then
-        vte=vte_mx7_d
+        vte=vte_mx7
     fi
 
     find=`grep "MX6Q" /sys/devices/soc0/soc_id |wc -l`
     if [ $find -eq 1 ]
     then
-        vte=vte_mx63_d
+        vte=vte_mx63
     fi
 
     find=`grep "MX6DL" /sys/devices/soc0/soc_id |wc -l`
     if [ $find -eq 1 ]
     then
-        vte=vte_mx61_d
+        vte=vte_mx61
     fi
 
     find=`grep "MX6SL" /sys/devices/soc0/soc_id |wc -l`
     if [ $find -eq 1 ]
     then
-        vte=vte_mx60_d
+        vte=vte_mx60
     fi
 
     find=`grep "MX6SX" /sys/devices/soc0/soc_id |wc -l`
     if [ $find -eq 1 ]
     then
-        vte=vte_mx62_d
+        vte=vte_mx62
     fi
 
     find=`grep "MX6UL" /sys/devices/soc0/soc_id |wc -l`
     if [ $find -eq 1 ]
     then
-        vte=vte_mx64_d
+        vte=vte_mx64
     fi
 }
 
