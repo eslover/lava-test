@@ -9,10 +9,10 @@ echo "working directory for the nfsroofs: ${wd} "
 cd ${wd}
 
 #IMPORTANT: board and soc should be paired, if add one board, please also specify the SOC
-SOC=(imx6dl imx6q imx6q)
+SOC=(imx6sx imx6dl imx6q imx6q)
 N_SOC=${#SOC[@]}
 
-BOARD=(sabresd sabreauto sabresd)
+BOARD=(sdb sabresd sabreauto sabresd)
 N_BOARD=${#BOARD[@]}
 
 #IMPORTANT: main trunk build take first to simplified the script
