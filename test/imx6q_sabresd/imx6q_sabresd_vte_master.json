@@ -9,7 +9,7 @@
         {
             "command": "deploy_linaro_kernel",
             "parameters": {
-                "kernel": "file:///nfsroot/imx6qsabresdmaster/image/zImage-imx6qsabresd.bin",
+                "kernel": "file:///nfsroot/imx6qsabresdmaster/image/zImage-imx6qpdlsolox.bin",
                 "dtb": "file:///nfsroot/imx6qsabresdmaster/image/zImage-imx6q-sabresd.dtb",
 		"nfsrootfs": "file:///nfsroot/imx6qsabresdmaster/image/imx6qsabresd.tar.bz2",
                 "login_prompt": "imx6qpdlsolox login:",
