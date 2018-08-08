@@ -16,9 +16,10 @@ BOARD=(mek)
 N_BOARD=${#BOARD[@]}
 
 #IMPORTANT: main trunk build take first to simplified the script
-YOCTO_BUILD_WEB=("http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_Rocko_MX8/latest/common_bsp/" 
+YOCTO_BUILD_WEB=("http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_Regression/latest/common_bsp/" 
 		 "http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_4.9.88-2.2.0_8qxp_beta2/latest/common_bsp/")
-BUILD=(master release)
+#BUILD=(master release)
+BUILD=(master)
 N_BUILD=${#BUILD[@]}
 
 #fresh start
@@ -59,9 +60,15 @@ while [ 1 ]; do
 
 					while !( ls *.dtb &> /dev/null );
 					do
+						if (( $j == 0 ))
+						then
+							wget -N -q --backups=1 -r -l1 -nH --cut-dirs=2 --no-parent -A "*${SOC[$i]}*.dtb" \
+							--no-directories ${YOCTO_BUILD_WEB[$j]}/imx_dtbs/
+						else
+							wget -N -q --backups=1 -r -l1 -nH --cut-dirs=2 --no-parent -A "*${SOC[$i]}*.dtb" \
+							--no-directories ${YOCTO_BUILD_WEB[$j]}
+						fi
 
-						wget -N -q --backups=1 -r -l1 -nH --cut-dirs=2 --no-parent -A "*${SOC[$i]}*.dtb" \
-						--no-directories ${YOCTO_BUILD_WEB[$j]}
 						sleep 60
 					done
 
