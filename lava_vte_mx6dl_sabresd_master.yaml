@@ -31,7 +31,6 @@ run:
         - lava-test-case TGE-LV-ALSA-0246 --shell ./scripts/lava-vte.sh 'dac_test1.sh -f $STREAM_PATH/alsa_stream/audio192k32S.wav -A'
         - lava-test-case TGE-LV-ALSA-0521 --shell ./scripts/lava-vte.sh 'adc_test1.sh -f S16_LE -d 5 -c 1 -r 12000 -A'
         - lava-test-case TGE-LV-SD-1010 --shell ./scripts/lava-vte.sh 'mmc_transfer.sh'
-        - lava-test-case TGE-LV-V4L2-1077 --shell ./scripts/lava-vte.sh '/unit_tests/mxc_v4l2_output.out -iw 352 -ih 240 -fr 80 ${LTPROOT}/testcases/bin/fb-352x240.yuv'
         - lava-test-case TGE-LV-KERNEL-10002 --shell ./scripts/lava-vte.sh 'timer_resolution'
         - lava-test-case TGE-LV-KERNEL-10005 --shell ./scripts/lava-vte.sh 'cat /proc/meminfo | grep HighTotal'
         - lava-test-case TGE-LV-THERMO-0001 --shell ./scripts/lava-vte.sh 'if [ `uname -r` > "3.5" ]; then ls /sys/devices/soc.0/2000000.aips-bus/21bc4e0.thermal/*temp | xargs cat; else ls /sys/devices/virtual/thermal/thermal_zone0/*temp | xargs cat; fi'
