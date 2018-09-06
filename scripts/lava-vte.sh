@@ -85,4 +85,6 @@ echo `pwd`
 cd /mnt/nfs/${vte}
 . ./manual_test
 
+echo "COMMAND:$*"
+
 bash -c "$*"
