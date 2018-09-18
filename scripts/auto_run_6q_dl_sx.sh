@@ -15,7 +15,7 @@ N_SOC=${#SOC[@]}
 #BOARD=(sdb sabresd sabreauto sabresd)
 N_BOARD=${#BOARD[@]}
 
-U_TEE_FILE=(uTee-6sxsdb uTee-6dlsdb uTee-6qauto uTee-6qsdb)
+#U_TEE_FILE=(uTee-6sxsdb uTee-6dlsdb uTee-6qauto uTee-6qsdb)
 N_U_TEE_FILE=${#U_TEE_FILE[@]}
 
 #IMPORTANT: main trunk build take first to simplified the script
@@ -93,7 +93,7 @@ while [ 1 ]; do
 
 					ln -sf *imx6qpdlsolox*.tar.bz2 ${SOC[$i]}${BOARD[$i]}.tar.bz2;
 
-					#here is the trick: replace the device conf to do the SCUFW update
+					#here is the trick: replace the u-boot
 					#For the safty, fetch the imx-boot from Austin server
 					sudo sed -i "/imx-uboot/c\    wget ${YOCTO_BUILD_WEB_ATX[$j]}imx-uboot/u-boot-${SOC[$i]}${BOARD[$i]}_sd-optee.imx -O uboot.imx" \
 					"/etc/lava-dispatcher/devices/${SOC[$i]}-${BOARD[$i]}.conf"

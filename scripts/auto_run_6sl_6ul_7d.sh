@@ -9,22 +9,30 @@ echo "working directory for the nfsroofs: ${wd} "
 cd ${wd}
 
 #IMPORTANT: board and soc should be paired, if add one board, please also specify the SOC
-SOC=(imx6ul imx6sl imx7d)
+#SOC=(imx6ul imx6sl imx7d)
 N_SOC=${#SOC[@]}
 
-BOARD=(14x14-evk evk sabresd)
+#BOARD=(14x14-evk evk sabresd)
 N_BOARD=${#BOARD[@]}
-NFS=(imx6ul7d imx6slevk imx7dsabresd)
+#NFS=(imx6ul7d imx6slevk imx7dsabresd)
+
+N_U_TEE_FILE=${#U_TEE_FILE[@]}
 
 #IMPORTANT: main trunk build take first to simplified the script
-YOCTO_BUILD_WEB=("http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_Regression/latest/common_bsp/")
+YOCTO_BUILD_WEB_CHN=("http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_Regression/latest/common_bsp/" 
+		 "http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_Full/latest/common_bsp/")
 
-BUILD=(master)
+YOCTO_BUILD_WEB_ATX=("http://yb2.am.freescale.net/internal-only/Linux_IMX_Regression/latest/common_bsp/" 
+		 "http://yb2.am.freescale.net/build-output/Linux_IMX_Full/latest/common_bsp/")
+
+BUILD=(master release)
 N_BUILD=${#BUILD[@]}
 
 #fresh start
 for (( i=0; i<${N_SOC}; i++ )); do
-	rm -rf ${wd}/${SOC[i]}*
+	for (( j=0; i<${N_BOARD}; j++ )); do
+		$rm -rf ${wd}/${SOC[$i]}${BOARD[$j]}/*
+	done
 done
 
 while [ 1 ]; do
@@ -87,7 +95,17 @@ while [ 1 ]; do
 
 					ln -sf *${NFS[$i]}*.tar.bz2 ${SOC[$i]}${BOARD[$i]}.tar.bz2;
 
-					if (( $j == 0 ))
+					#here is the trick: replace the u-boot
+					#For the safty, fetch the imx-boot from Austin server
+					sudo sed -i "/imx-uboot/c\    wget ${YOCTO_BUILD_WEB_ATX[$j]}imx-uboot/u-boot-${SOC[$i]}${BOARD[$i]}_sd-optee.imx -O uboot.imx" \
+					"/etc/lava-dispatcher/devices/${SOC[$i]}-${BOARD[$i]}.conf"
+
+					sudo sed -i "/optee-os-imx/c\    wget ${YOCTO_BUILD_WEB_ATX[$j]}optee-os-imx/${U_TEE_FILE[$i]}" \
+					"/etc/lava-dispatcher/devices/${SOC[$i]}-${BOARD[$i]}.conf"
+
+					#start the job, the next job sumbmision need wait previous job completion due to the SCUFW update
+					#while we support more than one kind of test(release vs master) with one board in the farm
+					if [ ${BUILD[j]} == "master" ]
 					then
 						/home/r64343/workspace/lava-test/test/${SOC[$i]}_${BOARD[$i]}/start_ci_master.sh
 					else

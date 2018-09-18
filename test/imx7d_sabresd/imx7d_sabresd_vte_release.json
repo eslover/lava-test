@@ -2,24 +2,24 @@
 {
     "health_check": false,
     "logging_level": "DEBUG",
-    "job_name": "imx6sx_sabresd_vte_release",
-    "target": "imx6sx-sabresd",
+    "job_name": "imx7d_sabresd_vte_release",
+    "target": "imx7d-sabresd",
     "timeout": 3000,
     "actions": [
         {
             "command": "deploy_linaro_kernel",
             "parameters": {
-                "kernel": "file:///nfsroot/imx6sxsabresdrelease/image/zImage-imx6qpdlsolox.bin",
-                "dtb": "file:///nfsroot/imx6sxsabresdrelease/image/zImage-imx6sx-sdb.dtb",
-		"nfsrootfs": "file:///nfsroot/imx6sxsabresdrelease/image/imx6sxsabresd.tar.bz2",
-                "login_prompt": "imx6qpdlsolox login:",
+                "kernel": "file:///nfsroot/imx7dsabresdrelease/image/zImage-imx7dsabresd.bin",
+                "dtb": "file:///nfsroot/imx7dsabresdrelease/image/zImage-imx7d-sdb.dtb",
+		"nfsrootfs": "file:///nfsroot/imx7dsabresdrelease/image/imx7dsabresd.tar.bz2",
+                "login_prompt": "imx7dsabresd login:",
                 "username": "root"
             }
         },
         {
             "command": "boot_linaro_image",
             "parameters": {
-                "test_image_prompt": "root@imx6qpdlsolox:~#"
+                "test_image_prompt": "root@imx7dsabresd:~#"
             }
         },
 	{
@@ -28,7 +28,7 @@
 		"testdef_repos": [
 		    {
 			"git-repo": "https://github.com/eslover/sandbox-test.git",
-			"testdef": "lava_vte_mx6sx_sabresd_release.yaml"
+			"testdef": "lava_vte_mx7d_release.yaml"
 		    }
 		],
 		"timeout": 86400
