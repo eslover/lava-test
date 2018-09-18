@@ -16,10 +16,13 @@ BOARD=(mek)
 N_BOARD=${#BOARD[@]}
 
 #IMPORTANT: main trunk build take first to simplified the script
-YOCTO_BUILD_WEB=("http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_Regression/latest/common_bsp/" 
-		 "http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_4.9.88-2.2.0_8qxp_beta2/latest/common_bsp/")
-#BUILD=(master release)
-BUILD=(master)
+YOCTO_BUILD_WEB_CHN=("http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_Regression/latest/common_bsp/" 
+		 "http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_Full/latest/common_bsp/")
+
+YOCTO_BUILD_WEB_ATX=("http://yb2.am.freescale.net/internal-only/Linux_IMX_Regression/latest/common_bsp/" 
+		 "http://yb2.am.freescale.net/build-output/Linux_IMX_Full/latest/common_bsp/")
+
+BUILD=(master release)
 N_BUILD=${#BUILD[@]}
 
 #fresh start
@@ -39,7 +42,7 @@ while [ 1 ]; do
 
 			cd ${SOC[$i]}${BOARD[$i]}${BUILD[j]}
 
-			wget -q --backups=1 ${YOCTO_BUILD_WEB[$j]}Image-${SOC[$i]}${BOARD[$i]}.bin
+			wget -q --backups=1 ${YOCTO_BUILD_WEB_CHN[$j]}Image-${SOC[$i]}${BOARD[$i]}.bin
 
 			if [ $? -eq 0 ]
 			then
@@ -63,10 +66,10 @@ while [ 1 ]; do
 						if (( $j == 0 ))
 						then
 							wget -N -q --backups=1 -r -l1 -nH --cut-dirs=2 --no-parent -A "*${SOC[$i]}*.dtb" \
-							--no-directories ${YOCTO_BUILD_WEB[$j]}/imx_dtbs/
+							--no-directories ${YOCTO_BUILD_WEB_CHN[$j]}/imx_dtbs/
 						else
 							wget -N -q --backups=1 -r -l1 -nH --cut-dirs=2 --no-parent -A "*${SOC[$i]}*.dtb" \
-							--no-directories ${YOCTO_BUILD_WEB[$j]}
+							--no-directories ${YOCTO_BUILD_WEB_CHN[$j]}
 						fi
 
 						sleep 60
@@ -76,26 +79,27 @@ while [ 1 ]; do
 					do
 						wget -N -q --backups=1 -r -l1 -nH --cut-dirs=2 --no-parent -A "*${SOC[$i]}*.bin" \
 						--no-directories \
-							${YOCTO_BUILD_WEB[$j]}
+							${YOCTO_BUILD_WEB_CHN[$j]}
 						sleep 60
 					done
 
 					while !( ls *.tar.bz2 &> /dev/null );
 					do
 						wget -N -q --backups=1 -r -l1 -nH --cut-dirs=2 --no-parent -A "*${SOC[$i]}${BOARD[$i]}*.tar.bz2" \
-						--no-directories ${YOCTO_BUILD_WEB[$j]}../fsl-imx-internal-xwayland/
+						--no-directories ${YOCTO_BUILD_WEB_CHN[$j]}../fsl-imx-internal-xwayland/
 						sleep 60
 					done
 
 					ln -sf *${SOC[$i]}${BOARD[$i]}*.tar.bz2 ${SOC[$i]}${BOARD[$i]}.tar.bz2;
 
 					#here is the trick: replace the device conf to do the SCUFW update
-					sudo sed -i "/wget/c\    wget ${YOCTO_BUILD_WEB[$j]}imx-boot/imx-boot-${SOC[$i]}${BOARD[$i]}-sd.bin-flash" \
+					#For the safty, fetch the imx-boot from Austin server
+					sudo sed -i "/wget/c\    wget ${YOCTO_BUILD_WEB_ATX[$j]}imx-boot/imx-boot-${SOC[$i]}${BOARD[$i]}-sd.bin-flash" \
 					"/etc/lava-dispatcher/devices/${SOC[$i]}-${BOARD[$i]}.conf"
 
 					#start the job, the next job sumbmision need wait previous job completion due to the SCUFW update
 					#while we support more than one kind of test(release vs master) with one board in the farm
-					if (( $j == 0 ))
+					if [ ${BUILD[j]} == "master" ]
 					then
 						/home/r64343/workspace/lava-test/test/${SOC[$i]}_${BOARD[$i]}/start_ci_master.sh
 					else

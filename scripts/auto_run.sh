@@ -1,5 +1,6 @@
 #!/bin/bash
 
-./auto_run_8qm.sh &
-./auto_run_8qxp.sh &
+SOC=(imx6sx)
+BOARD=(sdb)
+. ./auto_run_6q_dl_sx.sh &
 

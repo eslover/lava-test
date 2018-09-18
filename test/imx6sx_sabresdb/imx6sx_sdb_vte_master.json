@@ -1,0 +1,45 @@
+
+{
+    "health_check": false,
+    "logging_level": "DEBUG",
+    "job_name": "imx6sx_sabresd_vte_master",
+    "target": "imx6sx-sabresd",
+    "timeout": 3000,
+    "actions": [
+        {
+            "command": "deploy_linaro_kernel",
+            "parameters": {
+                "kernel": "file:///nfsroot/imx6sxsabresdbmaster/image/zImage-imx6qpdlsolox.bin",
+                "dtb": "file:///nfsroot/imx6sxsabresdbmaster/image/zImage-imx6sx-sdb.dtb",
+		"nfsrootfs": "file:///nfsroot/imx6sxsabresdbmaster/image/imx6sxsdb.tar.bz2",
+                "login_prompt": "imx6qpdlsolox login:",
+                "username": "root"
+            }
+        },
+        {
+            "command": "boot_linaro_image",
+            "parameters": {
+                "test_image_prompt": "root@imx6qpdlsolox:~#"
+            }
+        },
+	{
+	    "command": "lava_test_shell",
+	    "parameters": {
+		"testdef_repos": [
+		    {
+			"git-repo": "https://github.com/eslover/sandbox-test.git",
+			"testdef": "lava_vte_mx6sx_sabresd_master.yaml"
+		    }
+		],
+		"timeout": 86400
+	    }
+	},
+	{
+            "command": "submit_results_on_host",
+            "parameters": {
+                "server": "http://10.192.242.176/RPC2/",
+                "stream": "/anonymous/admin/"
+            }
+        }
+    ]
+}
