@@ -1,22 +1,45 @@
 #/bin/bash
 
-wd=/nfsroot
-
-echo "working directory for the nfsroofs: ${wd} "
-
-[[ -d ${wd} ]] || sudo mkdir ${wd} && sudo chmod -R 777 ${wd}
-
-cd ${wd}
+for i in "$@"
+do
+case $i in
+    -b=*|--board=*)
+    BOARD+="${i#*=}"
+    shift # past argument=value
+    ;;
+    -s=*|--soc=*)
+    SOC+="${i#*=}"
+    shift # past argument=value
+    ;;
+    -u=*|--u-tee-file=*)
+    U_TEE_FILE+="${i#*=}"
+    shift # past argument=value
+    ;;
+    -n=*|--nfs=*)
+    NFS+="${i#*=}"
+    shift # past argument=value
+    ;;
+    --default)
+    DEFAULT=YES
+    shift # past argument with no value
+    ;;
+    *)
+          # unknown option
+    ;;
+esac
+done
 
 #IMPORTANT: board and soc should be paired, if add one board, please also specify the SOC
 #SOC=(imx6ul imx6sl imx7d)
-N_SOC=${#SOC[@]}
-
 #BOARD=(14x14-evk evk sabresd)
-N_BOARD=${#BOARD[@]}
 #NFS=(imx6ul7d imx6slevk imx7dsabresd)
 
+N_SOC=${#SOC[@]}
+N_BOARD=${#BOARD[@]}
 N_U_TEE_FILE=${#U_TEE_FILE[@]}
+
+BUILD=(master release)
+N_BUILD=${#BUILD[@]}
 
 #IMPORTANT: main trunk build take first to simplified the script
 YOCTO_BUILD_WEB_CHN=("http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_Regression/latest/common_bsp/" 
@@ -25,13 +48,18 @@ YOCTO_BUILD_WEB_CHN=("http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_
 YOCTO_BUILD_WEB_ATX=("http://yb2.am.freescale.net/internal-only/Linux_IMX_Regression/latest/common_bsp/" 
 		 "http://yb2.am.freescale.net/build-output/Linux_IMX_Full/latest/common_bsp/")
 
-BUILD=(master release)
-N_BUILD=${#BUILD[@]}
+wd=/nfsroot
+
+echo "working directory for the nfsroofs: ${wd} "
+
+[[ -d ${wd} ]] || sudo mkdir ${wd} && sudo chmod -R 777 ${wd}
+
+cd ${wd}
 
 #fresh start
 for (( i=0; i<${N_SOC}; i++ )); do
-	for (( j=0; i<${N_BOARD}; j++ )); do
-		$rm -rf ${wd}/${SOC[$i]}${BOARD[$j]}/*
+	for (( j=0; j<${N_BOARD}; j++ )); do
+		rm -rf ${wd}/${SOC[$i]}${BOARD[$j]}*
 	done
 done
 
