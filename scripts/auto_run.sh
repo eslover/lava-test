@@ -11,17 +11,17 @@
 
 #-s: SOC;-b: BOARD;-u: U_TEE_FILE;-n: NFS
 
-./auto_run_6q_dl_sx.sh -s=imx6sx -b=sabresd -u=uTee-6sxsdb
+nohup bash -x ./auto_run_6q_dl_sx.sh -s=imx6sx -b=sabresd -u=uTee-6sxsdb > imx6sxsdb_nohup.out 2>&1 &
 
-./auto_run_6q_dl_sx.sh -s=imx6q -b=sabresd -u=uTee-6qsdb
+nohup bash -x ./auto_run_6q_dl_sx.sh -s=imx6q -b=sabresd -u=uTee-6qsdb > imx6qsdb_nohup.out 2>&1 &
 
-./auto_run_6q_dl_sx.sh -s=imx6q -b=sabreauto -u=uTee-6qauto
+nohup bash -x ./auto_run_6q_dl_sx.sh -s=imx6q -b=sabreauto -u=uTee-6qauto > imx6qard_nohup.out 2>&1 &
 
-./auto_run_6q_dl_sx.sh -s=imx6dl -b=sabresd -u=uTee-6dlsdb
+nohup bash -x ./auto_run_6q_dl_sx.sh -s=imx6dl -b=sabresd -u=uTee-6dlsdb > imx6dlsdb_nohup.out 2>&1 &
 
-./auto_run_6sl_6ul_7d.sh -s=imx6ul -b=14x14-evk -u=uTee-6ulevk -n=uTee-6ulevk
+nohup bash -x ./auto_run_6sl_6ul_7d.sh -s=imx6ul -b=14x14-evk -u=uTee-6ulevk -n=imx6ul7d  > imx6ulevk_nohup.out 2>&1 &
 
-./auto_run_6sl_6ul_7d.sh -s=imx6sl -b=evk -u=uTee-6slevk -n=imx6slevk
+nohup bash -x ./auto_run_6sl_6ul_7d.sh -s=imx6sl -b=evk -u=uTee-6slevk -n=imx6slevk > imx6slevk_nohup.out 2>&1 &
 
-./auto_run_6sl_6ul_7d.sh -s=imx7d -b=sabresd -u=uTee-7dsdb -n=imx7dsabresd
+nohup bash -x ./auto_run_6sl_6ul_7d.sh -s=imx7d -b=sabresd -u=uTee-7dsdb -n=imx7dsabresd > imx7dsdb_nohup.out 2>&1 &
 

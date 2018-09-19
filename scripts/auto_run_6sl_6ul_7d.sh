@@ -77,8 +77,8 @@ while [ 1 ]; do
 
 			cd ${SOC[$i]}${BOARD[$i]}${BUILD[j]}
 
-			#wget -q --backups=1 ${YOCTO_BUILD_WEB[$j]}zImage-${SOC[$i]}${BOARD[$i]}.bin
-			wget -q --backups=1 ${YOCTO_BUILD_WEB[$j]}zImage-imx6ul7d.bin
+			#wget -q --backups=1 ${YOCTO_BUILD_WEB_CHN[$j]}zImage-${SOC[$i]}${BOARD[$i]}.bin
+			wget -q --backups=1 ${YOCTO_BUILD_WEB_CHN[$j]}zImage-imx6ul7d.bin
 
 			if [ $? -eq 0 ]
 			then
@@ -102,7 +102,7 @@ while [ 1 ]; do
 					do
 
 						wget -N -q --backups=1 -r -l1 -nH --cut-dirs=2 --no-parent -A "*${SOC[$i]}*.dtb" \
-						--no-directories ${YOCTO_BUILD_WEB[$j]}
+						--no-directories ${YOCTO_BUILD_WEB_CHN[$j]}
 						sleep 60
 					done
 
@@ -110,14 +110,14 @@ while [ 1 ]; do
 					do
 						wget -N -q --backups=1 -r -l1 -nH --cut-dirs=2 --no-parent -A "*${SOC[$i]}*.bin" \
 						--no-directories \
-							${YOCTO_BUILD_WEB[$j]}
+							${YOCTO_BUILD_WEB_CHN[$j]}
 						sleep 60
 					done
 
 					while !( ls *.tar.bz2 &> /dev/null );
 					do
 						wget -N -q --backups=1 -r -l1 -nH --cut-dirs=2 --no-parent -A "*${NFS[$i]}*.tar.bz2" \
-						--no-directories ${YOCTO_BUILD_WEB[$j]}../fsl-imx-internal-xwayland/
+						--no-directories ${YOCTO_BUILD_WEB_CHN[$j]}../fsl-imx-internal-xwayland/
 						sleep 60
 					done
 
@@ -125,10 +125,10 @@ while [ 1 ]; do
 
 					#here is the trick: replace the u-boot
 					#For the safty, fetch the imx-boot from Austin server
-					sudo sed -i "/imx-uboot/c\    wget ${YOCTO_BUILD_WEB_ATX[$j]}imx-uboot/u-boot-${SOC[$i]}${BOARD[$i]}_sd-optee.imx -O uboot.imx" \
+					sudo sed -i --follow-symlinks "/imx_uboot/c\ wget ${YOCTO_BUILD_WEB_ATX[$j]}imx_uboot/u-boot-${SOC[$i]}${BOARD[$i]}_sd-optee.imx -O uboot.imx" \
 					"/etc/lava-dispatcher/devices/${SOC[$i]}-${BOARD[$i]}.conf"
 
-					sudo sed -i "/optee-os-imx/c\    wget ${YOCTO_BUILD_WEB_ATX[$j]}optee-os-imx/${U_TEE_FILE[$i]}" \
+					sudo sed -i --follow-symlinks "/optee-os-imx/c\ wget ${YOCTO_BUILD_WEB_ATX[$j]}optee-os-imx/${U_TEE_FILE[$i]}" \
 					"/etc/lava-dispatcher/devices/${SOC[$i]}-${BOARD[$i]}.conf"
 
 					#start the job, the next job sumbmision need wait previous job completion due to the SCUFW update

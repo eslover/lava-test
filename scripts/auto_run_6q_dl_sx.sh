@@ -125,10 +125,10 @@ while [ 1 ]; do
 
 					#here is the trick: replace the u-boot
 					#For the safty, fetch the imx-boot from Austin server
-					sudo sed -i "/imx-uboot/c\    wget ${YOCTO_BUILD_WEB_ATX[$j]}imx-uboot/u-boot-${SOC[$i]}${BOARD[$i]}_sd-optee.imx -O uboot.imx" \
+					sudo sed -i --follow-symlinks "/imx_uboot/c\ wget ${YOCTO_BUILD_WEB_ATX[$j]}imx_uboot/u-boot-${SOC[$i]}${BOARD[$i]}_sd-optee.imx -O uboot.imx" \
 					"/etc/lava-dispatcher/devices/${SOC[$i]}-${BOARD[$i]}.conf"
 
-					sudo sed -i "/optee-os-imx/c\    wget ${YOCTO_BUILD_WEB_ATX[$j]}optee-os-imx/${U_TEE_FILE[$i]}" \
+					sudo sed -i --follow-symlinks "/optee-os-imx/c\ wget ${YOCTO_BUILD_WEB_ATX[$j]}optee-os-imx/${U_TEE_FILE[$i]}" \
 					"/etc/lava-dispatcher/devices/${SOC[$i]}-${BOARD[$i]}.conf"
 
 					#start the job, the next job sumbmision need wait previous job completion due to the SCUFW update

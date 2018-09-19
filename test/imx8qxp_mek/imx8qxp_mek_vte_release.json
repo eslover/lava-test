@@ -2,7 +2,7 @@
 {
     "health_check": false,
     "logging_level": "DEBUG",
-    "job_name": "imx8qxp_mek_vte_beta2",
+    "job_name": "imx8qxp_mek_vte_release",
     "target": "imx8qxp-mek",
     "timeout": 3000,
     "actions": [
@@ -28,7 +28,7 @@
 		"testdef_repos": [
 		    {
 			"git-repo": "https://github.com/eslover/sandbox-test.git",
-			"testdef": "lava_vte_mx8qxp_alpha.yaml"
+			"testdef": "lava_vte_mx8qxp_release.yaml"
 		    }
 		],
 		"timeout": 86400
