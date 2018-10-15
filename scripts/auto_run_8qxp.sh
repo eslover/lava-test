@@ -17,12 +17,14 @@ N_BOARD=${#BOARD[@]}
 
 #IMPORTANT: main trunk build take first to simplified the script
 YOCTO_BUILD_WEB_CHN=("http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_Regression/latest/common_bsp/" 
-		 "http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_Full/latest/common_bsp/")
+		     "http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_Full/latest/common_bsp/" 
+		     "http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_4.14.62-1.0.0_beta/latest/common_bsp/")
 
 YOCTO_BUILD_WEB_ATX=("http://yb2.am.freescale.net/internal-only/Linux_IMX_Regression/latest/common_bsp/" 
-		 "http://yb2.am.freescale.net/build-output/Linux_IMX_Full/latest/common_bsp/")
+		     "http://yb2.am.freescale.net/build-output/Linux_IMX_Full/latest/common_bsp/")
+		     "http://yb2.am.freescale.net/build-output/Linux_IMX_4.14.62-1.0.0_beta/latest/common_bsp/")
 
-BUILD=(master release)
+BUILD=(regression full release)
 N_BUILD=${#BUILD[@]}
 
 #fresh start
@@ -99,12 +101,22 @@ while [ 1 ]; do
 
 					#start the job, the next job sumbmision need wait previous job completion due to the SCUFW update
 					#while we support more than one kind of test(release vs master) with one board in the farm
-					if [ ${BUILD[j]} == "master" ]
-					then
-						/home/r64343/workspace/lava-test/test/${SOC[$i]}_${BOARD[$i]}/start_ci_master.sh
-					else
+
+					case ${BUILD[j]}  in
+
+					full)
+						/home/r64343/workspace/lava-test/test/${SOC[$i]}_${BOARD[$i]}/start_ci_full.sh
+						;;
+					regression)
+						/home/r64343/workspace/lava-test/test/${SOC[$i]}_${BOARD[$i]}/start_ci_regression.sh
+						;;
+					release)
 						/home/r64343/workspace/lava-test/test/${SOC[$i]}_${BOARD[$i]}/start_ci_release.sh
-					fi
+						;;
+					*)
+						echo "Unknown build type"
+						;;
+					esac
 				fi
 			else
 				sleep 60

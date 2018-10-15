@@ -2,24 +2,24 @@
 {
     "health_check": false,
     "logging_level": "DEBUG",
-    "job_name": "imx6dl_sabresd_vte_master",
-    "target": "imx6dl-sabresd",
+    "job_name": "imx6sl_evk_vte_regression",
+    "target": "imx6sl-evk",
     "timeout": 3000,
     "actions": [
         {
             "command": "deploy_linaro_kernel",
             "parameters": {
-                "kernel": "file:///nfsroot/imx6dlsabresdmaster/image/zImage-imx6qpdlsolox.bin",
-                "dtb": "file:///nfsroot/imx6dlsabresdmaster/image/zImage-imx6dl-sabresd.dtb",
-		"nfsrootfs": "file:///nfsroot/imx6dlsabresdmaster/image/imx6dlsabresd.tar.bz2",
-                "login_prompt": "imx6qpdlsolox login:",
+                "kernel": "file:///nfsroot/imx6slevkregression/image/zImage-imx6slevk.bin",
+                "dtb": "file:///nfsroot/imx6slevkregression/image/zImage-imx6sl-evk.dtb",
+		"nfsrootfs": "file:///nfsroot/imx6slevkregression/image/imx6slevk.tar.bz2",
+                "login_prompt": "imx6slevk login:",
                 "username": "root"
             }
         },
         {
             "command": "boot_linaro_image",
             "parameters": {
-                "test_image_prompt": "root@imx6qpdlsolox:~#"
+                "test_image_prompt": "root@imx6slevk:~#"
             }
         },
 	{
@@ -28,7 +28,7 @@
 		"testdef_repos": [
 		    {
 			"git-repo": "https://github.com/eslover/sandbox-test.git",
-			"testdef": "lava_vte_mx6dl_sabresd_master.yaml"
+			"testdef": "lava_vte_mx6sl_regression.yaml"
 		    }
 		],
 		"timeout": 86400

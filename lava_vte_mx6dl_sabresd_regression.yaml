@@ -1,0 +1,72 @@
+metadata:
+    format: Lava-Test Test 
+    name: test
+    description: "Basic lava test"
+    maintainer:
+    os:
+        - Linux
+    scope:
+        - functional
+    devices:
+        - imx6dl-sabresd
+install:
+    git-repos:
+        - https://github.com/eslover/sandbox-test
+
+run:
+    steps:
+        - lava-test-case TGE-LV-ALSA-0225 --shell ./scripts/lava-vte.sh 'dac_test1.sh -f $STREAM_PATH/alsa_stream/audio128k32M.wav -A'
+        - lava-test-case TGE-LV-ALSA-0226 --shell ./scripts/lava-vte.sh 'dac_test1.sh -f $STREAM_PATH/alsa_stream/audio128k32S.wav -A'
+        - lava-test-case TGE-LV-ALSA-0231 --shell ./scripts/lava-vte.sh 'dac_test1.sh -f $STREAM_PATH/alsa_stream/audio176k16M.wav -A'
+        - lava-test-case TGE-LV-ALSA-0232 --shell ./scripts/lava-vte.sh 'dac_test1.sh -f $STREAM_PATH/alsa_stream/audio176k16S.wav -A'
+        - lava-test-case TGE-LV-ALSA-0233 --shell ./scripts/lava-vte.sh 'dac_test1.sh -f $STREAM_PATH/alsa_stream/audio176k24M-S24_LE.wav -A'
+        - lava-test-case TGE-LV-ALSA-0234 --shell ./scripts/lava-vte.sh 'dac_test1.sh -f $STREAM_PATH/alsa_stream/audio176k24S-S24_LE.wav -A'
+        - lava-test-case TGE-LV-ALSA-0235 --shell ./scripts/lava-vte.sh 'dac_test1.sh -f $STREAM_PATH/alsa_stream/audio176k32M.wav -A'
+        - lava-test-case TGE-LV-ALSA-0236 --shell ./scripts/lava-vte.sh 'dac_test1.sh -f $STREAM_PATH/alsa_stream/audio176k32S.wav -A'
+        - lava-test-case TGE-LV-ALSA-0241 --shell ./scripts/lava-vte.sh 'dac_test1.sh -f $STREAM_PATH/alsa_stream/audio192k16M.wav -A'
+        - lava-test-case TGE-LV-ALSA-0242 --shell ./scripts/lava-vte.sh 'dac_test1.sh -f $STREAM_PATH/alsa_stream/audio192k16S.wav -A'
+        - lava-test-case TGE-LV-ALSA-0243 --shell ./scripts/lava-vte.sh 'dac_test1.sh -f $STREAM_PATH/alsa_stream/audio192k24M-S24_LE.wav -A'
+        - lava-test-case TGE-LV-ALSA-0244 --shell ./scripts/lava-vte.sh 'dac_test1.sh -f $STREAM_PATH/alsa_stream/audio192k24S-S24_LE.wav -A'
+        - lava-test-case TGE-LV-ALSA-0245 --shell ./scripts/lava-vte.sh 'dac_test1.sh -f $STREAM_PATH/alsa_stream/audio192k32M.wav -A'
+        - lava-test-case TGE-LV-ALSA-0246 --shell ./scripts/lava-vte.sh 'dac_test1.sh -f $STREAM_PATH/alsa_stream/audio192k32S.wav -A'
+        - lava-test-case TGE-LV-ALSA-0521 --shell ./scripts/lava-vte.sh 'adc_test1.sh -f S16_LE -d 5 -c 1 -r 12000 -A'
+        - lava-test-case TGE-LV-SD-1010 --shell ./scripts/lava-vte.sh 'mmc_transfer.sh'
+        - lava-test-case TGE-LV-KERNEL-10002 --shell ./scripts/lava-vte.sh 'timer_resolution'
+        - lava-test-case TGE-LV-KERNEL-10005 --shell ./scripts/lava-vte.sh 'cat /proc/meminfo | grep HighTotal'
+        - lava-test-case TGE-LV-THERMO-0001 --shell ./scripts/lava-vte.sh 'if [ `uname -r` > "3.5" ]; then ls /sys/devices/soc.0/2000000.aips-bus/21bc4e0.thermal/*temp | xargs cat; else ls /sys/devices/virtual/thermal/thermal_zone0/*temp | xargs cat; fi'
+        - lava-test-case TGE-LV-THERMO-0002 --shell ./scripts/lava-vte.sh 'if [ `uname -r` > "3.5" ]; then ls /sys/devices/soc.0/2000000.aips-bus/21bc4e0.thermal/*type | xargs cat; else ls /sys/devices/virtual/thermal/thermal_zone0/*type | xargs cat; fi'
+        - lava-test-case TGE-LV-CORE-0001 --shell ./scripts/lava-vte.sh 'validate'
+        - lava-test-case TGE-LV-THERMO-0004 --shell ./scripts/lava-vte.sh 'thermal_freq.sh'
+        - lava-test-case TGE-LV-CORE-0002 --shell ./scripts/lava-vte.sh 'check_events'
+        - lava-test-case TGE-LV-ETHERNET-1009 --shell ./scripts/lava-vte.sh 'ifconfig eth0 | grep "dropped:0"'
+        - lava-test-case TGE-LV-ETHERNET-1011 --shell ./scripts/lava-vte.sh 'ifconfig eth0 | grep "overruns:0"'
+        - lava-test-case TGE-LV-V4L2-1078 --shell ./scripts/lava-vte.sh 'mxc_v4l2_output.sh 1'
+        - lava-test-case TGE-LV-V4L2-1079 --shell ./scripts/lava-vte.sh 'mxc_v4l2_output.sh 2'
+        - lava-test-case TGE-LV-V4L2-1080 --shell ./scripts/lava-vte.sh 'mxc_v4l2_output.sh 3'
+        - lava-test-case TGE-LV-V4L2-1081 --shell ./scripts/lava-vte.sh 'mxc_v4l2_output.sh 4'
+        - lava-test-case TGE-LV-V4L2-1082 --shell ./scripts/lava-vte.sh 'mxc_v4l2_output.sh 5'
+        - lava-test-case TGE-LV-I2C-CLK-0001 --shell ./scripts/lava-vte.sh 'clk.sh i2c'
+        - lava-test-case TGE-LV-ASRC-0210 --shell ./scripts/lava-vte.sh 'asrc_test1.sh -to 96000 $STREAM_PATH/asrc_stream/audio48k24S-S24_LE.wav'
+        - lava-test-case TGE-LV-TIMER-FREQ-0001 --shell ./scripts/lava-vte.sh 'timer_interrupt'
+        - lava-test-case TGE-LV-BENCH-10005 --shell ./scripts/lava-vte.sh 'fir_neon && fir_neon_intrisics'
+        - lava-test-case TGE-LV-ASRC-0232 --shell ./scripts/lava-vte.sh 'asrc_grp_conv.sh ext 192'
+        - lava-test-case TGE-LV-ALSA-0204 --shell ./scripts/lava-vte.sh '(arecord -D plughw:0 -r 8000 -c 2 -f S16_LE -N -M -d 20 file.wav &); aplay -Dplughw:0 $STREAM_PATH/alsa_stream/audio8k16S.wav && aplay -M -Dplughw:0 $STREAM_PATH/alsa_stream/audio8k16S.wav && sleep 20 && aplay file.wav'
+        - lava-test-case TGE-LV-ALSA-0205 --shell ./scripts/lava-vte.sh '(arecord -D plughw:0 -r 11025 -c 2 -f S16_LE -N -M -d 20 file.wav &); aplay -Dplughw:0 $STREAM_PATH/alsa_stream/audio11k16S.wav && aplay -M -Dplughw:0 $STREAM_PATH/alsa_stream/audio11k16S.wav && sleep 20 && aplay file.wav'
+        - lava-test-case TGE-LV-ALSA-0206 --shell ./scripts/lava-vte.sh '(arecord -D plughw:0 -r 12000 -c 2 -f S16_LE -N -M -d 20 file.wav &); aplay -Dplughw:0 $STREAM_PATH/alsa_stream/audio12k16S.wav && aplay -M -D plughw:0 $STREAM_PATH/alsa_stream/audio12k16S.wav && sleep 20 && aplay file.wav'
+        - lava-test-case TGE-LV-ALSA-0207 --shell ./scripts/lava-vte.sh '(arecord -D plughw:0 -r 16000 -c 2 -f S16_LE -N -M -d 20 file.wav &); aplay -Dplughw:0 $STREAM_PATH/alsa_stream/audio16k16S.wav && aplay -M -D plughw:0 $STREAM_PATH/alsa_stream/audio16k16S.wav && sleep 20 && aplay file.wav'
+        - lava-test-case TGE-LV-ALSA-0208 --shell ./scripts/lava-vte.sh '(arecord -D plughw:0 -r 22050 -c 2 -f S16_LE -N -M -d 20 file.wav &); aplay -Dplughw:0 $STREAM_PATH/alsa_stream/audio22k16S.wav && aplay -M -D plughw:0 $STREAM_PATH/alsa_stream/audio22k16S.wav && sleep 20 && aplay file.wav'
+        - lava-test-case TGE-LV-ALSA-0209 --shell ./scripts/lava-vte.sh '(arecord -D plughw:0 -r 24000 -c 2 -f S16_LE -N -M -d 20 file.wav &); aplay -Dplughw:0 $STREAM_PATH/alsa_stream/audio24k16S.wav && aplay -M -D plughw:0 $STREAM_PATH/alsa_stream/audio24k16S.wav && sleep 20 && aplay file.wav'
+        - lava-test-case TGE-LV-ALSA-0211 --shell ./scripts/lava-vte.sh '(arecord -D plughw:0 -r 32000 -c 2 -f S16_LE -N -M -d 20 file.wav &); aplay -Dplughw:0 $STREAM_PATH/alsa_stream/audio32k16S.wav && aplay -M -D plughw:0 $STREAM_PATH/alsa_stream/audio32k16S.wav && sleep 20 && aplay file.wav'
+        - lava-test-case TGE-LV-ALSA-0212 --shell ./scripts/lava-vte.sh '(arecord -D plughw:0 -r 44100 -c 2 -f S16_LE -N -M -d 20 file.wav &); aplay -Dplughw:0 $STREAM_PATH/alsa_stream/audio44k16S.wav && aplay -M -D plughw:0 $STREAM_PATH/alsa_stream/audio44k16S.wav && sleep 20 && aplay file.wav'
+        - lava-test-case TGE-LV-ALSA-0213 --shell ./scripts/lava-vte.sh '(arecord -D plughw:0 -r 48000 -c 2 -f S16_LE -N -M -d 20 file.wav &); aplay -Dplughw:0 $STREAM_PATH/alsa_stream/audio48k16S.wav && aplay -M -D plughw:0 $STREAM_PATH/alsa_stream/audio48k16S.wav && sleep 20 && aplay file.wav'
+        - lava-test-case TGE-LV-ALSA-0214 --shell ./scripts/lava-vte.sh '(arecord -D plughw:0 -r 64000 -c 2 -f S16_LE -N -M -d 20 file.wav &); aplay -Dplughw:0 $STREAM_PATH/alsa_stream/audio64k16S.wav && aplay -M -D plughw:0 $STREAM_PATH/alsa_stream/audio64k16S.wav && sleep 20 && aplay file.wav'
+        - lava-test-case TGE-LV-ALSA-0215 --shell ./scripts/lava-vte.sh '(arecord -D plughw:0 -r 88200 -c 2 -f S16_LE -N -M -d 20 file.wav &); aplay -Dplughw:0 $STREAM_PATH/alsa_stream/audio88k16S.wav && aplay -M -D plughw:0 $STREAM_PATH/alsa_stream/audio88k16S.wav && sleep 20 && aplay file.wav'
+        - lava-test-case TGE-LV-ALSA-0216 --shell ./scripts/lava-vte.sh '(arecord -D plughw:0 -r 96000 -c 2 -f S16_LE -N -M -d 20 file.wav &); aplay -Dplughw:0 $STREAM_PATH/alsa_stream/audio96k16S.wav && aplay -M -D plughw:0 $STREAM_PATH/alsa_stream/audio96k16S.wav && sleep 20 && aplay file.wav'
+        - lava-test-case TGE-LV-ALSA-0217 --shell ./scripts/lava-vte.sh '(arecord -D plughw:0 -r 128000 -c 2 -f S16_LE -N -M -d 20 file.wav &); aplay -Dplughw:0 $STREAM_PATH/alsa_stream/audio128k16S.wav && aplay -M -D plughw:0 $STREAM_PATH/alsa_stream/audio128k16S.wav && sleep 20 && aplay file.wav'
+        - lava-test-case TGE-LV-ALSA-0218 --shell ./scripts/lava-vte.sh '(arecord -D plughw:0 -r 176000 -c 2 -f S16_LE -N -M -d 20 file.wav &); aplay -Dplughw:0 $STREAM_PATH/alsa_stream/audio176k16S.wav && aplay -M -D plughw:0 $STREAM_PATH/alsa_stream/audio176k16S.wav && sleep 20 && aplay file.wav'
+        - lava-test-case TGE-LV-ALSA-0219 --shell ./scripts/lava-vte.sh '(arecord -D plughw:0 -r 192000 -c 2 -f S16_LE -N -M -d 20 file.wav &); aplay -Dplughw:0 $STREAM_PATH/alsa_stream/audio192k16S.wav && aplay -M -D plughw:0 $STREAM_PATH/alsa_stream/audio192k16S.wav && sleep 20 && aplay file.wav'
+        - lava-test-case TGE-LV-ASRC-0209 --shell ./scripts/lava-vte.sh 'asrc_grp_conv.sh 192'
+        - lava-test-case TGE-LV-VPU-10221 --shell ./scripts/lava-vte.sh 'vpu_multi_enc_test.sh 3'
+
+parse:
+    pattern: "[ a-zA-Z]+ (?P<test_case_id>[a-zA-Z0-9]+):\\s(?P<result>PASS|FAIL|SKIP)"

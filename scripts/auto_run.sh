@@ -25,3 +25,4 @@ nohup bash -x ./auto_run_6sl_6ul_7d.sh -s=imx6sl -b=evk -u=uTee-6slevk -n=imx6sl
 
 nohup bash -x ./auto_run_6sl_6ul_7d.sh -s=imx7d -b=sabresd -u=uTee-7dsdb -n=imx7dsabresd > imx7dsdb_nohup.out 2>&1 &
 
+nohup bash -x ./auto_run_8qxp.sh > imx8qxpmek_nohup.out 2>&1 &

@@ -1,0 +1,33 @@
+metadata:
+    format: Lava-Test Test 
+    name: test
+    description: "Basic lava test for the i.MX"
+    maintainer:
+    os:
+        - Linux
+    scope:
+        - functional
+    devices:
+        - imx6ul-evk
+install:
+    git-repos:
+        - https://github.com/eslover/sandbox-test
+run:
+    steps:
+        - lava-test-case TGE-LV-RTC-0020 --shell ./scripts/lava-vte.sh 'rtc_testapp_4'
+        - lava-test-case TGE-LV-RTC-0011 --shell ./scripts/lava-vte.sh 'rtc_testapp_2'
+        - lava-test-case TGE-LV-RTC-0013 --shell ./scripts/lava-vte.sh 'rtc_testapp_5 -T POLL'
+        - lava-test-case TGE-LV-GPT-0010 --shell ./scripts/lava-vte.sh 'gpt_testapp'
+        - lava-test-case TGE-LV-RTC-0100 --shell ./scripts/lava-vte.sh 'rtc_test.sh 2'
+        - lava-test-case TGE-LV-SD-1800 --shell ./scripts/lava-vte.sh 'cat /proc/partitions | grep mmc'
+        - lava-test-case TGE-LV-PM-0100 --shell ./scripts/lava-vte.sh 'i=0; while [ $i -lt 3 ]; do rtc_testapp_6 -T 50 -m standby; i=`expr $i + 1`; done'
+        - lava-test-case TGE-LV-ESLCD-0702 --shell ./scripts/lava-vte.sh 'dd if=/dev/urandom of=/dev/fb0 bs=1k count=150'
+        - lava-test-case TGE-LV-ETHERNET-1003 --shell ./scripts/lava-vte.sh 'ethtool eth0'
+        - lava-test-case TGE-LV-ETHERNET-1006 --shell ./scripts/lava-vte.sh 'rtc_testapp_6 -T 50 && ifconfig eth0'
+        - lava-test-case TGE-LV-RTC-0102 --shell ./scripts/lava-vte.sh 'rtc_test_7.sh'
+        - lava-test-case TGE-LV-DVFS-0200 --shell ./scripts/lava-vte.sh 'cpufreq-info'
+        - lava-test-case TGE-LV-SD-1303 --shell ./scripts/lava-vte.sh 'mkdir -p /mnt/mmcblk0p1; ln -sf /dev/rtc0 /dev/rtc; mount |grep mmcblk0p1 || mount /dev/mmcblk0p1 /mnt/mmcblk0p1; rtc_testapp_6 -T 50 && echo "hello world" > /mnt/mmcblk0p1/test.txt && cat /mnt/mmcblk0p1/test.txt'
+        - lava-test-case TGE-LV-SD-1050 --shell ./scripts/lava-vte.sh 'clk.sh sd'
+
+parse:
+    pattern: "[ a-zA-Z]+ (?P<test_case_id>[a-zA-Z0-9]+):\\s(?P<result>PASS|FAIL|SKIP)"
