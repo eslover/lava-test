@@ -15,17 +15,19 @@ N_SOC=${#SOC[@]}
 BOARD=(mek)
 N_BOARD=${#BOARD[@]}
 
+BUILD=(regression full release core)
+N_BUILD=${#BUILD[@]}
+
 #IMPORTANT: main trunk build take first to simplified the script
 YOCTO_BUILD_WEB_CHN=("http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_Regression/latest/common_bsp/" 
 		     "http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_Full/latest/common_bsp/" 
-		     "http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_4.14.62-1.0.0_beta/latest/common_bsp/")
+		     "http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_4.14.62-1.0.0_beta/latest/common_bsp/" 
+		     "http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_Core/latest/common_bsp/")
 
 YOCTO_BUILD_WEB_ATX=("http://yb2.am.freescale.net/internal-only/Linux_IMX_Regression/latest/common_bsp/" 
-		     "http://yb2.am.freescale.net/build-output/Linux_IMX_Full/latest/common_bsp/")
-		     "http://yb2.am.freescale.net/build-output/Linux_IMX_4.14.62-1.0.0_beta/latest/common_bsp/")
-
-BUILD=(regression full release)
-N_BUILD=${#BUILD[@]}
+		     "http://yb2.am.freescale.net/build-output/Linux_IMX_Full/latest/common_bsp/"
+		     "http://yb2.am.freescale.net/build-output/Linux_IMX_4.14.62-1.0.0_beta/latest/common_bsp/" 
+		     "http://yb2.am.freescale.net/internal-only/Linux_IMX_Core/latest/common_bsp/")
 
 #fresh start
 rm -rf ${wd}/${SOC[0]}*
@@ -112,6 +114,9 @@ while [ 1 ]; do
 						;;
 					release)
 						/home/r64343/workspace/lava-test/test/${SOC[$i]}_${BOARD[$i]}/start_ci_release.sh
+						;;
+					core)
+						/home/r64343/workspace/lava-test/test/${SOC[$i]}_${BOARD[$i]}/start_ci_core.sh
 						;;
 					*)
 						echo "Unknown build type"

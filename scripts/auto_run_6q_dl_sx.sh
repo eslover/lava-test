@@ -38,17 +38,19 @@ N_SOC=${#SOC[@]}
 N_BOARD=${#BOARD[@]}
 N_U_TEE_FILE=${#U_TEE_FILE[@]}
 
-BUILD=(regression full release)
+BUILD=(regression full release core)
 N_BUILD=${#BUILD[@]}
 
 #IMPORTANT: main trunk build take first to simplified the script
 YOCTO_BUILD_WEB_CHN=("http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_Regression/latest/common_bsp/" 
 		     "http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_Full/latest/common_bsp/" 
-		     "http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_4.14.62-1.0.0_beta/latest/common_bsp/")
+		     "http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_4.14.62-1.0.0_beta/latest/common_bsp/" 
+		     "http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_Core/latest/common_bsp/")
 
 YOCTO_BUILD_WEB_ATX=("http://yb2.am.freescale.net/internal-only/Linux_IMX_Regression/latest/common_bsp/" 
 		     "http://yb2.am.freescale.net/build-output/Linux_IMX_Full/latest/common_bsp/" 
-		     "http://yb2.am.freescale.net/build-output/Linux_IMX_4.14.62-1.0.0_beta/latest/common_bsp/")
+		     "http://yb2.am.freescale.net/build-output/Linux_IMX_4.14.62-1.0.0_beta/latest/common_bsp/" 
+		     "http://yb2.am.freescale.net/internal-only/Linux_IMX_Core/latest/common_bsp/")
 
 wd=/nfsroot
 
@@ -126,26 +128,51 @@ while [ 1 ]; do
 					ln -sf *imx6qpdlsolox*.tar.bz2 ${SOC[$i]}${BOARD[$i]}.tar.bz2;
 
 					#here is the trick: replace the u-boot
-					#For the safty, fetch the imx-boot from Austin server
-					sudo sed -i --follow-symlinks "/imx_uboot/c\ wget ${YOCTO_BUILD_WEB_ATX[$j]}imx_uboot/u-boot-${SOC[$i]}${BOARD[$i]}_sd-optee.imx -O uboot.imx" \
-					"/etc/lava-dispatcher/devices/${SOC[$i]}-${BOARD[$i]}.conf"
-
-					sudo sed -i --follow-symlinks "/optee-os-imx/c\ wget ${YOCTO_BUILD_WEB_ATX[$j]}optee-os-imx/${U_TEE_FILE[$i]}" \
-					"/etc/lava-dispatcher/devices/${SOC[$i]}-${BOARD[$i]}.conf"
-
 					#start the job, the next job sumbmision need wait previous job completion due to the SCUFW update
 					#while we support more than one kind of test(release vs master) with one board in the farm
 
 					case ${BUILD[j]}  in
 
 					full)
+						#For the safty, fetch the imx-boot from Austin server
+						sudo sed -i --follow-symlinks \
+						"/imx_uboot/c\ wget ${YOCTO_BUILD_WEB_ATX[$j]}imx_uboot/u-boot-${SOC[$i]}${BOARD[$i]}_sd-optee.imx -O uboot.imx" \
+						"/etc/lava-dispatcher/devices/${SOC[$i]}-${BOARD[$i]}.conf"
+
+						sudo sed -i --follow-symlinks "/optee-os-imx/c\ wget ${YOCTO_BUILD_WEB_ATX[$j]}optee-os-imx/${U_TEE_FILE[$i]}" \
+						"/etc/lava-dispatcher/devices/${SOC[$i]}-${BOARD[$i]}.conf"
+
 						/home/r64343/workspace/lava-test/test/${SOC[$i]}_${BOARD[$i]}/start_ci_full.sh
 						;;
 					regression)
+						sudo sed -i --follow-symlinks \
+						"/imx_uboot/c\ wget ${YOCTO_BUILD_WEB_ATX[$j]}imx_uboot/u-boot-${SOC[$i]}${BOARD[$i]}_sd-optee.imx -O uboot.imx" \
+						"/etc/lava-dispatcher/devices/${SOC[$i]}-${BOARD[$i]}.conf"
+
+						sudo sed -i --follow-symlinks "/optee-os-imx/c\ wget ${YOCTO_BUILD_WEB_ATX[$j]}optee-os-imx/${U_TEE_FILE[$i]}" \
+						"/etc/lava-dispatcher/devices/${SOC[$i]}-${BOARD[$i]}.conf"
+
 						/home/r64343/workspace/lava-test/test/${SOC[$i]}_${BOARD[$i]}/start_ci_regression.sh
 						;;
 					release)
+						sudo sed -i --follow-symlinks \
+						"/imx_uboot/c\ wget ${YOCTO_BUILD_WEB_ATX[$j]}imx_uboot/u-boot-${SOC[$i]}${BOARD[$i]}_sd-optee.imx -O uboot.imx" \
+						"/etc/lava-dispatcher/devices/${SOC[$i]}-${BOARD[$i]}.conf"
+
+						sudo sed -i --follow-symlinks "/optee-os-imx/c\ wget ${YOCTO_BUILD_WEB_ATX[$j]}optee-os-imx/${U_TEE_FILE[$i]}" \
+						"/etc/lava-dispatcher/devices/${SOC[$i]}-${BOARD[$i]}.conf"
+
 						/home/r64343/workspace/lava-test/test/${SOC[$i]}_${BOARD[$i]}/start_ci_release.sh
+						;;
+					core)
+						sudo sed -i --follow-symlinks \
+						"/imx_uboot/c\ wget ${YOCTO_BUILD_WEB_ATX[$j]}imx_uboot/u-boot-${SOC[$i]}${BOARD[$i]}_sd-optee.imx -O uboot.imx" \
+						"/etc/lava-dispatcher/devices/${SOC[$i]}-${BOARD[$i]}.conf"
+
+						sudo sed -i --follow-symlinks "/optee-os-imx/c\ wget ${YOCTO_BUILD_WEB_ATX[$j]}imx_uboot/${U_TEE_FILE[$i]}" \
+						"/etc/lava-dispatcher/devices/${SOC[$i]}-${BOARD[$i]}.conf"
+
+						/home/r64343/workspace/lava-test/test/${SOC[$i]}_${BOARD[$i]}/start_ci_core.sh
 						;;
 					*)
 						echo "Unknown build type"

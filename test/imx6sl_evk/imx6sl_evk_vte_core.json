@@ -1,0 +1,45 @@
+
+{
+    "health_check": false,
+    "logging_level": "DEBUG",
+    "job_name": "imx6sl_evk_vte_core",
+    "target": "imx6sl-evk",
+    "timeout": 3000,
+    "actions": [
+        {
+            "command": "deploy_linaro_kernel",
+            "parameters": {
+                "kernel": "file:///nfsroot/imx6slevkcore/image/zImage-imx6slevk.bin",
+                "dtb": "file:///nfsroot/imx6slevkcore/image/zImage-imx6sl-evk.dtb",
+		"nfsrootfs": "file:///nfsroot/imx6slevkcore/image/imx6slevk.tar.bz2",
+                "login_prompt": "imx6slevk login:",
+                "username": "root"
+            }
+        },
+        {
+            "command": "boot_linaro_image",
+            "parameters": {
+                "test_image_prompt": "root@imx6slevk:~#"
+            }
+        },
+	{
+	    "command": "lava_test_shell",
+	    "parameters": {
+		"testdef_repos": [
+		    {
+			"git-repo": "https://github.com/eslover/sandbox-test.git",
+			"testdef": "lava_vte_mx6sl_core.yaml"
+		    }
+		],
+		"timeout": 86400
+	    }
+	},
+	{
+            "command": "submit_results_on_host",
+            "parameters": {
+                "server": "http://10.192.242.176/RPC2/",
+                "stream": "/anonymous/admin/"
+            }
+        }
+    ]
+}
