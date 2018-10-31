@@ -5,7 +5,7 @@
 #U_TEE_FILE=(uTee-6sxsdb uTee-6qsdb uTee-6qauto uTee-6dlsd)
 
 #SOC=(imx6ul imx6sl imx7d)
-#BOARD=(14x14-evk evk sabresd)
+#BOARD=(14x14evk evk sabresd)
 #NFS=(imx6ul7d imx6slevk imx7dsabresd)
 #U_TEE_FILE=(uTee-6ulevk uTee-6slevk uTee-7dsdb)
 
@@ -19,7 +19,7 @@ nohup bash -x ./auto_run_base.sh -s=imx6q -b=sabreauto -u=uTee-6qauto -i=zImage-
 
 nohup bash -x ./auto_run_base.sh -s=imx6dl -b=sabresd -u=uTee-6dlsdb -i=zImage-imx6qpdlsolox.bin -n=imx6qpdlsolox > ~/imx6dlsdb_nohup.out 2>&1 &
 
-nohup bash -x ./auto_run_base.sh -s=imx6ul -b=14x14-evk -u=uTee-6ulevk -i=zImage-imx6ul7d.bin -n=imx6ul7d > ~/imx6ulevk_nohup.out 2>&1 &
+nohup bash -x ./auto_run_base.sh -s=imx6ul -b=14x14evk -u=uTee-6ulevk -i=zImage-imx6ul7d.bin -n=imx6ul7d > ~/imx6ulevk_nohup.out 2>&1 &
 
 nohup bash -x ./auto_run_base.sh -s=imx6sl -b=evk -u=uTee-6slevk -i=zImage-imx6slevk.bin -n=imx6slevk > ~/imx6slevk_nohup.out 2>&1 &
 
