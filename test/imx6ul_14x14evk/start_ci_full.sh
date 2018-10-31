@@ -1,7 +1,7 @@
 #/bin/bash
 
 OUTPUT=`lava-tool submit-job http://admin:l7y5cz0ttbzedtg7ai1okum11eic3n49igs4t6uiraou0amk3bbs2uqh0impai0y7u9a6mue0ep3m081qjwnw0xtoskocz2xnyina3edkkdjooblh94110e41fl66uq1@10.192.242.176/RPC2 \
-/home/r64343/workspace/lava-test/test/imx6ul_14x14-evk/imx6ul_evk_vte_release.json`
+/home/r64343/workspace/lava-test/test/imx6ul_14x14evk/imx6ul_evk_vte_full.json`
 
 if [ $? -eq 0 ]
 then

@@ -84,7 +84,6 @@ while [ 1 ]; do
 
 			if [ $? -eq 0 ]
 			then
-				#cmp zImage-${SOC[$i]}${BOARD[$i]}.bin zImage-${SOC[$i]}${BOARD[$i]}.bin.1
 				cmp ${IMG[$i]} ${IMG[$i]}.1
 
 				if [ $? -eq 0 ]
@@ -97,7 +96,7 @@ while [ 1 ]; do
 
 					cd image
 
-					echo "going to delopy platform build image: ${SOC[$i]}${BOARD[$i]}${BUILD[j]}"
+					echo "going to delopy platform build image..."
 					rm -rf *.tar.bz2 *.dtb *.bin
 
 					while !( ls *.dtb &> /dev/null );
@@ -110,24 +109,41 @@ while [ 1 ]; do
 
 					while !( ls *.bin &> /dev/null );
 					do
-						wget -N -q --backups=1 -r -l1 -nH --cut-dirs=2 --no-parent -A "*${IMG[$i]}*.bin" \
+						wget -N -q --backups=1 -r -l1 -nH --cut-dirs=2 --no-parent -A "*${IMG[$i]}*" \
 						--no-directories \
 							${YOCTO_BUILD_WEB_CHN[$j]}
 						sleep 60
 					done
 
-					while !( ls *.tar.bz2 &> /dev/null );
-					do
-						wget -N -q --backups=1 -r -l1 -nH --cut-dirs=2 --no-parent -A "*${NFS[$i]}*.tar.bz2" \
-						--no-directories ${YOCTO_BUILD_WEB_CHN[$j]}../fsl-imx-internal-xwayland/
-						sleep 60
-					done
+					case ${BUILD[j]}  in
 
+					full | regression | release)
+						while !( ls *.tar.bz2 &> /dev/null );
+						do
+							wget -N -q --backups=1 -r -l1 -nH --cut-dirs=2 --no-parent -A "*${NFS[$i]}*.tar.bz2" \
+							--no-directories ${YOCTO_BUILD_WEB_CHN[$j]}../fsl-imx-internal-xwayland/
+							sleep 60
+						done
+						;;
+
+					core)
+						while !( ls *.tar.bz2 &> /dev/null );
+						do
+							wget -N -q --backups=1 -r -l1 -nH --cut-dirs=2 --no-parent -A "*${NFS[$i]}*.tar.bz2" \
+							--no-directories ${YOCTO_BUILD_WEB_CHN[$j]}../fsl-imx-internal-wayland/
+							sleep 60
+						done
+						;;
+					*)
+						echo "Unknown build type"
+						;;
+					esac
+
+					#create symbol link
 					ln -sf *${NFS[$i]}*.tar.bz2 ${SOC[$i]}${BOARD[$i]}.tar.bz2;
 
-					#here is the trick: replace the u-boot
-					#start the job, the next job sumbmision need wait previous job completion due to the SCUFW update
-					#while we support more than one kind of test(release vs master) with one board in the farm
+					#trick: on-the-fly to replace the u-boot/op-tee on imx6/7 or flash.bin on imx8
+					#serialization: for differnt build-type test,to use one board to test different
 
 					case ${SOC[i]} in
 

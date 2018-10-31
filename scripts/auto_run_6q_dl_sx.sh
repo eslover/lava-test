@@ -29,11 +29,6 @@ case $i in
 esac
 done
 
-#IMPORTANT: board and soc should be paired, if add one board, please also specify the SOC
-#SOC=(imx6sx imx6dl imx6q imx6q)
-#BOARD=(sdb sabresd sabreauto sabresd)
-#U_TEE_FILE=(uTee-6sxsdb uTee-6dlsdb uTee-6qauto uTee-6qsdb)
-
 N_SOC=${#SOC[@]}
 N_BOARD=${#BOARD[@]}
 N_U_TEE_FILE=${#U_TEE_FILE[@]}
@@ -41,7 +36,6 @@ N_U_TEE_FILE=${#U_TEE_FILE[@]}
 BUILD=(regression full release core)
 N_BUILD=${#BUILD[@]}
 
-#IMPORTANT: main trunk build take first to simplified the script
 YOCTO_BUILD_WEB_CHN=("http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_Regression/latest/common_bsp/" 
 		     "http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_Full/latest/common_bsp/" 
 		     "http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_4.14.62-1.0.0_beta/latest/common_bsp/" 
