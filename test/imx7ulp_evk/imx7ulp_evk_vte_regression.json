@@ -1,0 +1,45 @@
+
+{
+    "health_check": false,
+    "logging_level": "DEBUG",
+    "job_name": "imx7ulp_evk_vte_regression",
+    "target": "imx7ulp-evk",
+    "timeout": 3000,
+    "actions": [
+        {
+            "command": "deploy_linaro_kernel",
+            "parameters": {
+                "kernel": "file:///nfsroot/imx7ulpevkregression/image/zImage-imx6ul7d.bin",
+                "dtb": "file:///nfsroot/imx7ulpevkregression/image/zImage-imx7ulp-evk.dtb",
+		"nfsrootfs": "file:///nfsroot/imx7ulpevkregression/image/imx7ulpevk.tar.bz2",
+                "login_prompt": "imx7ulpevk login:",
+                "username": "root"
+            }
+        },
+        {
+            "command": "boot_linaro_image",
+            "parameters": {
+                "test_image_prompt": "root@imx7ulpevk:~#"
+            }
+        },
+	{
+	    "command": "lava_test_shell",
+	    "parameters": {
+		"testdef_repos": [
+		    {
+			"git-repo": "https://github.com/eslover/sandbox-test.git",
+			"testdef": "lava_vte_mx7ulp_regression.yaml"
+		    }
+		],
+		"timeout": 86400
+	    }
+	},
+	{
+            "command": "submit_results_on_host",
+            "parameters": {
+                "server": "http://10.192.242.176/RPC2/",
+                "stream": "/anonymous/admin/"
+            }
+        }
+    ]
+}
