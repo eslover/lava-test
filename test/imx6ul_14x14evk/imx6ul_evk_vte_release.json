@@ -10,7 +10,7 @@
             "command": "deploy_linaro_kernel",
             "parameters": {
                 "kernel": "file:///nfsroot/imx6ul14x14evkrelease/image/zImage-imx6ul7d.bin",
-                "dtb": "file:///nfsroot/imx6ul14x14evkrelease/image/zImage-imx6ul-14x14evk.dtb",
+                "dtb": "file:///nfsroot/imx6ul14x14evkrelease/image/zImage-imx6ul-14x14-evk.dtb",
 		"nfsrootfs": "file:///nfsroot/imx6ul14x14evkrelease/image/imx6ul14x14evk.tar.bz2",
                 "login_prompt": "imx6ul7d login:",
                 "username": "root"
