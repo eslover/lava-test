@@ -12,14 +12,14 @@
                 "kernel": "file:///nfsroot/imx7dsabresdfull/image/zImage-imx6ul7d.bin",
                 "dtb": "file:///nfsroot/imx7dsabresdfull/image/zImage-imx7d-sdb.dtb",
 		"nfsrootfs": "file:///nfsroot/imx7dsabresdfull/image/imx7dsabresd.tar.bz2",
-                "login_prompt": "imx7dsabresd login:",
+                "login_prompt": "imx6ul7d login:",
                 "username": "root"
             }
         },
         {
             "command": "boot_linaro_image",
             "parameters": {
-                "test_image_prompt": "root@imx7dsabresd:~#"
+                "test_image_prompt": "root@imx6ul7d:~#"
             }
         },
 	{
