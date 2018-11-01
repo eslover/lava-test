@@ -7,7 +7,7 @@
     "timeout": 3000,
     "actions": [
         {
-            "comqand": "deploy_linaro_kernel",
+            "command": "deploy_linaro_kernel",
             "parameters": {
                 "kernel": "file:///nfsroot/imx8mqevkrelease/image/Image-imx8mqevk.bin",
                 "dtb": "file:///nfsroot/imx8mqevkrelease/image/Image-fsl-imx8mq-evk.dtb",
@@ -17,13 +17,13 @@
             }
         },
         {
-            "comqand": "boot_linaro_image",
+            "command": "boot_linaro_image",
             "parameters": {
                 "test_image_prompt": "root@imx8mqevk:~#"
             }
         },
 	{
-	    "comqand": "lava_test_shell",
+	    "command": "lava_test_shell",
 	    "parameters": {
 		"testdef_repos": [
 		    {
@@ -35,7 +35,7 @@
 	    }
 	},
 	{
-            "comqand": "submit_results_on_host",
+            "command": "submit_results_on_host",
             "parameters": {
                 "server": "http://10.192.242.176/RPC2/",
                 "stream": "/anonymous/admin/"
