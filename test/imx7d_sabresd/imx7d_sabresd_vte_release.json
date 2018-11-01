@@ -9,7 +9,7 @@
         {
             "command": "deploy_linaro_kernel",
             "parameters": {
-                "kernel": "file:///nfsroot/imx7dsabresdrelease/image/zImage-imx7dsabresd.bin",
+                "kernel": "file:///nfsroot/imx7dsabresdrelease/image/zImage-imx6ul7d.bin",
                 "dtb": "file:///nfsroot/imx7dsabresdrelease/image/zImage-imx7d-sdb.dtb",
 		"nfsrootfs": "file:///nfsroot/imx7dsabresdrelease/image/imx7dsabresd.tar.bz2",
                 "login_prompt": "imx7dsabresd login:",

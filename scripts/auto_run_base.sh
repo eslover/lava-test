@@ -153,20 +153,20 @@ while [ 1 ]; do
 						full | regression | release)
 							#For the safty, fetch the imx-boot from Austin server
 							sudo sed -i --follow-symlinks \
-							"/imx_uboot/c\ wget ${YOCTO_BUILD_WEB_ATX[$j]}imx_uboot/u-boot-${SOC[$i]}${BOARD[$i]}_sd-optee.imx -O uboot.imx" \
+							"/optee.imx/c\ wget ${YOCTO_BUILD_WEB_ATX[$j]}imx_uboot/u-boot-${SOC[$i]}${BOARD[$i]}_sd-optee.imx -O uboot.imx" \
 							"/etc/lava-dispatcher/devices/${SOC[$i]}-${BOARD[$i]}.conf"
 
-							sudo sed -i --follow-symlinks "/uTee-/c\ wget ${YOCTO_BUILD_WEB_ATX[$j]}optee-os-imx/${U_TEE_FILE[$i]}" \
+							sudo sed -i --follow-symlinks "/uTee-/c\ wget ${YOCTO_BUILD_WEB_ATX[$j]}optee-os-imx/${U_TEE_FILE[$i]} -O ${U_TEE_FILE[$i],,}" \
 							"/etc/lava-dispatcher/devices/${SOC[$i]}-${BOARD[$i]}.conf"
 							;;
 
 						core)
 							#For the safty, fetch the imx-boot from Austin server
 							sudo sed -i --follow-symlinks \
-							"/imx_uboot/c\ wget ${YOCTO_BUILD_WEB_ATX[$j]}imx_uboot/u-boot-${SOC[$i]}${BOARD[$i]}_sd-optee.imx -O uboot.imx" \
+							"/optee.imx/c\ wget ${YOCTO_BUILD_WEB_ATX[$j]}imx_uboot/u-boot-${SOC[$i]}${BOARD[$i]}_sd-optee.imx -O uboot.imx" \
 							"/etc/lava-dispatcher/devices/${SOC[$i]}-${BOARD[$i]}.conf"
 
-							sudo sed -i --follow-symlinks "/uTee-/c\ wget ${YOCTO_BUILD_WEB_ATX[$j]}imx_uboot/${U_TEE_FILE[$i]}" \
+							sudo sed -i --follow-symlinks "/uTee-/c\ wget ${YOCTO_BUILD_WEB_ATX[$j]}imx_uboot/${U_TEE_FILE[$i]} -O ${U_TEE_FILE[$i],,}" \
 							"/etc/lava-dispatcher/devices/${SOC[$i]}-${BOARD[$i]}.conf"
 							;;
 						*)
