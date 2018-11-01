@@ -16,21 +16,15 @@ run:
     steps:
         - lava-test-case LAVA-TEST-GPU-001 --shell ./scripts/gpu_auto/auto_test.sh
         - lava-test-case TGE-LV-ALSA-0302 --shell ./scripts/lava-vte.sh 'bash -c "aplay -N -M /mnt/nfs/test_stream/alsa_stream/audio*.wav"'
-        - lava-test-case TGE-LV-CORE-0001 --shell ./scripts/lava-vte.sh 'validate'
         - lava-test-case TGE-LV-ETHERNET-1009 --shell ./scripts/lava-vte.sh 'ifconfig eth0 | grep "dropped:0"'
         - lava-test-case TGE-LV-ETHERNET-1011 --shell ./scripts/lava-vte.sh 'ifconfig eth0 | grep "overruns:0"'
-        - lava-test-case TGE-LV-TIMER-FREQ-0001 --shell ./scripts/lava-vte.sh 'timer_interrupt'
         - lava-test-case TGE-LV-ETHERNET-1008 --shell ./scripts/lava-vte.sh 'ethtool eth0 | grep 1000 ||ethtool eth1 | grep 1000'
-        - lava-test-case TGE-LV-APP-0001 --shell ./scripts/lava-vte.sh 'gst-inspect-1.0'
-        - lava-test-case TGE-LV-CORE-0002 --shell ./scripts/lava-vte.sh 'check_events'
         - lava-test-case TGE-LV-ETHERNET-1003 --shell ./scripts/lava-vte.sh 'ethtool eth0 && ifconfig eth0 | grep "dropped:0" && ifconfig eth0 | grep "overruns:0"'
         - lava-test-case TGE-LV-KERNEL-SMP-0002 --shell ./scripts/lava-vte.sh '[ $(cat /proc/cpuinfo | grep processor | wc -l ) -eq 4 ]'
         - lava-test-case TGE-LV-KERNEL-CLOCK-0001 --shell ./scripts/lava-vte.sh 'count=`cat /proc/timer_list | grep clock | wc -l`; [ $count -gt 0 ]'
-        - lava-test-case TGE-LV-ETHERNET-1007 --shell ./scripts/lava-vte.sh 'touch readme && ftpget -u anonymous 10.192.244.195 readme readme && cat readme | grep welcome && rm readme'
         - lava-test-case TGE-LV-THERMO-0001 --shell ./scripts/lava-vte.sh 'RC=0;find /sys/devices/virtual/thermal -name "*temp";rt=$?;if [ $rt -eq 0 ];then ls /sys/devices/virtual/thermal/thermal_zone0/*temp | xargs cat && RC=0;else echo "No thermal interface found, so this chip maybe no thermal calibration, please check!";RC=1;fi;[ $RC -eq 0 ]'
         - lava-test-case TGE-LV-THERMO-0002 --shell ./scripts/lava-vte.sh 'RC=0;find /sys/devices/virtual/thermal -name "*_type";rt=$?;if [ $rt -eq 0 ];then ls /sys/devices/virtual/thermal/thermal_zone0/*_type | xargs cat && RC=0;else echo "No thermal interface found, so this chip maybe no thermal calibration, please check!";RC=1;fi;[ $RC -eq 0 ]'
         - lava-test-case TGE-LV-DVFS-0200 --shell ./scripts/lava-vte.sh 'cpufreq-info'
-        - lava-test-case TGE-LV-ETHERNET-1000 --shell ./scripts/lava-vte.sh 'ifaces=$(ifconfig -a|grep eth|awk '"'"'{print $1}'"'"');for eth in $ifaces; do ethstatus=$(ifconfig $eth | grep "RUNNING"); if [ -n "$ethstatus" ] ;then tcpdump -c 10 -i $eth;fi;done'
         - lava-test-case TGE-LV-ETHERNET-1702 --shell ./scripts/lava-vte.sh 'ifconfig eth0 | grep "BROADCAST" | grep "MULTICAST"'
         - lava-test-case TGE-LV-MEM-0320 --shell ./scripts/lava-vte.sh 'testmem_k=$(expr `cat /proc/meminfo |grep MemTotal |awk '"'"'{print $2}'"'"'` / 20); time -p memtester ${testmem_k}K 1'
 
