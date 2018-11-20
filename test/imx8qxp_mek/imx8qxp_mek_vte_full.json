@@ -11,7 +11,7 @@
             "parameters": {
                 "kernel": "file:///nfsroot/imx8qxpmekfull/image/Image-imx8qxpmek.bin",
                 "dtb": "file:///nfsroot/imx8qxpmekfull/image/Image-fsl-imx8qxp-mek.dtb",
-		"nfsrootfs": "file:///nfsroot/imx8qxpmekfull/image/imx8qxpmek.tar.bz2",
+		"nfsrootfs": "file:///nfsroot/imx8qxpmekfull/image/imx8qxpmek.tar",
                 "login_prompt": "imx8qxpmek login:",
                 "username": "root"
             }

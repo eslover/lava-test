@@ -11,7 +11,7 @@
             "parameters": {
                 "kernel": "file:///nfsroot/imx6qsabreautofull/image/zImage-imx6qpdlsolox.bin",
                 "dtb": "file:///nfsroot/imx6qsabreautofull/image/zImage-imx6q-sabreauto.dtb",
-		"nfsrootfs": "file:///nfsroot/imx6qsabreautofull/image/imx6qsabreauto.tar.bz2",
+		"nfsrootfs": "file:///nfsroot/imx6qsabreautofull/image/imx6qsabreauto.tar",
                 "login_prompt": "imx6qpdlsolox login:",
                 "username": "root"
             }

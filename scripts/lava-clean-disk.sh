@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LIMIT='88'
+LIMIT='98'
 
 while [ 1 ]
 do

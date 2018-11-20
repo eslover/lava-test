@@ -43,12 +43,12 @@ N_BUILD=${#BUILD[@]}
 #IMPORTANT: main trunk build take first to simplified the script
 YOCTO_BUILD_WEB_CHN=("http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_Regression/latest/common_bsp/" 
 		     "http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_Full/latest/common_bsp/" 
-		     "http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_4.14.62-1.0.0_beta/latest/common_bsp/" 
+		     "http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_4.14.78-1.0.0_GA/latest/common_bsp/" 
 		     "http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_Core/latest/common_bsp/")
 
 YOCTO_BUILD_WEB_ATX=("http://yb2.am.freescale.net/internal-only/Linux_IMX_Regression/latest/common_bsp/" 
 		     "http://yb2.am.freescale.net/build-output/Linux_IMX_Full/latest/common_bsp/" 
-		     "http://yb2.am.freescale.net/build-output/Linux_IMX_4.14.62-1.0.0_beta/latest/common_bsp/" 
+		     "http://yb2.am.freescale.net/build-output/Linux_IMX_4.14.78-1.0.0_GA/latest/common_bsp/" 
 		     "http://yb2.am.freescale.net/internal-only/Linux_IMX_Core/latest/common_bsp/")
 
 wd=/nfsroot
@@ -142,6 +142,9 @@ while [ 1 ]; do
 					#create symbol link
 					ln -sf *${NFS[$i]}*.tar.bz2 ${SOC[$i]}${BOARD[$i]}.tar.bz2;
 
+					#bunzip it firstly for the sake of the CPU high loading when mulitple board bootup
+					bunzip2 ${SOC[$i]}${BOARD[$i]}.tar.bz2
+
 					#trick: on-the-fly to replace the u-boot/op-tee on imx6/7 or flash.bin on imx8
 					#serialization: for differnt build-type test,to use one board to test different
 
@@ -175,19 +178,19 @@ while [ 1 ]; do
 						esac
 						;;
 					imx8qxp)
-						sudo sed -i "/wget/c\    wget ${YOCTO_BUILD_WEB_ATX[$j]}imx-boot/imx-boot-${SOC[$i]}${BOARD[$i]}-sd.bin-flash" \
+						sudo sed -i "/wget/c\    wget ${YOCTO_BUILD_WEB_ATX[$j]}imx-boot/imx-boot-${SOC[$i]}${BOARD[$i]}-sd.bin-flash -O flash.bin" \
 						"/etc/lava-dispatcher/devices/${SOC[$i]}-${BOARD[$i]}.conf"
 						;;
 					imx8qm)
-						sudo sed -i "/wget/c\    wget ${YOCTO_BUILD_WEB_ATX[$j]}imx-boot/imx-boot-${SOC[$i]}${BOARD[$i]}-sd.bin-flash_b0" \
+						sudo sed -i "/wget/c\    wget ${YOCTO_BUILD_WEB_ATX[$j]}imx-boot/imx-boot-${SOC[$i]}${BOARD[$i]}-sd.bin-flash_b0  -O flash.bin" \
 						"/etc/lava-dispatcher/devices/${SOC[$i]}-${BOARD[$i]}.conf"
 						;;
 					imx8mm)
-						sudo sed -i "/wget/c\    wget ${YOCTO_BUILD_WEB_ATX[$j]}imx-boot/imx-boot-${SOC[$i]}${BOARD[$i]}-sd.bin-flash_evk" \
+						sudo sed -i "/wget/c\    wget ${YOCTO_BUILD_WEB_ATX[$j]}imx-boot/imx-boot-${SOC[$i]}${BOARD[$i]}-sd.bin-flash_evk -O flash.bin" \
 						"/etc/lava-dispatcher/devices/${SOC[$i]}-${BOARD[$i]}.conf"
 						;;
 					imx8mq)
-						sudo sed -i "/wget/c\    wget ${YOCTO_BUILD_WEB_ATX[$j]}imx-boot/imx-boot-${SOC[$i]}${BOARD[$i]}-sd.bin-flash_evk" \
+						sudo sed -i "/wget/c\    wget ${YOCTO_BUILD_WEB_ATX[$j]}imx-boot/imx-boot-${SOC[$i]}${BOARD[$i]}-sd.bin-flash_evk -O flash.bin" \
 						"/etc/lava-dispatcher/devices/${SOC[$i]}-${BOARD[$i]}.conf"
 						;;
 					*)

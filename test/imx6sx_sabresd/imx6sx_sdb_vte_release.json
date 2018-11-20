@@ -11,7 +11,7 @@
             "parameters": {
                 "kernel": "file:///nfsroot/imx6sxsabresdrelease/image/zImage-imx6qpdlsolox.bin",
                 "dtb": "file:///nfsroot/imx6sxsabresdrelease/image/zImage-imx6sx-sdb.dtb",
-		"nfsrootfs": "file:///nfsroot/imx6sxsabresdrelease/image/imx6sxsabresd.tar.bz2",
+		"nfsrootfs": "file:///nfsroot/imx6sxsabresdrelease/image/imx6sxsabresd.tar",
                 "login_prompt": "imx6qpdlsolox login:",
                 "username": "root"
             }

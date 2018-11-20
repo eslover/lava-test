@@ -5,7 +5,7 @@
             "parameters": {
                 "kernel": "http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_4.9_morty_trunk_next/latest/common_bsp/Image-imx8qmlpddr4arm2.bin",
                 "dtb": "http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_4.9_morty_trunk_next/latest/common_bsp/Image-fsl-imx8qm-lpddr4-arm2.dtb",
-		"nfsrootfs": "http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_4.9_morty_trunk_next/latest/fsl-imx-internal-xwayland/test-internal-qt5-imx8qmlpddr4arm2-20170906084858.rootfs.tar.bz2",
+		"nfsrootfs": "http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_4.9_morty_trunk_next/latest/fsl-imx-internal-xwayland/test-internal-qt5-imx8qmlpddr4arm2-20170906084858.rootfs.tar",
                 "login_prompt": "imx8qmlpddr4arm2 login:",
                 "username": "root"
             }

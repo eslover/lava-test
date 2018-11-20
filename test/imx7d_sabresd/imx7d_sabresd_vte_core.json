@@ -11,7 +11,7 @@
             "parameters": {
                 "kernel": "file:///nfsroot/imx7dsabresdcore/image/zImage-imx6ul7d.bin",
                 "dtb": "file:///nfsroot/imx7dsabresdcore/image/zImage-imx7d-sdb.dtb",
-		"nfsrootfs": "file:///nfsroot/imx7dsabresdcore/image/imx7dsabresd.tar.bz2",
+		"nfsrootfs": "file:///nfsroot/imx7dsabresdcore/image/imx7dsabresd.tar",
                 "login_prompt": "imx6ul7d login:",
                 "username": "root"
             }

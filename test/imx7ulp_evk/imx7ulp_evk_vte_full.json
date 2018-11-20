@@ -11,7 +11,7 @@
             "parameters": {
                 "kernel": "file:///nfsroot/imx7ulpevkfull/image/zImage-imx7ulpevk.bin",
                 "dtb": "file:///nfsroot/imx7ulpevkfull/image/zImage-imx7ulp-evk.dtb",
-		"nfsrootfs": "file:///nfsroot/imx7ulpevkfull/image/imx7ulpevk.tar.bz2",
+		"nfsrootfs": "file:///nfsroot/imx7ulpevkfull/image/imx7ulpevk.tar",
                 "login_prompt": "imx7ulpevk login:",
                 "username": "root"
             }

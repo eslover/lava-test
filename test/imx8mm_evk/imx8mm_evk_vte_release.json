@@ -11,7 +11,7 @@
             "parameters": {
                 "kernel": "file:///nfsroot/imx8mmevkrelease/image/Image-imx8mmevk.bin",
                 "dtb": "file:///nfsroot/imx8mmevkrelease/image/Image-fsl-imx8mm-evk.dtb",
-		"nfsrootfs": "file:///nfsroot/imx8mmevkrelease/image/imx8mmevk.tar.bz2",
+		"nfsrootfs": "file:///nfsroot/imx8mmevkrelease/image/imx8mmevk.tar",
                 "login_prompt": "imx8mmevk login:",
                 "username": "root"
             }
