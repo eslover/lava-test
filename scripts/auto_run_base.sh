@@ -33,6 +33,7 @@ case $i in
 esac
 done
 
+FTP_DIR=/var/lib/lava/dispatcher/tmp
 N_SOC=${#SOC[@]}
 N_BOARD=${#BOARD[@]}
 N_U_TEE_FILE=${#U_TEE_FILE[@]}
@@ -97,7 +98,7 @@ while [ 1 ]; do
 					cd image
 
 					echo "going to delopy platform build image..."
-					rm -rf *.tar.bz2 *.dtb *.bin
+					rm -rf *.tar.bz2 *.dtb *.bin *.tar
 
 					while !( ls *.dtb &> /dev/null );
 					do
@@ -143,7 +144,8 @@ while [ 1 ]; do
 					ln -sf *${NFS[$i]}*.tar.bz2 ${SOC[$i]}${BOARD[$i]}.tar.bz2;
 
 					#bunzip it firstly for the sake of the CPU high loading when mulitple board bootup
-					bunzip2 ${SOC[$i]}${BOARD[$i]}.tar.bz2
+					cat ${SOC[$i]}${BOARD[$i]}.tar.bz2 |  bunzip2 > ${SOC[$i]}${BOARD[$i]}.tar
+					rm -rf *.bz2
 
 					#trick: on-the-fly to replace the u-boot/op-tee on imx6/7 or flash.bin on imx8
 					#serialization: for differnt build-type test,to use one board to test different
@@ -161,6 +163,8 @@ while [ 1 ]; do
 
 							sudo sed -i --follow-symlinks "/uTee-/c\ wget ${YOCTO_BUILD_WEB_ATX[$j]}optee-os-imx/${U_TEE_FILE[$i]} -O ${U_TEE_FILE[$i],,}" \
 							"/etc/lava-dispatcher/devices/${SOC[$i]}-${BOARD[$i]}.conf"
+
+							sudo wget -q ${YOCTO_BUILD_WEB_ATX[$j]}optee-os-imx/${U_TEE_FILE[$i]} -O ${FTP_DIR}/${U_TEE_FILE[$i]}
 							;;
 
 						core)
@@ -171,6 +175,8 @@ while [ 1 ]; do
 
 							sudo sed -i --follow-symlinks "/uTee-/c\ wget ${YOCTO_BUILD_WEB_ATX[$j]}imx_uboot/${U_TEE_FILE[$i]} -O ${U_TEE_FILE[$i],,}" \
 							"/etc/lava-dispatcher/devices/${SOC[$i]}-${BOARD[$i]}.conf"
+
+							sudo wget -q ${YOCTO_BUILD_WEB_ATX[$j]}imx_uboot/${U_TEE_FILE[$i]} -O ${FTP_DIR}/${U_TEE_FILE[$i]}
 							;;
 						*)
 							echo "Unknown build type"
