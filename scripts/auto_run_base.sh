@@ -204,8 +204,11 @@ while [ 1 ]; do
 						;;
 					esac
 
-					#submit the lava job
+					#submit the lava job and wait for completion
 					/home/r64343/workspace/lava-test/test/${SOC[$i]}_${BOARD[$i]}/start_ci_${BUILD[j]}.sh
+
+					#clean up the disk to avoid disk-full
+					sudo rm -rf *
 				fi
 			else
 				sleep 60

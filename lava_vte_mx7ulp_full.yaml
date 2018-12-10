@@ -18,7 +18,6 @@ run:
         - lava-test-case TGE-LV-RTC-0011 --shell ./scripts/lava-vte.sh 'rtc_testapp_2'
         - lava-test-case TGE-LV-RTC-0013 --shell ./scripts/lava-vte.sh 'rtc_testapp_5 -T POLL'
         - lava-test-case TGE-LV-GPT-0010 --shell ./scripts/lava-vte.sh 'gpt_testapp'
-        - lava-test-case TGE-LV-RTC-0100 --shell ./scripts/lava-vte.sh 'rtc_test.sh 2'
         - lava-test-case TGE-LV-SD-1800 --shell ./scripts/lava-vte.sh 'cat /proc/partitions | grep mmc'
         - lava-test-case TGE-LV-PM-0100 --shell ./scripts/lava-vte.sh 'i=0; while [ $i -lt 3 ]; do rtc_testapp_6 -T 50 -m standby; i=`expr $i + 1`; done'
         - lava-test-case TGE-LV-ESLCD-0702 --shell ./scripts/lava-vte.sh 'dd if=/dev/urandom of=/dev/fb0 bs=1k count=150'
