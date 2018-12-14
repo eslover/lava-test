@@ -1,0 +1,45 @@
+
+{
+    "health_check": false,
+    "logging_level": "DEBUG",
+    "job_name": "imx8qm_mek_vte_core",
+    "target": "imx8qm-mek",
+    "timeout": 3000,
+    "actions": [
+        {
+            "command": "deploy_linaro_kernel",
+            "parameters": {
+                "kernel": "file:///nfsroot/imx8qmmekcore/image/Image-imx8qmmek.bin",
+                "dtb": "file:///nfsroot/imx8qmmekcore/image/Image-fsl-imx8qm-mek.dtb",
+		"nfsrootfs": "file:///nfsroot/imx8qmmekcore/image/imx8qmmek.tar",
+                "login_prompt": "imx8qmmek login:",
+                "username": "root"
+            }
+        },
+        {
+            "command": "boot_linaro_image",
+            "parameters": {
+                "test_image_prompt": "root@imx8qmmek:~#"
+            }
+        },
+	{
+	    "command": "lava_test_shell",
+	    "parameters": {
+		"testdef_repos": [
+		    {
+			"git-repo": "https://github.com/eslover/sandbox-test.git",
+			"testdef": "lava_vte_mx8qm_core.yaml"
+		    }
+		],
+		"timeout": 86400
+	    }
+	},
+	{
+            "command": "submit_results_on_host",
+            "parameters": {
+                "server": "http://10.192.242.34/RPC2/",
+                "stream": "/anonymous/admin/"
+            }
+        }
+    ]
+}
