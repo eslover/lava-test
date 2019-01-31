@@ -22,7 +22,6 @@ run:
         - lava-test-case TGE-LV-ESLCD-0702 --shell ./scripts/lava-vte.sh 'dd if=/dev/urandom of=/dev/fb0 bs=1k count=150'
         - lava-test-case TGE-LV-ETHERNET-1003 --shell ./scripts/lava-vte.sh 'ethtool eth0'
         - lava-test-case TGE-LV-DVFS-0200 --shell ./scripts/lava-vte.sh 'cpufreq-info'
-        - lava-test-case TGE-LV-SD-1303 --shell ./scripts/lava-vte.sh 'mkdir -p /mnt/mmcblk0p1; ln -sf /dev/rtc0 /dev/rtc; mount |grep mmcblk0p1 || mount /dev/mmcblk0p1 /mnt/mmcblk0p1; rtc_testapp_6 -T 50 && echo "hello world" > /mnt/mmcblk0p1/test.txt && cat /mnt/mmcblk0p1/test.txt'
 
 parse:
     pattern: "[ a-zA-Z]+ (?P<test_case_id>[a-zA-Z0-9]+):\\s(?P<result>PASS|FAIL|SKIP)"
