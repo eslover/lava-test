@@ -21,8 +21,8 @@ run:
         - lava-test-case TGE-LV-SD-1800 --shell ./scripts/lava-vte.sh 'cat /proc/partitions | grep mmc'
         - lava-test-case TGE-LV-ESLCD-0702 --shell ./scripts/lava-vte.sh 'dd if=/dev/urandom of=/dev/fb0 bs=1k count=150'
         - lava-test-case TGE-LV-ETHERNET-1003 --shell ./scripts/lava-vte.sh 'ethtool eth0'
-        - lava-test-case TGE-LV-ALSA-0512 --shell ./scripts/lava-vte.sh 'adc_test1.sh -f S16_LE -d 5 -c 2 -r 11025'
-        - lava-test-case TGE-LV-ALSA-0514 --shell ./scripts/lava-vte.sh 'adc_test1.sh -f S16_LE -d 5 -c 2 -r 22050'
+        - lava-test-case TGE-LV-ALSA-0106 --shell ./scripts/lava-vte.sh 'dac_test1.sh -f $STREAM_PATH/alsa_stream/audio32k16M.wav -A'
+        - lava-test-case TGE-LV-ALSA-0108 --shell ./scripts/lava-vte.sh 'dac_test1.sh -f $STREAM_PATH/alsa_stream/audio48k16M.wav -A'
         - lava-test-case TGE-LV-DVFS-0200 --shell ./scripts/lava-vte.sh 'cpufreq-info'
         - lava-test-case TGE-LV-SD-1303 --shell ./scripts/lava-vte.sh 'mkdir -p /mnt/mmcblk0p1; ln -sf /dev/rtc0 /dev/rtc; mount |grep mmcblk0p1 || mount /dev/mmcblk0p1 /mnt/mmcblk0p1; rtc_testapp_6 -T 50 && echo "hello world" > /mnt/mmcblk0p1/test.txt && cat /mnt/mmcblk0p1/test.txt'
 
