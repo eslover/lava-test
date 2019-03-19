@@ -39,18 +39,23 @@ N_BOARD=${#BOARD[@]}
 N_U_TEE_FILE=${#U_TEE_FILE[@]}
 
 BUILD=(regression full release core)
+#BUILD=(release)
+
 N_BUILD=${#BUILD[@]}
 
-#IMPORTANT: main trunk build take first to simplified the script
-YOCTO_BUILD_WEB_CHN=("http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_Regression/latest/common_bsp/" 
+YOCTO_BUILD_WEB_CHN=("http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_Regression_Next_Kernel/latest/common_bsp/" 
 		     "http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_Full/latest/common_bsp/" 
-		     "http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_4.14.78-1.0.0_GA/latest/common_bsp/" 
+		     "http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_4.14.98-2.0.0_GA/latest/common_bsp/" 
 		     "http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_Core/latest/common_bsp/")
 
-YOCTO_BUILD_WEB_ATX=("http://yb2.am.freescale.net/internal-only/Linux_IMX_Regression/latest/common_bsp/" 
+YOCTO_BUILD_WEB_ATX=("http://yb2.am.freescale.net/internal-only/Linux_IMX_Regression_Next_Kernel/latest/common_bsp/" 
 		     "http://yb2.am.freescale.net/build-output/Linux_IMX_Full/latest/common_bsp/" 
-		     "http://yb2.am.freescale.net/build-output/Linux_IMX_4.14.78-1.0.0_GA/latest/common_bsp/" 
+		     "http://yb2.am.freescale.net/build-output/Linux_IMX_4.14.98-2.0.0_GA/latest/common_bsp/" 
 		     "http://yb2.am.freescale.net/internal-only/Linux_IMX_Core/latest/common_bsp/")
+
+#only for release
+#YOCTO_BUILD_WEB_CHN=("http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_4.14.98-2.0.0_GA/latest/common_bsp/")
+#YOCTO_BUILD_WEB_ATX=("http://yb2.am.freescale.net/build-output/Linux_IMX_4.14.98-2.0.0_GA/latest/common_bsp/")
 
 wd=/nfsroot
 
@@ -184,11 +189,11 @@ while [ 1 ]; do
 						esac
 						;;
 					imx8qxp)
-						sudo sed -i "/wget/c\    wget ${YOCTO_BUILD_WEB_ATX[$j]}imx-boot/imx-boot-${SOC[$i]}${BOARD[$i]}-sd.bin-flash -O flash.bin" \
+						sudo sed -i "/wget/c\    wget ${YOCTO_BUILD_WEB_ATX[$j]}imx-boot/imx-boot-${SOC[$i]}${BOARD[$i]}-sd.bin-flash_linux_m4 -O flash.bin" \
 						"/etc/lava-dispatcher/devices/${SOC[$i]}-${BOARD[$i]}.conf"
 						;;
 					imx8qm)
-						sudo sed -i "/wget/c\    wget ${YOCTO_BUILD_WEB_ATX[$j]}imx-boot/imx-boot-${SOC[$i]}${BOARD[$i]}-sd.bin-flash_b0  -O flash.bin" \
+						sudo sed -i "/wget/c\    wget ${YOCTO_BUILD_WEB_ATX[$j]}imx-boot/imx-boot-${SOC[$i]}${BOARD[$i]}-sd.bin-flash_linux_m4  -O flash.bin" \
 						"/etc/lava-dispatcher/devices/${SOC[$i]}-${BOARD[$i]}.conf"
 						;;
 					imx8mm)

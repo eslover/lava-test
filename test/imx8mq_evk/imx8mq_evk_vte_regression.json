@@ -10,7 +10,7 @@
             "command": "deploy_linaro_kernel",
             "parameters": {
                 "kernel": "file:///nfsroot/imx8mqevkregression/image/Image-imx8mqevk.bin",
-                "dtb": "file:///nfsroot/imx8mqevkregression/image/Image-fsl-imx8mq-evk.dtb",
+                "dtb": "file:///nfsroot/imx8mqevkregression/image/fsl-imx8mq-evk.dtb",
 		"nfsrootfs": "file:///nfsroot/imx8mqevkregression/image/imx8mqevk.tar",
                 "login_prompt": "imx8mqevk login:",
                 "username": "root"
