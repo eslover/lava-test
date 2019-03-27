@@ -1,6 +1,6 @@
 #/bin/bash
 
-OUTPUT=`lava-tool submit-job http://admin:bfy050frm8st8kubid700at6omb78jmpnr60sow830nyce07r97g8e74rylai1y1e5o7nbiynhux5g107xkobzou74thuaa8njgi20kg83jazhj1oc39wt1o9ww5juwy@10.192.242.34/RPC2 \
+OUTPUT=`lava-tool submit-job http://admin:l7y5cz0ttbzedtg7ai1okum11eic3n49igs4t6uiraou0amk3bbs2uqh0impai0y7u9a6mue0ep3m081qjwnw0xtoskocz2xnyina3edkkdjooblh94110e41fl66uq1@10.192.242.176/RPC2 \
 /home/r64343/workspace/lava-test/test/imx8qm_mek/imx8qm_mek_vte_release.json`
 
 if [ $? -eq 0 ]
@@ -10,7 +10,7 @@ then
 
 	while [ 1 ]; do
 
-		OUTPUT=$(lava-tool job-status http://admin:bfy050frm8st8kubid700at6omb78jmpnr60sow830nyce07r97g8e74rylai1y1e5o7nbiynhux5g107xkobzou74thuaa8njgi20kg83jazhj1oc39wt1o9ww5juwy@10.192.242.34/RPC2 $JOB_ID)
+		OUTPUT=$(lava-tool job-status http://admin:l7y5cz0ttbzedtg7ai1okum11eic3n49igs4t6uiraou0amk3bbs2uqh0impai0y7u9a6mue0ep3m081qjwnw0xtoskocz2xnyina3edkkdjooblh94110e41fl66uq1@10.192.242.176/RPC2 $JOB_ID)
 
 		echo $OUTPUT
 

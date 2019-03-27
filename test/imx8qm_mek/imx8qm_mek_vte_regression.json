@@ -10,7 +10,7 @@
             "command": "deploy_linaro_kernel",
             "parameters": {
                 "kernel": "file:///nfsroot/imx8qmmekregression/image/Image-imx8qmmek.bin",
-                "dtb": "file:///nfsroot/imx8qmmekregression/image/fsl-imx8qm-mek.dtb",
+                "dtb": "file:///nfsroot/imx8qmmekregression/image/fsl-imx8qm-mek-rpmsg.dtb",
 		"nfsrootfs": "file:///nfsroot/imx8qmmekregression/image/imx8qmmek.tar",
                 "login_prompt": "imx8qmmek login:",
                 "username": "root"
@@ -37,7 +37,7 @@
 	{
             "command": "submit_results_on_host",
             "parameters": {
-                "server": "http://10.192.242.34/RPC2/",
+                "server": "http://10.192.242.176/RPC2/",
                 "stream": "/anonymous/admin/"
             }
         }
