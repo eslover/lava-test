@@ -111,6 +111,11 @@ while [ 1 ]; do
 						wget -N -q --backups=1 -r -l1 -nH --cut-dirs=2 --no-parent -A "*${SOC[$i]}*.dtb" \
 						--no-directories ${YOCTO_BUILD_WEB_CHN[$j]}
 						sleep 60
+
+						# new Yocto build folder
+						wget -N -q --backups=1 -r -l1 -nH --cut-dirs=2 --no-parent -A "*${SOC[$i]}*.dtb" \
+						--no-directories ${YOCTO_BUILD_WEB_CHN[$j]}imx_dtbs/
+						sleep 60
 					done
 
 					while !( ls *.bin &> /dev/null );

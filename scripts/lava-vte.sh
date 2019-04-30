@@ -9,7 +9,7 @@ determine_platform_dt()
     if [ $find -eq 1 ]
     then
         #vte=vte_mx82
-	vte=vte_IMX8QM-ARM2
+	vte=vte_IMX8QM-MEK
     fi
 
     find=`grep "MX8QXP" /sys/devices/soc0/soc_id |wc -l`
