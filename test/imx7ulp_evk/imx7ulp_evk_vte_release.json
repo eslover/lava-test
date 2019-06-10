@@ -10,7 +10,7 @@
             "command": "deploy_linaro_kernel",
             "parameters": {
                 "kernel": "file:///nfsroot/imx7ulpevkrelease/image/zImage-imx7ulpevk.bin",
-                "dtb": "file:///nfsroot/imx7ulpevkrelease/image/zImage-imx7ulp-evk.dtb",
+                "dtb": "file:///nfsroot/imx7ulpevkrelease/image/imx7ulp-evk.dtb",
 		"nfsrootfs": "file:///nfsroot/imx7ulpevkrelease/image/imx7ulpevk.tar",
                 "login_prompt": "imx7ulpevk login:",
                 "username": "root"
