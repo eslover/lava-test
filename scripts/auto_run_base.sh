@@ -39,23 +39,23 @@ N_BOARD=${#BOARD[@]}
 N_U_TEE_FILE=${#U_TEE_FILE[@]}
 
 BUILD=(regression full release core)
-#BUILD=(release)
 
 N_BUILD=${#BUILD[@]}
 
 YOCTO_BUILD_WEB_CHN=("http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_Regression_Next_Kernel/latest/common_bsp/" 
 		     "http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_Full/latest/common_bsp/" 
-		     "http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_4.14.98-2.0.0_GA/latest/common_bsp/" 
+		     "http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_4.19.35-1.0.0_beta/latest/common_bsp/" 
 		     "http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_Core/latest/common_bsp/")
 
 YOCTO_BUILD_WEB_ATX=("http://yb2.am.freescale.net/internal-only/Linux_IMX_Regression_Next_Kernel/latest/common_bsp/" 
 		     "http://yb2.am.freescale.net/build-output/Linux_IMX_Full/latest/common_bsp/" 
-		     "http://yb2.am.freescale.net/build-output/Linux_IMX_4.14.98-2.0.0_GA/latest/common_bsp/" 
+		     "http://yb2.am.freescale.net/build-output/Linux_IMX_4.19.35-1.0.0_beta/latest/common_bsp/" 
 		     "http://yb2.am.freescale.net/internal-only/Linux_IMX_Core/latest/common_bsp/")
 
-#only for release
-#YOCTO_BUILD_WEB_CHN=("http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_4.14.98-2.0.0_GA/latest/common_bsp/")
-#YOCTO_BUILD_WEB_ATX=("http://yb2.am.freescale.net/build-output/Linux_IMX_4.14.98-2.0.0_GA/latest/common_bsp/")
+#only for release quick test
+#BUILD=(release)
+#YOCTO_BUILD_WEB_CHN=("http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_4.19.35-1.0.0_beta/latest/common_bsp/")
+#YOCTO_BUILD_WEB_ATX=("http://yb2.am.freescale.net/build-output/Linux_IMX_4.19.35-1.0.0_beta/latest/common_bsp/")
 
 wd=/nfsroot
 
