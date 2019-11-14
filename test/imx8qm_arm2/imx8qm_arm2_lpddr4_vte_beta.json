@@ -10,7 +10,7 @@
             "command": "deploy_linaro_kernel",
             "parameters": {
                 "kernel": "file:///nfsroot/imx8qm_arm2/Image-imx8qmlpddr4arm2.bin",
-                "dtb": "file:///nfsroot/imx8qm_arm2/Image-fsl-imx8qm-lpddr4-arm2.dtb",
+                "dtb": "file:///nfsroot/imx8qm_arm2/Image-imx8qm-lpddr4-arm2.dtb",
 		"nfsrootfs": "file:///nfsroot/imx8qm_arm2/imx8qmlpddr4arm2.tar",
                 "login_prompt": "imx8qmlpddr4arm2 login:",
                 "username": "root"

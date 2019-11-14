@@ -10,7 +10,7 @@
             "command": "deploy_linaro_kernel",
             "parameters": {
                 "kernel": "http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_4.9_morty_trunk_next/latest/common_bsp/Image-imx8qmlpddr4arm2.bin",
-                "dtb": "http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_4.9_morty_trunk_next/latest/common_bsp/Image-fsl-imx8qm-lpddr4-arm2.dtb",
+                "dtb": "http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_4.9_morty_trunk_next/latest/common_bsp/Image-imx8qm-lpddr4-arm2.dtb",
 		"nfsrootfs": "file:///nfsroot/imx8qm_arm2/imx8qmlpddr4arm2.tar",
                 "login_prompt": "imx8qmlpddr4arm2 login:",
                 "username": "root"

@@ -38,25 +38,29 @@ N_SOC=${#SOC[@]}
 N_BOARD=${#BOARD[@]}
 N_U_TEE_FILE=${#U_TEE_FILE[@]}
 
-BUILD=(regression full release core)
+BUILD=(regression full core release)
 
 N_BUILD=${#BUILD[@]}
 
 YOCTO_BUILD_WEB_CHN=("http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_Regression_Next_Kernel/latest/common_bsp/" 
 		     "http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_Full/latest/common_bsp/" 
-		     "http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_4.19.35-1.0.0_beta/latest/common_bsp/" 
-		     "http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_Core/latest/common_bsp/")
+		     "http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_Core/latest/common_bsp/" 
+		     "http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_4.19.35-1.1.0_GA/latest/common_bsp/")
 
 YOCTO_BUILD_WEB_ATX=("http://yb2.am.freescale.net/internal-only/Linux_IMX_Regression_Next_Kernel/latest/common_bsp/" 
 		     "http://yb2.am.freescale.net/build-output/Linux_IMX_Full/latest/common_bsp/" 
-		     "http://yb2.am.freescale.net/build-output/Linux_IMX_4.19.35-1.0.0_beta/latest/common_bsp/" 
-		     "http://yb2.am.freescale.net/internal-only/Linux_IMX_Core/latest/common_bsp/")
+		     "http://yb2.am.freescale.net/internal-only/Linux_IMX_Core/latest/common_bsp/" 
+		     "http://yb2.am.freescale.net/build-output/Linux_IMX_4.19.35-1.1.0_GA/latest/common_bsp/")
 
 #only for release quick test
 #BUILD=(release)
-#YOCTO_BUILD_WEB_CHN=("http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_4.19.35-1.0.0_beta/latest/common_bsp/")
-#YOCTO_BUILD_WEB_ATX=("http://yb2.am.freescale.net/build-output/Linux_IMX_4.19.35-1.0.0_beta/latest/common_bsp/")
+#YOCTO_BUILD_WEB_CHN=("http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_4.19.35-1.1.0_GA/latest/common_bsp/")
+#YOCTO_BUILD_WEB_ATX=("http://yb2.am.freescale.net/build-output/Linux_IMX_4.19.35-1.1.0_GA/latest/common_bsp/")
 
+#only for quick test
+BUILD=(release)
+YOCTO_BUILD_WEB_CHN=("http://neptune.ap.freescale.net/Linux_Factory/latest/common_bsp/")
+YOCTO_BUILD_WEB_ATX=("http://neptune.ap.freescale.net/Linux_Factory/latest/common_bsp/")
 wd=/nfsroot
 
 echo "working directory for the nfsroofs: ${wd} "
@@ -66,11 +70,11 @@ echo "working directory for the nfsroofs: ${wd} "
 cd ${wd}
 
 #fresh start
-for (( i=0; i<${N_SOC}; i++ )); do
-	for (( j=0; j<${N_BOARD}; j++ )); do
-		rm -rf ${wd}/${SOC[$i]}${BOARD[$j]}*
-	done
-done
+#for (( i=0; i<${N_SOC}; i++ )); do
+	#for (( j=0; j<${N_BOARD}; j++ )); do
+		#rm -rf ${wd}/${SOC[$i]}${BOARD[$j]}*
+	#done
+#done
 
 while [ 1 ]; do
 
@@ -110,7 +114,6 @@ while [ 1 ]; do
 
 						wget -N -q --backups=1 -r -l1 -nH --cut-dirs=2 --no-parent -A "*${SOC[$i]}*.dtb" \
 						--no-directories ${YOCTO_BUILD_WEB_CHN[$j]}
-						sleep 60
 
 						# new Yocto build folder
 						wget -N -q --backups=1 -r -l1 -nH --cut-dirs=2 --no-parent -A "*${SOC[$i]}*.dtb" \
@@ -133,6 +136,11 @@ while [ 1 ]; do
 						do
 							wget -N -q --backups=1 -r -l1 -nH --cut-dirs=2 --no-parent -A "*${NFS[$i]}*.tar.bz2" \
 							--no-directories ${YOCTO_BUILD_WEB_CHN[$j]}../fsl-imx-internal-xwayland/
+
+							#new yacto build
+							wget -N -q --backups=1 -r -l1 -nH --cut-dirs=2 --no-parent -A "*${NFS[$i]}*.tar.bz2" \
+							--no-directories ${YOCTO_BUILD_WEB_CHN[$j]}../fsl-imx-xwayland/
+
 							sleep 60
 						done
 						;;
@@ -142,6 +150,11 @@ while [ 1 ]; do
 						do
 							wget -N -q --backups=1 -r -l1 -nH --cut-dirs=2 --no-parent -A "*${NFS[$i]}*.tar.bz2" \
 							--no-directories ${YOCTO_BUILD_WEB_CHN[$j]}../fsl-imx-internal-wayland/
+
+							#new yacto build
+							wget -N -q --backups=1 -r -l1 -nH --cut-dirs=2 --no-parent -A "*${NFS[$i]}*.tar.bz2" \
+							--no-directories ${YOCTO_BUILD_WEB_CHN[$j]}../fsl-imx-wayland/
+
 							sleep 60
 						done
 						;;
@@ -150,8 +163,8 @@ while [ 1 ]; do
 						;;
 					esac
 
-					#create symbol link
-					ln -sf *${NFS[$i]}*.tar.bz2 ${SOC[$i]}${BOARD[$i]}.tar.bz2;
+					#create symbol link, try to find one if mulptile
+					ln -sf `find *${NFS[$i]}*.tar.bz2 | head -1` ${SOC[$i]}${BOARD[$i]}.tar.bz2;
 
 					#bunzip it firstly for the sake of the CPU high loading when mulitple board bootup
 					cat ${SOC[$i]}${BOARD[$i]}.tar.bz2 |  bunzip2 > ${SOC[$i]}${BOARD[$i]}.tar
