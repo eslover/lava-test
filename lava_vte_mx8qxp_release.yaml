@@ -223,7 +223,7 @@ run:
         #- lava-test-case TGE-LV-KERNEL-SMP-0008 --shell ./scripts/lava-vte.sh 'smp_test.sh 3'
         #- lava-test-case TGE-LV-MEM-0321 --shell ./scripts/lava-vte.sh 'mem_concurrent.sh 2'
         - lava-test-case TGE-LV-SYSTEST-0020 --shell ./scripts/lava-vte.sh 'coremark_F4.exe_arm32 0x0 0x0 0x66 0 7 1 2000 && memcpybm_arm32'
-        #- lava-test-case TGE-LV-MEM-0320 --shell ./scripts/lava-vte.sh 'testmem_k=$(expr `cat /proc/meminfo |grep MemTotal |awk '"'"'{print $2}'"'"'` / 20); time -p memtester ${testmem_k}K 1'
+        - lava-test-case TGE-LV-MEM-0320 --shell ./scripts/lava-vte.sh 'testmem_k=$(expr `cat /proc/meminfo |grep MemTotal |awk '"'"'{print $2}'"'"'` / 20); time -p memtester ${testmem_k}K 1'
 
 parse:
     pattern: "[ a-zA-Z]+ (?P<test_case_id>[a-zA-Z0-9]+):\\s(?P<result>PASS|FAIL|SKIP)"
