@@ -212,7 +212,7 @@ run:
         - lava-test-case TGE-LV-FLEXSPI-NOR-0230 --shell ./scripts/lava-vte.sh 'nor_test.sh flexspi 5'
         - lava-test-case TGE-LV-FLEXSPI-NOR-0211 --shell ./scripts/lava-vte.sh 'nor_test.sh flexspi 8'
         - lava-test-case TGE-LV-ALSA-0302 --shell ./scripts/lava-vte.sh 'bash -c "aplay -N -M /mnt/nfs/test_stream/alsa_stream/audio*.wav"'
-        - lava-test-case TGE-LV-KERNEL-SMP-0005 --shell ./scripts/lava-vte.sh 'smp_test.sh 1'
+        #- lava-test-case TGE-LV-KERNEL-SMP-0005 --shell ./scripts/lava-vte.sh 'smp_test.sh 1'
         - lava-test-case TGE-LV-FLEXSPI-NOR-0100 --shell ./scripts/lava-vte.sh 'nor_test.sh flexspi 9'
         - lava-test-case TGE-LV-SD-1800 --shell ./scripts/lava-vte.sh 'storage_all.sh 10'
         - lava-test-case TGE-LV-STORAGE-2002 --shell ./scripts/lava-vte.sh 'storage_all.sh 2'
