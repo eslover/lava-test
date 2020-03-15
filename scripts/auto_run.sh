@@ -13,7 +13,7 @@
 
 nohup bash -x ./auto_run_base.sh -s=imx6sx -b=sabresd -u=uTee-6sxsdb -i=zImage-imx6qpdlsolox.bin -n=imx6qpdlsolox > /nfsroot/nohup_imx6sxsdb.out 2>&1 &
 
-nohup bash -x ./auto_run_base.sh -s=imx6q -b=sabresd -u=uTee-6qsdb -i=zImage-imx6qpdlsolox.bin -n=imx6qpdlsolox > /nfsroot/nohup_imx6qsdb.out 2>&1 &
+#nohup bash -x ./auto_run_base.sh -s=imx6q -b=sabresd -u=uTee-6qsdb -i=zImage-imx6qpdlsolox.bin -n=imx6qpdlsolox > /nfsroot/nohup_imx6qsdb.out 2>&1 &
 
 nohup bash -x ./auto_run_base.sh -s=imx6q -b=sabreauto -u=uTee-6qauto -i=zImage-imx6qpdlsolox.bin -n=imx6qpdlsolox > /nfsroot/nohup_imx6qard.out 2>&1 &
 
@@ -29,8 +29,8 @@ nohup bash -x ./auto_run_base.sh -s=imx7ulp -b=evk -u=uTee-7ulp -i=zImage-imx7ul
 
 nohup bash -x ./auto_run_base.sh -s=imx8mm -b=evk -i=Image-imx8mmevk.bin -n=imx8mmevk > /nfsroot/nohup_imx8mmevk.out 2>&1 &
 
-nohup bash -x ./auto_run_base.sh -s=imx8qxp -b=mek -i=Image-imx8qxpmek.bin -n=imx8qxpmek > /nfsroot/nohup_imx8qxpmek.out 2>&1 &
+#nohup bash -x ./auto_run_base.sh -s=imx8qxp -b=mek -i=Image-imx8qxpmek.bin -n=imx8qxpmek > /nfsroot/nohup_imx8qxpmek.out 2>&1 &
 
 nohup bash -x ./auto_run_base.sh -s=imx8mq -b=evk -i=Image-imx8mqevk.bin -n=imx8mqevk > /nfsroot/nohup_imx8mqevk.out 2>&1 &
 
-nohup bash -x ./auto_run_base.sh -s=imx8qm -b=mek -i=Image-imx8qmmek.bin -n=imx8qmmek > /nfsroot/nohup_imx8qmmek.out 2>&1 &
+#nohup bash -x ./auto_run_base.sh -s=imx8qm -b=mek -i=Image-imx8qmmek.bin -n=imx8qmmek > /nfsroot/nohup_imx8qmmek.out 2>&1 &

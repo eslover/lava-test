@@ -95,7 +95,7 @@ fi
 
 echo `pwd`
 
-cd /mnt/nfs/${vte}
+cd /mnt/nfs/L5.4_nightly/${vte}
 . ./manual_test
 
 echo "COMMAND:$*"

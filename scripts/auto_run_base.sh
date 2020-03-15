@@ -54,13 +54,19 @@ YOCTO_BUILD_WEB_ATX=("http://yb2.am.freescale.net/internal-only/Linux_IMX_Regres
 
 #only for release quick test
 #BUILD=(release)
-#YOCTO_BUILD_WEB_CHN=("http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_4.19.35-1.1.0_GA/latest/common_bsp/")
-#YOCTO_BUILD_WEB_ATX=("http://yb2.am.freescale.net/build-output/Linux_IMX_4.19.35-1.1.0_GA/latest/common_bsp/")
+YOCTO_BUILD_WEB_CHN=("http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_5.4.3-2.0.0/latest/common_bsp/")
+YOCTO_BUILD_WEB_ATX=("http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_5.4.3-2.0.0/latest/common_bsp/")
 
-#only for quick test
+#only for LF quick test
 BUILD=(release)
-YOCTO_BUILD_WEB_CHN=("http://neptune.ap.freescale.net/Linux_Factory/latest/common_bsp/")
-YOCTO_BUILD_WEB_ATX=("http://neptune.ap.freescale.net/Linux_Factory/latest/common_bsp/")
+#YOCTO_BUILD_WEB_CHN=("http://neptune.ap.freescale.net/Linux_Factory/latest/common_bsp/")
+#YOCTO_BUILD_WEB_ATX=("http://neptune.ap.freescale.net/Linux_Factory/latest/common_bsp/")
+
+#only for Full quick test
+#BUILD=(release)
+#YOCTO_BUILD_WEB_CHN=("http://neptune.ap.freescale.net/Linux_Factory/123/common_bsp/")
+#YOCTO_BUILD_WEB_ATX=("http://neptune.ap.freescale.net/Linux_Factory/123/common_bsp/")
+
 wd=/nfsroot
 
 echo "working directory for the nfsroofs: ${wd} "
@@ -70,11 +76,11 @@ echo "working directory for the nfsroofs: ${wd} "
 cd ${wd}
 
 #fresh start
-#for (( i=0; i<${N_SOC}; i++ )); do
-	#for (( j=0; j<${N_BOARD}; j++ )); do
-		#rm -rf ${wd}/${SOC[$i]}${BOARD[$j]}*
-	#done
-#done
+for (( i=0; i<${N_SOC}; i++ )); do
+	for (( j=0; j<${N_BOARD}; j++ )); do
+		rm -rf ${wd}/${SOC[$i]}${BOARD[$j]}*
+	done
+done
 
 while [ 1 ]; do
 
@@ -193,7 +199,7 @@ while [ 1 ]; do
 							#sudo sed -i --follow-symlinks "/uTee-/c\ wget ${YOCTO_BUILD_WEB_ATX[$j]}imx_uboot/${U_TEE_FILE[$i]} -O ${U_TEE_FILE[$i],,}" \
 							#"/etc/lava-dispatcher/devices/${SOC[$i]}-${BOARD[$i]}.conf"
 
-							sudo wget -q ${YOCTO_BUILD_WEB_ATX[$j]}imx_uboot/${U_TEE_FILE[$i]} -O ${FTP_DIR}/${U_TEE_FILE[$i]}
+							#sudo wget -q ${YOCTO_BUILD_WEB_ATX[$j]}imx_uboot/${U_TEE_FILE[$i]} -O ${FTP_DIR}/${U_TEE_FILE[$i]}
 							;;
 
 						core)
@@ -202,10 +208,10 @@ while [ 1 ]; do
 							"/optee.imx/c\ wget ${YOCTO_BUILD_WEB_ATX[$j]}imx_uboot/u-boot-${SOC[$i]}${BOARD[$i]}_sd-optee.imx -O uboot.imx" \
 							"/etc/lava-dispatcher/devices/${SOC[$i]}-${BOARD[$i]}.conf"
 
-							sudo sed -i --follow-symlinks "/uTee-/c\ wget ${YOCTO_BUILD_WEB_ATX[$j]}imx_uboot/${U_TEE_FILE[$i]} -O ${U_TEE_FILE[$i],,}" \
+							sudo sed -i --follow-symlinks "/uTee-/c\ wget ${YOCTO_BUILD_WEB_ATX[$j]}optee-os-imx/${U_TEE_FILE[$i]} -O ${U_TEE_FILE[$i],,}" \
 							"/etc/lava-dispatcher/devices/${SOC[$i]}-${BOARD[$i]}.conf"
 
-							sudo wget -q ${YOCTO_BUILD_WEB_ATX[$j]}imx_uboot/${U_TEE_FILE[$i]} -O ${FTP_DIR}/${U_TEE_FILE[$i]}
+							sudo wget -q ${YOCTO_BUILD_WEB_ATX[$j]}optee-os-imx/${U_TEE_FILE[$i]} -O ${FTP_DIR}/${U_TEE_FILE[$i]}
 							;;
 						*)
 							echo "Unknown build type"
