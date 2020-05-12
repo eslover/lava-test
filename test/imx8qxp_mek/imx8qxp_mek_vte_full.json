@@ -12,14 +12,14 @@
                 "kernel": "file:///nfsroot/imx8qxpmekfull/image/Image-imx8qxpc0mek.bin",
                 "dtb": "file:///nfsroot/imx8qxpmekfull/image/imx8qxp-mek-rpmsg.dtb",
 		"nfsrootfs": "file:///nfsroot/imx8qxpmekfull/image/imx8qxpmek.tar",
-                "login_prompt": "imx8qxpmek login:",
+                "login_prompt": "imx8qxpc0mek login:",
                 "username": "root"
             }
         },
         {
             "command": "boot_linaro_image",
             "parameters": {
-                "test_image_prompt": "root@imx8qxpmek:~#"
+                "test_image_prompt": "root@imx8qxpc0mek:~#"
             }
         },
 	{
