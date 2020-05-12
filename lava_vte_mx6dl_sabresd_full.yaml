@@ -15,21 +15,6 @@ install:
 
 run:
     steps:
-        - lava-test-case TGE-LV-ALSA-0225 --shell ./scripts/lava-vte.sh 'dac_test1.sh -f $STREAM_PATH/alsa_stream/audio128k32M.wav -A'
-        - lava-test-case TGE-LV-ALSA-0226 --shell ./scripts/lava-vte.sh 'dac_test1.sh -f $STREAM_PATH/alsa_stream/audio128k32S.wav -A'
-        - lava-test-case TGE-LV-ALSA-0231 --shell ./scripts/lava-vte.sh 'dac_test1.sh -f $STREAM_PATH/alsa_stream/audio176k16M.wav -A'
-        - lava-test-case TGE-LV-ALSA-0232 --shell ./scripts/lava-vte.sh 'dac_test1.sh -f $STREAM_PATH/alsa_stream/audio176k16S.wav -A'
-        - lava-test-case TGE-LV-ALSA-0233 --shell ./scripts/lava-vte.sh 'dac_test1.sh -f $STREAM_PATH/alsa_stream/audio176k24M-S24_LE.wav -A'
-        - lava-test-case TGE-LV-ALSA-0234 --shell ./scripts/lava-vte.sh 'dac_test1.sh -f $STREAM_PATH/alsa_stream/audio176k24S-S24_LE.wav -A'
-        - lava-test-case TGE-LV-ALSA-0235 --shell ./scripts/lava-vte.sh 'dac_test1.sh -f $STREAM_PATH/alsa_stream/audio176k32M.wav -A'
-        - lava-test-case TGE-LV-ALSA-0236 --shell ./scripts/lava-vte.sh 'dac_test1.sh -f $STREAM_PATH/alsa_stream/audio176k32S.wav -A'
-        - lava-test-case TGE-LV-ALSA-0241 --shell ./scripts/lava-vte.sh 'dac_test1.sh -f $STREAM_PATH/alsa_stream/audio192k16M.wav -A'
-        - lava-test-case TGE-LV-ALSA-0242 --shell ./scripts/lava-vte.sh 'dac_test1.sh -f $STREAM_PATH/alsa_stream/audio192k16S.wav -A'
-        - lava-test-case TGE-LV-ALSA-0243 --shell ./scripts/lava-vte.sh 'dac_test1.sh -f $STREAM_PATH/alsa_stream/audio192k24M-S24_LE.wav -A'
-        - lava-test-case TGE-LV-ALSA-0244 --shell ./scripts/lava-vte.sh 'dac_test1.sh -f $STREAM_PATH/alsa_stream/audio192k24S-S24_LE.wav -A'
-        - lava-test-case TGE-LV-ALSA-0245 --shell ./scripts/lava-vte.sh 'dac_test1.sh -f $STREAM_PATH/alsa_stream/audio192k32M.wav -A'
-        - lava-test-case TGE-LV-ALSA-0246 --shell ./scripts/lava-vte.sh 'dac_test1.sh -f $STREAM_PATH/alsa_stream/audio192k32S.wav -A'
-        - lava-test-case TGE-LV-ALSA-0521 --shell ./scripts/lava-vte.sh 'adc_test1.sh -f S16_LE -d 5 -c 1 -r 12000 -A'
         - lava-test-case TGE-LV-SD-1010 --shell ./scripts/lava-vte.sh 'mmc_transfer.sh'
         - lava-test-case TGE-LV-KERNEL-10002 --shell ./scripts/lava-vte.sh 'timer_resolution'
         - lava-test-case TGE-LV-KERNEL-10005 --shell ./scripts/lava-vte.sh 'cat /proc/meminfo | grep HighTotal'
