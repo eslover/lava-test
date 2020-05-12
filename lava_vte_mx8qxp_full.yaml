@@ -32,7 +32,7 @@ run:
         - lava-test-case TGE-LV-ETHERNET-1702 --shell ./scripts/lava-vte.sh 'ifconfig eth0 | grep "BROADCAST" | grep "MULTICAST"'
         - lava-test-case TGE-LV-ALSA-0540 --shell ./scripts/lava-vte.sh 'adc_test1.sh -f S24_LE -d 5 -c 1 -r 8000 -A'
         - lava-test-case TGE-LV-ALSA-0541 --shell ./scripts/lava-vte.sh 'adc_test1.sh -f S24_LE -d 5 -c 1 -r 11025 -A'
-        - lava-test-case TGE-LV-THERMO-0004 --shell ./scripts/lava-vte.sh 'thermal_freq.sh cooling'
+        #- lava-test-case TGE-LV-THERMO-0004 --shell ./scripts/lava-vte.sh 'thermal_freq.sh cooling'
         - lava-test-case TGE-LV-ALSA-0302 --shell ./scripts/lava-vte.sh 'bash -c "aplay -N -M /mnt/nfs/test_stream/alsa_stream/audio*.wav"'
         - lava-test-case TGE-LV-KERNEL-SMP-0005 --shell ./scripts/lava-vte.sh 'smp_test.sh 1'
         - lava-test-case TGE-LV-STORAGE-0003 --shell ./scripts/lava-vte.sh 'power_test_storage.sh 3'
