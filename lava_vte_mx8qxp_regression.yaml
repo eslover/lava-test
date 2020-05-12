@@ -37,8 +37,8 @@ run:
         - lava-test-case TGE-LV-KERNEL-SMP-0005 --shell ./scripts/lava-vte.sh 'smp_test.sh 1'
         - lava-test-case TGE-LV-STORAGE-0003 --shell ./scripts/lava-vte.sh 'power_test_storage.sh 3'
         - lava-test-case TGE-LV-DRM-0006 --shell ./scripts/lava-vte.sh 'drm_test.sh -t 6'
-	- lava-test-case TGE-LV-DRM-0008 --shell ./scripts/lava-vte.sh 'drm_test.sh -t 8'
-	- lava-test-case TGE-LV-DRM-0015 --shell ./scripts/lava-vte.sh 'drm_test.sh -t 14 -g 2'
+        - lava-test-case TGE-LV-DRM-0008 --shell ./scripts/lava-vte.sh 'drm_test.sh -t 8'
+        - lava-test-case TGE-LV-DRM-0015 --shell ./scripts/lava-vte.sh 'drm_test.sh -t 14 -g 2'
 
 parse:
     pattern: "[ a-zA-Z]+ (?P<test_case_id>[a-zA-Z0-9]+):\\s(?P<result>PASS|FAIL|SKIP)"
