@@ -45,20 +45,20 @@ N_BUILD=${#BUILD[@]}
 YOCTO_BUILD_WEB_CHN=("http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_Regression_Next_Kernel/latest/common_bsp/" 
 		     "http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_Full/latest/common_bsp/" 
 		     "http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_Core/latest/common_bsp/" 
-		     "http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_4.19.35-1.1.0_GA/latest/common_bsp/")
+		     "http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_5.4.3-2.0.0/latest/common_bsp/")
 
 YOCTO_BUILD_WEB_ATX=("http://yb2.am.freescale.net/internal-only/Linux_IMX_Regression_Next_Kernel/latest/common_bsp/" 
-		     "http://yb2.am.freescale.net/build-output/Linux_IMX_Full/latest/common_bsp/" 
+		     "http://yb2.am.freescale.net/internal-only/Linux_IMX_Full/latest/common_bsp/" 
 		     "http://yb2.am.freescale.net/internal-only/Linux_IMX_Core/latest/common_bsp/" 
-		     "http://yb2.am.freescale.net/build-output/Linux_IMX_4.19.35-1.1.0_GA/latest/common_bsp/")
+		     "http://yb2.am.freescale.net/internal-only/Linux_IMX_5.4.3-2.0.0/latest/common_bsp/")
 
 #only for release quick test
 #BUILD=(release)
-YOCTO_BUILD_WEB_CHN=("http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_5.4.3-2.0.0/latest/common_bsp/")
-YOCTO_BUILD_WEB_ATX=("http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_5.4.3-2.0.0/latest/common_bsp/")
+#YOCTO_BUILD_WEB_CHN=("http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_5.4.3-2.0.0/latest/common_bsp/")
+#YOCTO_BUILD_WEB_ATX=("http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_5.4.3-2.0.0/latest/common_bsp/")
 
 #only for LF quick test
-BUILD=(release)
+#BUILD=(release)
 #YOCTO_BUILD_WEB_CHN=("http://neptune.ap.freescale.net/Linux_Factory/latest/common_bsp/")
 #YOCTO_BUILD_WEB_ATX=("http://neptune.ap.freescale.net/Linux_Factory/latest/common_bsp/")
 
@@ -76,11 +76,11 @@ echo "working directory for the nfsroofs: ${wd} "
 cd ${wd}
 
 #fresh start
-for (( i=0; i<${N_SOC}; i++ )); do
-	for (( j=0; j<${N_BOARD}; j++ )); do
-		rm -rf ${wd}/${SOC[$i]}${BOARD[$j]}*
-	done
-done
+#for (( i=0; i<${N_SOC}; i++ )); do
+#	for (( j=0; j<${N_BOARD}; j++ )); do
+#		rm -rf ${wd}/${SOC[$i]}${BOARD[$j]}*
+#	done
+#done
 
 while [ 1 ]; do
 
