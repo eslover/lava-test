@@ -9,7 +9,7 @@
         {
             "command": "deploy_linaro_kernel",
             "parameters": {
-                "kernel": "file:///nfsroot/imx8qxpmekregression/image/Image-imx8qxpmek.bin",
+                "kernel": "file:///nfsroot/imx8qxpmekregression/image/Image-imx8qxc0pmek.bin",
                 "dtb": "file:///nfsroot/imx8qxpmekregression/image/imx8qxp-mek-rpmsg.dtb",
 		"nfsrootfs": "file:///nfsroot/imx8qxpmekregression/image/imx8qxpc0mek.tar",
                 "login_prompt": "imx8qxpmek login:",
