@@ -196,10 +196,10 @@ while [ 1 ]; do
 							sudo wget -q ${YOCTO_BUILD_WEB_ATX[$j]}optee-os-imx/${U_TEE_FILE[$i]} -O ${FTP_DIR}/${U_TEE_FILE[$i]}
 
 
-							#sudo sed -i --follow-symlinks "/uTee-/c\ wget ${YOCTO_BUILD_WEB_ATX[$j]}imx_uboot/${U_TEE_FILE[$i]} -O ${U_TEE_FILE[$i],,}" \
-							#"/etc/lava-dispatcher/devices/${SOC[$i]}-${BOARD[$i]}.conf"
+							sudo sed -i --follow-symlinks "/uTee-/c\ wget ${YOCTO_BUILD_WEB_ATX[$j]}imx_uboot/${U_TEE_FILE[$i]} -O ${U_TEE_FILE[$i],,}" \
+							"/etc/lava-dispatcher/devices/${SOC[$i]}-${BOARD[$i]}.conf"
 
-							#sudo wget -q ${YOCTO_BUILD_WEB_ATX[$j]}imx_uboot/${U_TEE_FILE[$i]} -O ${FTP_DIR}/${U_TEE_FILE[$i]}
+							sudo wget -q ${YOCTO_BUILD_WEB_ATX[$j]}imx_uboot/${U_TEE_FILE[$i]} -O ${FTP_DIR}/${U_TEE_FILE[$i]}
 							;;
 
 						core)
