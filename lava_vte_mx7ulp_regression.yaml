@@ -15,7 +15,6 @@ install:
 run:
     steps:
         - lava-test-case TGE-LV-RTC-0020 --shell ./scripts/lava-vte.sh 'rtc_testapp_4'
-        - lava-test-case TGE-LV-RTC-0011 --shell ./scripts/lava-vte.sh 'rtc_testapp_2'
         - lava-test-case TGE-LV-GPT-0010 --shell ./scripts/lava-vte.sh 'gpt_testapp'
         - lava-test-case TGE-LV-SD-1800 --shell ./scripts/lava-vte.sh 'cat /proc/partitions | grep mmc'
         - lava-test-case TGE-LV-ESLCD-0702 --shell ./scripts/lava-vte.sh 'dd if=/dev/urandom of=/dev/fb0 bs=1k count=150'
