@@ -75,12 +75,12 @@ echo "working directory for the nfsroofs: ${wd} "
 
 cd ${wd}
 
-#fresh start
-#for (( i=0; i<${N_SOC}; i++ )); do
-#	for (( j=0; j<${N_BOARD}; j++ )); do
-#		rm -rf ${wd}/${SOC[$i]}${BOARD[$j]}*
-#	done
-#done
+fresh start
+for (( i=0; i<${N_SOC}; i++ )); do
+	for (( j=0; j<${N_BOARD}; j++ )); do
+		rm -rf ${wd}/${SOC[$i]}${BOARD[$j]}*
+	done
+done
 
 while [ 1 ]; do
 
