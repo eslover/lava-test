@@ -58,9 +58,9 @@ YOCTO_BUILD_WEB_ATX=("http://yb2.am.freescale.net/internal-only/Linux_IMX_Regres
 #YOCTO_BUILD_WEB_ATX=("http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_5.4.24-2.1.0/latest/common_bsp/")
 
 #only for LF quick test
-#BUILD=(release)
-#YOCTO_BUILD_WEB_CHN=("http://neptune.ap.freescale.net/Linux_Factory/latest/common_bsp/")
-#YOCTO_BUILD_WEB_ATX=("http://neptune.ap.freescale.net/Linux_Factory/latest/common_bsp/")
+BUILD=(release)
+YOCTO_BUILD_WEB_CHN=("http://neptune.ap.freescale.net/Linux_Factory/latest/common_bsp/")
+YOCTO_BUILD_WEB_ATX=("http://neptune.ap.freescale.net/Linux_Factory/latest/common_bsp/")
 
 #only for Full quick test
 #BUILD=(release)
@@ -68,9 +68,9 @@ YOCTO_BUILD_WEB_ATX=("http://yb2.am.freescale.net/internal-only/Linux_IMX_Regres
 #YOCTO_BUILD_WEB_ATX=("http://neptune.ap.freescale.net/Linux_Factory/173/common_bsp/")
 
 #only for Core quick test
-BUILD=(core)
-YOCTO_BUILD_WEB_CHN=("http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_Core/latest/common_bsp/")
-YOCTO_BUILD_WEB_ATX=("http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_Core/latest/common_bsp/")
+#BUILD=(core)
+#YOCTO_BUILD_WEB_CHN=("http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_Core/latest/common_bsp/")
+#YOCTO_BUILD_WEB_ATX=("http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_Core/latest/common_bsp/")
 
 wd=/nfsroot
 
@@ -201,10 +201,10 @@ while [ 1 ]; do
 					esac
 
 					#create symbol link, try to find one if mulptile
-					ln -sf `find *${NFS[$i]}*.tar.bz2 | head -1` ${SOC[$i]}${BOARD[$i]}.tar.bz2;
+					ln -sf `ls -S *${NFS[$i]}*.tar.bz2 | head -1` ${SOC[$i]}${BOARD[$i]}.tar.bz2;
 					if [ $? -ne 0 ]
 					then
-						ln -sf `find *${SOC[$i]}*.tar.bz2 | head -1` ${SOC[$i]}${BOARD[$i]}.tar.bz2;
+						ln -sf `ls -S *${SOC[$i]}*.tar.bz2 | head -1` ${SOC[$i]}${BOARD[$i]}.tar.bz2;
 					fi
 
 					#bunzip it firstly for the sake of the CPU high loading when mulitple board bootup

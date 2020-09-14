@@ -53,9 +53,9 @@ YOCTO_BUILD_WEB_ATX=("http://yb2.am.freescale.net/internal-only/Linux_IMX_Regres
 		     "http://yb2.am.freescale.net/internal-only/Linux_IMX_5.4.24-2.1.0/latest/common_bsp/")
 
 #only for release quick test
-#BUILD=(release)
-#YOCTO_BUILD_WEB_CHN=("http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_5.4.3-2.0.0/latest/common_bsp/")
-#YOCTO_BUILD_WEB_ATX=("http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_5.4.3-2.0.0/latest/common_bsp/")
+BUILD=(release)
+YOCTO_BUILD_WEB_CHN=("http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_5.4.47-2.2.0/latest/common_bsp/")
+YOCTO_BUILD_WEB_ATX=("http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_5.4.47-2.2.0/latest/common_bsp/")
 
 #only for LF quick test
 #BUILD=(release)
@@ -64,8 +64,8 @@ YOCTO_BUILD_WEB_ATX=("http://yb2.am.freescale.net/internal-only/Linux_IMX_Regres
 
 #only for Full quick test
 #BUILD=(release)
-#YOCTO_BUILD_WEB_CHN=("http://neptune.ap.freescale.net/Linux_Factory/123/common_bsp/")
-#YOCTO_BUILD_WEB_ATX=("http://neptune.ap.freescale.net/Linux_Factory/123/common_bsp/")
+#YOCTO_BUILD_WEB_CHN=("http://neptune.ap.freescale.net/Linux_Factory/201/common_bsp/")
+#YOCTO_BUILD_WEB_ATX=("http://neptune.ap.freescale.net/Linux_Factory/201/common_bsp/")
 
 wd=/nfsroot
 

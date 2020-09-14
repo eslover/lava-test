@@ -29,7 +29,7 @@ nohup bash -x ./auto_run_ondemand_base.sh -s=imx7ulp -b=evk -u=uTee-7ulp -i=zIma
 
 nohup bash -x ./auto_run_ondemand_base.sh -s=imx8mm -b=evk -i=Image-imx8mmevk.bin -n=imx8mmevk > /nfsroot/nohup_imx8mmevk.out 2>&1 &
 
-nohup bash -x ./auto_run_ondemand_base.sh -s=imx8qxp -b=mek -i=Image-imx8qxpc0mek.bin -n=imx8qxpc0mek > /nfsroot/nohup_imx8qxpmek.out 2>&1 &
+#nohup bash -x ./auto_run_ondemand_base.sh -s=imx8qxp -b=mek -i=Image-imx8qxpc0mek.bin -n=imx8qxpc0mek > /nfsroot/nohup_imx8qxpmek.out 2>&1 &
 
 nohup bash -x ./auto_run_ondemand_base.sh -s=imx8mq -b=evk -i=Image-imx8mqevk.bin -n=imx8mqevk > /nfsroot/nohup_imx8mqevk.out 2>&1 &
 
