@@ -1,0 +1,160 @@
+TGE-LV-RTC-0100	rtc_test.sh 2
+TGE-LV-CSPI-0001	ls /sys/bus/spi/devices | grep spi
+TGE-LV-GPIO-0020	[ -e /sys/class/gpio/export ]
+TGE-LV-UART-0017	uart_test.sh 2
+TGE-LV-RTC-0020	rtc_testapp_4
+TGE-LV-RTC-0011	rtc_testapp_2
+TGE-LV-RTC-0013	rtc_testapp_5 -T POLL
+TGE-LV-FB-0710	fb_test.sh 11
+TGE-LV-ALSA-0501	adc_test1.sh -f S16_LE -d 5 -c 1 -r 8000 -A
+TGE-LV-ALSA-0502	adc_test1.sh -f S16_LE -d 5 -c 1 -r 11025 -A
+TGE-LV-ALSA-0503	adc_test1.sh -f S16_LE -d 5 -c 1 -r 16000 -A
+TGE-LV-ALSA-0504	adc_test1.sh -f S16_LE -d 5 -c 1 -r 22050 -A
+TGE-LV-ALSA-0506	adc_test1.sh -f S16_LE -d 5 -c 1 -r 32000 -A
+TGE-LV-ALSA-0507	adc_test1.sh -f S16_LE -d 5 -c 1 -r 44100 -A
+TGE-LV-ALSA-0508	adc_test1.sh -f S16_LE -d 5 -c 1 -r 48000 -A
+TGE-LV-ALSA-0511	adc_test1.sh -f S16_LE -d 5 -c 2 -r 8000 -A
+TGE-LV-ALSA-0512	adc_test1.sh -f S16_LE -d 5 -c 2 -r 11025
+TGE-LV-ALSA-0513	adc_test1.sh -f S16_LE -d 5 -c 2 -r 16000 -A
+TGE-LV-ALSA-0514	adc_test1.sh -f S16_LE -d 5 -c 2 -r 22050
+TGE-LV-ALSA-0516	adc_test1.sh -f S16_LE -d 5 -c 2 -r 32000 -A
+TGE-LV-ALSA-0518	adc_test1.sh -f S16_LE -d 5 -c 2 -r 48000 -A
+TGE-LV-ALSA-0101	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio8k16M.wav -A
+TGE-LV-ALSA-0102	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio11k16M.wav -A
+TGE-LV-ALSA-0103	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio16k16M.wav -A
+TGE-LV-ALSA-0104	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio22k16M.wav -A
+TGE-LV-ALSA-0106	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio32k16M.wav -A
+TGE-LV-ALSA-0108	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio48k16M.wav -A
+TGE-LV-ALSA-0111	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio8k16S.wav -A
+TGE-LV-ALSA-0112	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio11k16S.wav -A
+TGE-LV-ALSA-0113	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio16k16S.wav -A
+TGE-LV-ALSA-0114	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio22k16S.wav -A
+TGE-LV-ALSA-0116	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio32k16S.wav -A
+TGE-LV-ALSA-0117	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio44k16S.wav -A
+TGE-LV-ALSA-0118	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio48k16S.wav -A
+TGE-LV-ALSA-0121	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio8k24M-S24_LE.wav -A
+TGE-LV-ALSA-0122	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio11k24M-S24_LE.wav -A
+TGE-LV-ALSA-0123	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio16k24M-S24_LE.wav -A
+TGE-LV-ALSA-0124	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio22k24M-S24_LE.wav -A
+TGE-LV-ALSA-0125	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio32k24M-S24_LE.wav -A
+TGE-LV-ALSA-0126	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio44k24M-S24_LE.wav -A
+TGE-LV-ALSA-0127	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio48k24M-S24_LE.wav -A
+TGE-LV-ALSA-0131	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio8k24S-S24_LE.wav
+TGE-LV-ALSA-0132	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio11k24S-S24_LE.wav
+TGE-LV-ALSA-0133	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio16k24S-S24_LE.wav
+TGE-LV-ALSA-0134	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio22k24S-S24_LE.wav
+TGE-LV-ALSA-0136	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio32k24S-S24_LE.wav
+TGE-LV-ALSA-0137	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio44k24S-S24_LE.wav
+TGE-LV-ALSA-0138	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio48k24S-S24_LE.wav
+TGE-LV-GPT-0010	gpt_test.sh 2
+TGE-LV-ESLCD-0703	echo q | fbv -d /dev/fb0 ${LTPROOT}/testcases/bin/butterfly.png
+TGE-LV-ALSA-0171	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio8k32M.wav -A
+TGE-LV-ALSA-0172	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio11k32M.wav -A
+TGE-LV-ALSA-0173	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio16k32M.wav -A
+TGE-LV-ALSA-0174	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio22k32M.wav -A
+TGE-LV-ALSA-0175	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio32k32M.wav -A
+TGE-LV-ALSA-0176	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio44k32M.wav -A
+TGE-LV-ALSA-0177	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio48k32M.wav -A
+TGE-LV-ALSA-0178	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio64k32M.wav -A
+TGE-LV-ALSA-0179	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio88k32M.wav -A
+TGE-LV-ALSA-0180	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio96k32M.wav -A
+TGE-LV-ALSA-0181	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio8k32S.wav -A
+TGE-LV-ALSA-0182	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio11k32S.wav -A
+TGE-LV-ALSA-0183	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio16k32S.wav -A
+TGE-LV-ALSA-0184	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio22k32S.wav -A
+TGE-LV-ALSA-0185	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio32k32S.wav -A
+TGE-LV-ALSA-0186	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio44k32S.wav -A
+TGE-LV-ALSA-0187	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio48k32S.wav -A
+TGE-LV-ALSA-0188	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio64k32S.wav -A
+TGE-LV-ALSA-0189	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio88k32S.wav -A
+TGE-LV-ALSA-0190	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio96k32S.wav -A
+TGE-LV-ALSA-0191	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio24k32M.wav -A
+TGE-LV-ALSA-0192	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio24k32S.wav -A
+TGE-LV-FB-1003	cat /dev/vcs
+TGE-LV-FB-1006	fb_test.sh 8
+TGE-LV-FB-1007	clk.sh display
+TGE-LV-ALSA-0156	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio12k32M.wav -A
+TGE-LV-ALSA-0157	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio12k32S.wav -A
+TGE-LV-ALSA-0225	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio128k32M.wav -A
+TGE-LV-ALSA-0226	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio128k32S.wav -A
+TGE-LV-ALSA-0235	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio176k32M.wav -A
+TGE-LV-ALSA-0236	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio176k32S.wav -A
+TGE-LV-ALSA-0245	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio192k32M.wav -A
+TGE-LV-ALSA-0246	dac_test1.sh -f $STREAM_PATH/alsa_stream/audio192k32S.wav -A
+TGE-LV-SD-1010	mmc_transfer.sh
+TGE-LV-KERNEL-10005	cat /proc/meminfo | grep HighTotal
+TGE-LV-KMEM-0001	insmod ${LTPROOT}/testcases/bin/memory_test.ko && rmmod memory_test
+TGE-LV-KERNEL-CLOCK-0001	count=`cat /proc/timer_list | grep clock | wc -l`; [ $count -gt 0 ]
+TGE-LV-APP-0001	gst-inspect-1.0 | tee /tmp/gst.log
+TGE-LV-CORE-0001	validate
+TGE-LV-OTP-0001	otp_test.sh
+TGE-LV-CORE-0002	check_events
+TGE-LV-FB-1019	echo 1 > /sys/class/graphics/fb0/rotate && echo q | fbv ${LTPROOT}/testcases/bin/butterfly.png
+TGE-LV-I2C-CLK-0001	clk.sh i2c
+TGE-LV-HRT-0020	insmod ${LTPROOT}/testcases/bin/hrtimer_test.ko && sleep 1 && rmmod hrtimer_test && dmesg | grep hrtimer_callback
+TGE-LV-TIMER-FREQ-0001	timer_interrupt
+TGE-LV-DVFS-0160	dvfs_mx60.sh 6
+TGE-LV-ALSA-0205	alsa_conversion.sh -t 6 -r 11025
+TGE-LV-ALSA-0207	alsa_conversion.sh -t 6 -r 16000
+TGE-LV-ALSA-0208	alsa_conversion.sh -t 6 -r 22050
+TGE-LV-ALSA-0540	adc_test1.sh -f S24_LE -d 5 -c 1 -r 8000 -A
+TGE-LV-ALSA-0541	adc_test1.sh -f S24_LE -d 5 -c 1 -r 11025 -A
+TGE-LV-ALSA-0542	adc_test1.sh -f S24_LE -d 5 -c 1 -r 16000 -A
+TGE-LV-ALSA-0543	adc_test1.sh -f S24_LE -d 5 -c 1 -r 22050 -A
+TGE-LV-ALSA-0545	adc_test1.sh -f S24_LE -d 5 -c 1 -r 32000 -A
+TGE-LV-ALSA-0546	adc_test1.sh -f S24_LE -d 5 -c 1 -r 44100 -A
+TGE-LV-ALSA-0547	adc_test1.sh -f S24_LE -d 5 -c 1 -r 48000 -A
+TGE-LV-ALSA-0550	adc_test1.sh -f S24_LE -d 5 -c 2 -r 8000 -A
+TGE-LV-ALSA-0551	adc_test1.sh -f S24_LE -d 5 -c 2 -r 11025
+TGE-LV-ALSA-0552	adc_test1.sh -f S24_LE -d 5 -c 2 -r 16000 -A
+TGE-LV-ALSA-0553	adc_test1.sh -f S24_LE -d 5 -c 2 -r 22050
+TGE-LV-ALSA-0555	adc_test1.sh -f S24_LE -d 5 -c 2 -r 32000 -A
+TGE-LV-ALSA-0556	adc_test1.sh -f S24_LE -d 5 -c 2 -r 44100 -A
+TGE-LV-ALSA-0557	adc_test1.sh -f S24_LE -d 5 -c 2 -r 48000 -A
+TGE-LV-FB-0704	fbdep_def=$(fbset -fb /dev/fb0 | grep geometry | cut -d " " -f 10) && lcd_testapp -T 4 -B /dev/fb0 -D $fbdep_def
+TGE-LV-USB-OTG-0069	usb_host_board.sh 6
+TGE-LV-ALSA-0160a	rpmcard=`gac.sh p rpmsg | cut -d, -f1`;cfg_adj.sh $rpmcard 10 125,80 && cfg_adj.sh $rpmcard 1 10,50
+TGE-LV-UART-0018	uart_test.sh 3
+TGE-LV-RTC-0010	rtc_testapp_1 -T UIE -D /dev/rtc
+TGE-LV-FB-0010	fb_test.sh 1
+TGE-LV-RTC-0102	rtc_test_7.sh
+TGE-LV-DVFS-0200	dvfs.sh 4
+TGE-LV-SD-1303	storage_all.sh 17
+TGE-LV-ALSA-3002	alsa_conversion.sh -t 5
+TGE-LV-FB-1004	fb_test.sh 7
+TGE-LV-KERNEL-10002	timer_resolution
+TGE-LV-GPT-0011	gpt_test.sh 1
+TGE-LV-I2C-0001	i2c_test.sh 1
+TGE-LV-BENCH-10001	core_bench.sh 1
+TGE-LV-BENCH-10002	core_bench.sh 2
+TGE-LV-ALSA-0204	alsa_conversion.sh -t 6 -r 8000
+TGE-LV-ALSA-0211	alsa_conversion.sh -t 6 -r 32000
+TGE-LV-ALSA-0212	alsa_conversion.sh -t 6 -r 44100
+TGE-LV-ALSA-0213	alsa_conversion.sh -t 6 -r 48000
+TGE-LV-I2C-0005	i2c_test.sh 2
+TGE-LV-FB-8887	fb_names="";fb_names=`cat /sys/class/graphics/fb*/name | grep -i '^[a-z]'`&& [ -n "${fb_names}" ]
+TGE-LV-SYSTEST-0103	ls /lib/modules/`uname -r`/modules.dep
+TGE-LV-WDOG-0020	set_reboot.sh 0 && watchdog_testapp_2 -T 3 -S 1 -W 0; rt=$?; if [ $rt -eq 0 ];then sleep 5;echo "board fail to reboot when reach timeout(3s), test FAIL!";clr_handler.sh -p 1 -t reboot else echo " watchdog_testapp_2 -T 3 -S 1 -W 0 return FAIL!";clr_handler.sh -p 1 -t reboot;fi
+TGE-LV-PM-0102	pm_suspend.sh 2
+TGE-LV-DVFS-0401	cpuidle.sh 1
+TGE-LV-KERNEL-SMP-0011	set_reboot.sh 1 && do_reboot.sh && dmesg| grep -Ei "WARNING|error|cut here|end trace|oops|exception|fail|duplicate" |tee boot_nosmp_error.log; [ `cat /proc/cpuinfo |grep processor|wc -l` -eq 1 ] && clr_handler.sh -p $? -t reboot
+TGE-LV-GPIO-0001	gpio_test.sh 1
+TGE-LV-SYSTEST-0102	set_reboot.sh 1 && do_reboot.sh && dependency_check.sh; clr_handler.sh -p $? -t reboot
+TGE-LV-WDOG-0021	set_reboot.sh 0 && watchdog_testapp_2 -T 1 -S 3 -W 0; rt=$?;if [ $rt -eq 0 ];then sleep 3;echo "board fail to reboot when reach timeout(1s), test FAIL!";clr_handler.sh -p 1 -t reboot else echo "Timeout less than Sleep time failed!";clr_handler.sh -p 1 -t reboot;fi
+TGE-LV-WDOG-0022	set_reboot.sh 0 && watchdog_testapp_2 -T 3 -S 1 -W 1;rt=$?;if [ $rt -eq 0 ];then sleep 5; echo "board fail to reboot when reach timeout(3s), test FAIL!";clr_handler.sh -p 1 -t reboot else echo "Timeout > Sleep time failed!";clr_handler.sh -p 1 -t reboot;fi
+TGE-LV-WDOG-0023	set_reboot.sh 0 && watchdog_testapp_2 -T 1 -S 3 -W 1 ;rt=$?; if [ $rt -eq 0 ];then sleep 3; echo "board fail to reboot when reach timeout(1s), test FAIL!";clr_handler.sh -p 1 -t reboot else echo "Timeout less than Sleep time failed"; clr_handler.sh -p 1 -t reboot;fi
+TGE-LV-WDOG-0030	set_reboot.sh 0 && watchdog_testapp_3 -W 0 ; rt=$?; if [ $rt -eq 0 ];then sleep 53;echo "board fail to reboot when reach timeout(50s), test FAIL!";clr_handler.sh -p 1 -t reboot else echo "WDIOC_GETSUPPORT failed";clr_handler.sh -p 1 -t reboot;fi
+TGE-LV-WDOG-0031	set_reboot.sh 0 && watchdog_testapp_3 -W 1 ;rt=$?;if [ $rt -eq 0 ];then sleep 53;echo "board fail to reboot when reach timeout(50s), test FAIL!";clr_handler.sh -p 1 -t reboot else echo "WDIOC_GETSTATUS failed";clr_handler.sh -p 1 -t reboot;fi
+TGE-LV-WDOG-0033	set_reboot.sh 0 && watchdog_testapp_3 -W 2 ; rt=$?; if [ $rt -eq 0 ];then sleep 53;echo "board fail to reboot when reach timeout(50s), test FAIL!";clr_handler.sh -p 1 -t reboot else echo "WDIOC_GETBOOTSTATUS fail"; clr_handler.sh -p 1 -t reboot;fi
+TGE-LV-ALSA-1163	power_test_alsa.sh 3
+TGE-LV-WDOG-0034	set_reboot.sh 0 && watchdog_testapp_3 -W 3;rt=$?;if [ $? -eq 0 ];then sleep 53;echo "board fail to reboot when reach timeout(50s), test FAIL!";clr_handler.sh -p 1 -t reboot else echo "WDIOC_GETPRETIMEOUT failed";clr_handler.sh -p 1 -t reboot;fi
+TGE-LV-BT-0001	set_reboot.sh 1; do_reboot.sh ;bt_bluez.sh;clr_handler.sh -t reboot -p $?
+TGE-LV-RTC-0022	rtc_test.sh 5
+TGE-LV-PM-0100	pm_suspend.sh 1
+TGE-LV-Security-CAAM_SM-0001	set_reboot.sh 1 && do_reboot.sh; modprobe sm_test; [ $(dmesg|grep "caam_sm"|grep "restored .*-bit black key"|wc -l) -eq 4 ] || [ $(dmesg|grep "SM test passed"|wc -l) -eq 1 ] && echo "Test Pass: CAAM SM test" && [ $(dmesg| grep "restored key mismatch"|wc -l) -eq 0 ] && echo "Test Pass: No key mismatch is found"; clr_handler.sh -p $? -t reboot
+TGE-LV-RTC-0023	resetflag=1;rtc_test.sh 6
+TGE-LV-DVFS-0024	clk_check_gov.sh all
+TGE-LV-ALSA-1161	power_test_alsa.sh 1
+TGE-LV-OPTEE-0010	optee.sh 2
+TGE-LV-SECURITY-006	tcryp.sh 2
+
