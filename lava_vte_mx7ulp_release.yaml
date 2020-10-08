@@ -151,7 +151,6 @@ run:
         - lava-test-case TGE-LV-ALSA-1163 --shell ./scripts/lava-vte.sh 'power_test_alsa.sh 3'
         - lava-test-case TGE-LV-RTC-0022 --shell ./scripts/lava-vte.sh 'rtc_test.sh 5'
         - lava-test-case TGE-LV-PM-0100 --shell ./scripts/lava-vte.sh 'pm_suspend.sh 1'
-        - lava-test-case TGE-LV-RTC-0023 --shell ./scripts/lava-vte.sh 'resetflag=1;rtc_test.sh 6'
         - lava-test-case TGE-LV-DVFS-0024 --shell ./scripts/lava-vte.sh 'clk_check_gov.sh all'
         - lava-test-case TGE-LV-ALSA-1161 --shell ./scripts/lava-vte.sh 'power_test_alsa.sh 1'
         - lava-test-case TGE-LV-OPTEE-0010 --shell ./scripts/lava-vte.sh 'optee.sh 2'
