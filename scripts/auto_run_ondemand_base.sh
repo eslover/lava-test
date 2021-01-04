@@ -66,9 +66,9 @@ YOCTO_BUILD_WEB_CHN=("http://neptune.ap.freescale.net/Linux_Factory/201/common_b
 YOCTO_BUILD_WEB_ATX=("http://neptune.ap.freescale.net/Linux_Factory/201/common_bsp/")
 
 #only for Core quick test
-#BUILD=(core)
-#YOCTO_BUILD_WEB_CHN=("http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_Core/latest/common_bsp/")
-#YOCTO_BUILD_WEB_ATX=("http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_Core/latest/common_bsp/")
+BUILD=(core)
+YOCTO_BUILD_WEB_CHN=("http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_Core/latest/common_bsp/")
+YOCTO_BUILD_WEB_ATX=("http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_Core/latest/common_bsp/")
 
 N_BUILD=${#BUILD[@]}
 
