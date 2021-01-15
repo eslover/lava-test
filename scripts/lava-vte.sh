@@ -96,7 +96,7 @@ fi
 echo `pwd`
 
 #cd /mnt/nfs/${vte}
-cd /mnt/nfs/L5.4.70_2.3.0_Q4_RC3/${vte}
+cd /mnt/nfs/L5.10.1_LF_RC1/${vte}
 . ./manual_test
 
 echo "COMMAND:$*"
