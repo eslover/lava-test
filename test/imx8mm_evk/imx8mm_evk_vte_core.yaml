@@ -1,0 +1,64 @@
+device_type: imx8m
+job_name: standard Debian test on imx8mm
+timeouts:
+  job:
+    minutes: 15
+  action:
+    minutes: 10
+  connection:
+    minutes: 10
+priority: medium
+visibility: public
+
+actions:
+- deploy:
+    timeout:
+      minutes: 10
+    to: tftp
+    kernel:
+      url: file:///nfsroot/imx8mmevkcore/image/Image-imx8mmevk.bin
+      type: image
+    nfsrootfs:
+      url: file:///nfsroot/imx8mmevkcore/image/imx8mmevk.tar.bz2
+      compression: bz2
+    dtb:
+      url: file:///nfsroot/imx8mmevkcore/image/imx8mm-evk.dtb
+
+- boot:
+    failure_retry: 1
+    method: u-boot
+    commands:
+    - setenv autoload
+    - setenv initrd_high 0xffffffff
+    - setenv fdt_high 0xffffffff
+    - setenv serverip {SERVER_IP}
+    - setenv image {KERNEL}
+    - setenv fdtfile {DTB}
+    - setenv nfsroot {NFSROOTFS}
+    - setenv bootcmd 'print;run netboot'
+    - boot
+
+    auto_login:
+      login_prompt: 'imx8mmevk login:'
+      username: root
+    prompts:
+    - 'root@(.*):~#'
+    timeout:
+      minutes: 5
+- test:
+    timeout:
+      minutes: 10
+    definitions:
+    - repository: https://github.com/eslover/sandbox-test.git
+      from: git
+      path: lava_vte_mx8mm_core.yaml
+      name: smoke-tests
+
+notify:
+  criteria:
+    status: finished
+  recipients:
+  - to:
+     method: email
+     user: admin
+  verbosity: verbose

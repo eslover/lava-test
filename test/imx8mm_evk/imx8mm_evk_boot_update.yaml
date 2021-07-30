@@ -1,0 +1,59 @@
+device_type: imx8m
+job_name: boot image update
+timeouts:
+  job:
+    minutes: 15
+  action:
+    minutes: 10
+  connection:
+    minutes: 10
+priority: medium
+visibility: public
+
+actions:
+- deploy:
+    timeout:
+      minutes: 10
+    to: tftp
+    kernel:
+      url: file:///nfsroot/imx8mmevkcore/image/Image-imx8mmevk.bin
+      type: image
+    nfsrootfs:
+      url: file:///nfsroot/imx8mmevkcore/image/imx-image-core-imx8mmevk-20190829080743.rootfs.tar.bz2
+      compression: bz2
+    dtb:
+      url: file:///nfsroot/imx8mmevkcore/image/imx8mm-evk.dtb
+
+- boot:
+    failure_retry: 1
+    method: u-boot
+    commands:
+    - setenv autoload
+    - setenv initrd_high 0xffffffff
+    - setenv fdt_high 0xffffffff
+    - setenv serverip {SERVER_IP}
+    - setenv image {KERNEL}
+    - setenv fdtfile {DTB}
+    - setenv nfsroot {NFSROOTFS}
+    - setenv bootcmd 'print;run netboot'
+    - dhcp {KERNEL_ADDR} {SERVER_IP}:imx-boot-imx8mmevk-sd.bin-flash_evk
+    - mmc dev
+    - mmc write {KERNEL_ADDR} 0x42 0x2000
+    - run netboot
+
+    auto_login:
+      login_prompt: 'imx8mmevk login:'
+      username: root
+    prompts:
+    - 'root@(.*):~#'
+    timeout:
+      minutes: 2
+
+notify:
+  criteria:
+    status: finished
+  recipients:
+  - to:
+     method: email
+     user: admin
+  verbosity: verbose
