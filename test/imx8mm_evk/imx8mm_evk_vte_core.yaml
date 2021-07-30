@@ -2,9 +2,9 @@ device_type: imx8m
 job_name: standard Debian test on imx8mm
 timeouts:
   job:
-    minutes: 15
+    minutes: 45
   action:
-    minutes: 10
+    minutes: 30
   connection:
     minutes: 10
 priority: medium

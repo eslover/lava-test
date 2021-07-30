@@ -26,8 +26,8 @@ run:
         - lava-test-case TGE-LV-DVFS-0200 --shell mount && cpufreq-info
         - lava-test-case TGE-LV-ETHERNET-1702 --shell 'ifconfig eth0 | grep "BROADCAST" | grep "MULTICAST"'
         - lava-test-case TGE-LV-MEM-0320 --shell 'testmem_k=$(expr `cat /proc/meminfo |grep MemTotal |awk '"'"'{print $2}'"'"'` / 20); time -p memtester ${testmem_k}K 1'
-        - lava-test-case TGE-LV-THERMO-0001 --shell thermal_freq.sh 4
-        - lava-test-case TGE-LV-THERMO-0002 --shell thermal_freq.sh 5
+        - lava-test-case TGE-LV-THERMO-0001 --shell 'env && thermal_freq.sh 4'
+        - lava-test-case TGE-LV-THERMO-0002 --shell 'thermal_freq.sh 5'
 
 parse:
     pattern: "[ a-zA-Z]+ (?P<test_case_id>[a-zA-Z0-9]+):\\s(?P<result>PASS|FAIL|SKIP)"
