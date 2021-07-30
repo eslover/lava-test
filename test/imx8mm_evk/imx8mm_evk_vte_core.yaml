@@ -51,7 +51,7 @@ actions:
     definitions:
     - repository: https://github.com/eslover/sandbox-test.git
       from: git
-      path: lava_vte_mx8mm_core.yaml
+      path: lava_vte_mx8mm_core_v2.yaml
       name: smoke-tests
 
 notify:

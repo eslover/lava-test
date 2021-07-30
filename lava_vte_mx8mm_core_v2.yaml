@@ -16,14 +16,14 @@ run:
     steps:
         - lava-test-case TGE-LV-ETHERNET-1009 --shell ./scripts/lava-vte.sh
         - lava-test-case LAVA-TEST-GPU-001 --shell ./scripts/gpu_auto/auto_test.sh
-        - lava-test-case TGE-LV-ALSA-0302 --shell bash -c "aplay -N -M /mnt/nfs/test_stream/alsa_stream/audio*.wav"
+        - lava-test-case TGE-LV-ALSA-0302 --shell 'aplay -N -M /mnt/nfs/test_stream/alsa_stream/audio*.wav'
         - lava-test-case TGE-LV-ETHERNET-1009 --shell ifconfig eth0 | grep "dropped 0"
         - lava-test-case TGE-LV-ETHERNET-1011 --shell ifconfig eth0 | grep "overruns 0"
         - lava-test-case TGE-LV-ETHERNET-1008 --shell ethtool eth0 | grep 1000 ||ethtool eth1 | grep 1000
         - lava-test-case TGE-LV-ETHERNET-1003 --shell ethtool eth0 && ifconfig eth0 | grep "dropped:0" && ifconfig eth0 | grep "overruns:0"
         - lava-test-case TGE-LV-KERNEL-SMP-0002 --shell '[ $(cat /proc/cpuinfo | grep processor | wc -l ) -eq 4 ]'
         - lava-test-case TGE-LV-KERNEL-CLOCK-0001 --shell 'count=`cat /proc/timer_list | grep clock | wc -l`; [ $count -gt 0 ]'
-        - lava-test-case TGE-LV-DVFS-0200 --shell cpufreq-info
+        - lava-test-case TGE-LV-DVFS-0200 --shell mount && cpufreq-info
         - lava-test-case TGE-LV-ETHERNET-1702 --shell 'ifconfig eth0 | grep "BROADCAST" | grep "MULTICAST"'
         - lava-test-case TGE-LV-MEM-0320 --shell 'testmem_k=$(expr `cat /proc/meminfo |grep MemTotal |awk '"'"'{print $2}'"'"'` / 20); time -p memtester ${testmem_k}K 1'
         - lava-test-case TGE-LV-THERMO-0001 --shell thermal_freq.sh 4

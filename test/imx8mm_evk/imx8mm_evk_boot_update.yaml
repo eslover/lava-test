@@ -47,7 +47,7 @@ actions:
     prompts:
     - 'root@(.*):~#'
     timeout:
-      minutes: 2
+      minutes: 10
 
 notify:
   criteria:
