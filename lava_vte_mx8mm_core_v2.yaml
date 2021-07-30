@@ -14,9 +14,8 @@ install:
         - https://github.com/eslover/sandbox-test
 run:
     steps:
-        - lava-test-case TGE-LV-ETHERNET-1009 --shell ./scripts/lava-vte.sh && mount
+        - lava-test-case TGE-LV-ETHERNET-1009 --shell ./scripts/lava-vte.sh && env && echo 255 > /proc/sys/kernel/sysrq
         - lava-test-case LAVA-TEST-GPU-001 --shell ./scripts/gpu_auto/auto_test.sh
-        - lava-test-case TGE-LV-ALSA-0302 --shell 'aplay -N -M /mnt/nfs/test_stream/alsa_stream/audio*.wav'
         - lava-test-case TGE-LV-ETHERNET-1009 --shell ifconfig eth0 | grep "dropped 0"
         - lava-test-case TGE-LV-ETHERNET-1011 --shell ifconfig eth0 | grep "overruns 0"
         - lava-test-case TGE-LV-ETHERNET-1008 --shell ethtool eth0 | grep 1000 ||ethtool eth1 | grep 1000
