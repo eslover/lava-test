@@ -47,7 +47,7 @@ actions:
       minutes: 5
 - test:
     timeout:
-      minutes: 10
+      minutes: 40
     definitions:
     - repository: https://github.com/eslover/sandbox-test.git
       from: git
