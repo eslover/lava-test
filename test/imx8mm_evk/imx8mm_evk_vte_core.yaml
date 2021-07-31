@@ -48,6 +48,8 @@ actions:
 - test:
     timeout:
       minutes: 40
+    params:
+        - &pre_cmd_1 source ./scripts/lava-vte.sh
     definitions:
     - repository: https://github.com/eslover/sandbox-test.git
       from: git

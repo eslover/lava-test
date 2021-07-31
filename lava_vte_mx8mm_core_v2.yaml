@@ -14,6 +14,7 @@ install:
         - https://github.com/eslover/sandbox-test
 run:
     steps:
+	- *pre_cmd_1
         - ./scripts/lava-vte_v2.sh && env && echo 255 > /proc/sys/kernel/sysrq
         - lava-test-case LAVA-TEST-GPU-001 --shell ./scripts/gpu_auto/auto_test.sh
         - lava-test-case TGE-LV-ETHERNET-1009 --shell ifconfig eth0 | grep "dropped 0"
