@@ -99,7 +99,7 @@ echo `pwd`
 cd /mnt/nfs/L5.10.35_2.0.0_Q2_RC2/${vte}
 . ./manual_test
 
-param="'$*'"
+param="$*"
 
 echo "COMMAND:" $param
 
