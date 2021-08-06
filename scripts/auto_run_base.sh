@@ -254,6 +254,7 @@ while [ 1 ]; do
 					fi
 
 					#clean up the disk to avoid disk-full
+					cd -
 					sudo rm -rf *
 				fi
 			else
