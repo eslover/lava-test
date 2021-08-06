@@ -25,7 +25,7 @@ nohup bash -x ./auto_run_base.sh -s=imx6ul -b=14x14evk -u=uTee-6ulevk -i=zImage-
 
 nohup bash -x ./auto_run_base.sh -s=imx7d -b=sabresd -u=uTee-7dsdb -i=zImage-imx6ul7d.bin -n=imx6ul7d > /nfsroot/nohup_imx7dsdb.out 2>&1 &
 
-nohup bash -x ./auto_run_base.sh -s=imx7ulp -b=evk -u=uTee-7ulp -i=zImage-imx7ulpevk.bin -n=imx7ulpevk > /nfsroot/nohup_imx7ulpevk.out 2>&1 &
+#nohup bash -x ./auto_run_base.sh -s=imx7ulp -b=evk -u=uTee-7ulp -i=zImage-imx7ulpevk.bin -n=imx7ulpevk > /nfsroot/nohup_imx7ulpevk.out 2>&1 &
 
 nohup bash -x ./auto_run_base.sh -s=imx8mm -b=evk -i=Image-imx8mmevk.bin -n=imx8mmevk > /nfsroot/nohup_imx8mmevk.out 2>&1 &
 

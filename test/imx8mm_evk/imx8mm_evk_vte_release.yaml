@@ -17,7 +17,7 @@ actions:
       minutes: 10
     to: tftp
     kernel:
-      url: file:///nfsroot/imx8mmevkcore/image/imx-boot-imx8mmevk-sd.bin-flash_evk
+      url: file:///nfsroot/imx8mmevkrelease/image/imx-boot-imx8mmevk-sd.bin-flash_evk
       type: image
 
 - boot:
@@ -43,13 +43,13 @@ actions:
       minutes: 10
     to: tftp
     kernel:
-      url: file:///nfsroot/imx8mmevkcore/image/Image-imx8mmevk.bin
+      url: file:///nfsroot/imx8mmevkrelease/image/Image-imx8mmevk.bin
       type: image
     nfsrootfs:
-      url: file:///nfsroot/imx8mmevkcore/image/imx8mmevk.tar
+      url: file:///nfsroot/imx8mmevkrelease/image/imx8mmevk.tar
       archive: tar
     dtb:
-      url: file:///nfsroot/imx8mmevkcore/image/imx8mm-evk.dtb
+      url: file:///nfsroot/imx8mmevkrelease/image/imx8mm-evk.dtb
 
 - boot:
     failure_retry: 1
@@ -82,7 +82,7 @@ actions:
     definitions:
     - repository: https://github.com/eslover/sandbox-test.git
       from: git
-      path: lava_vte_mx8mm_core_v2.yaml
+      path: lava_vte_mx8mm_release_v2.yaml
       name: smoke-tests
 
 notify:

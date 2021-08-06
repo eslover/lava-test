@@ -1,5 +1,5 @@
-device_type: imx8m
-job_name: standard Debian test on imx8mm
+device_type: imx8ulp
+job_name: standard Debian test on imx8ulp
 timeouts:
   job:
     minutes: 45
@@ -17,7 +17,7 @@ actions:
       minutes: 10
     to: tftp
     kernel:
-      url: file:///nfsroot/imx8mmevkcore/image/imx-boot-imx8mmevk-sd.bin-flash_evk
+      url: file:///nfsroot/imx8ulpevkcore/image/imx-boot-imx8ulpevk-sd.bin-flash_singleboot_m33
       type: image
 
 - boot:
@@ -32,8 +32,8 @@ actions:
     - setenv image {KERNEL}
     - setenv serverip {SERVER_IP}
     - dhcp {KERNEL_ADDR} ${image}
-    - mmc dev
-    - mmc write {KERNEL_ADDR} 0x42 0x2000
+    - mmc dev 0 1
+    - mmc write {KERNEL_ADDR} 0x0 0x2000
     - echo update-boot-image-done
     prompts: 'update-boot-image-done'
 
@@ -43,13 +43,13 @@ actions:
       minutes: 10
     to: tftp
     kernel:
-      url: file:///nfsroot/imx8mmevkcore/image/Image-imx8mmevk.bin
+      url: file:///nfsroot/imx8ulpevkcore/image/Image-imx8ulpevk.bin
       type: image
     nfsrootfs:
-      url: file:///nfsroot/imx8mmevkcore/image/imx8mmevk.tar
+      url: file:///nfsroot/imx8ulpevkcore/image/imx8ulpevk.tar
       archive: tar
     dtb:
-      url: file:///nfsroot/imx8mmevkcore/image/imx8mm-evk.dtb
+      url: file:///nfsroot/imx8ulpevkcore/image/imx8ulp-evk.dtb
 
 - boot:
     failure_retry: 1
@@ -68,7 +68,7 @@ actions:
     - boot
 
     auto_login:
-      login_prompt: 'imx8mmevk login:'
+      login_prompt: '(.*) login:'
       username: root
     prompts:
     - 'root@(.*):~#'
@@ -82,7 +82,7 @@ actions:
     definitions:
     - repository: https://github.com/eslover/sandbox-test.git
       from: git
-      path: lava_vte_mx8mm_core_v2.yaml
+      path: lava_vte_mx8ulp_core_v2.yaml
       name: smoke-tests
 
 notify:

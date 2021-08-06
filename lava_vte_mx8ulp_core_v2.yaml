@@ -1,0 +1,23 @@
+metadata:
+    format: Lava-Test Test 
+    name: lava_vte_test 
+    description: "i.MX8mm VTE test"
+    maintainer:
+    os:
+        - Linux
+    scope:
+        - functional
+    devices:
+        - imx8mm-evk
+install:
+    git-repos:
+        - https://github.com/eslover/sandbox-test
+run:
+    steps:
+        - lava-test-case TGE-LV-ETHERNET-1009 --shell ./scripts/lava-vte_v2.sh 'ifconfig eth0 | grep "dropped:0"'
+        - lava-test-case TGE-LV-THERMO-0002 --shell ./scripts/lava-vte_v2.sh 'thermal_freq.sh 5'
+        - lava-test-case TGE-LV-THERMO-0001 --shell ./scripts/lava-vte_v2.sh 'thermal_freq.sh 4'
+        - lava-test-case LAVA-TEST-GPU-001 --shell ./scripts/gpu_auto/auto_test.sh
+
+parse:
+    pattern: "[ a-zA-Z]+ (?P<test_case_id>[a-zA-Z0-9]+):\\s(?P<result>PASS|FAIL|SKIP)"

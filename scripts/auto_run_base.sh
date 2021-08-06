@@ -63,9 +63,9 @@ YOCTO_BUILD_WEB_ATX=("http://yb2.am.freescale.net/internal-only/Linux_IMX_Regres
 #YOCTO_BUILD_WEB_ATX=("http://neptune.ap.freescale.net/Linux_Factory/latest/common_bsp/")
 
 #only for Full quick test
-#BUILD=(release)
-#YOCTO_BUILD_WEB_CHN=("http://neptune.ap.freescale.net/Linux_Factory/201/common_bsp/")
-#YOCTO_BUILD_WEB_ATX=("http://neptune.ap.freescale.net/Linux_Factory/201/common_bsp/")
+BUILD=(release)
+YOCTO_BUILD_WEB_CHN=("http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_5.10.X_2.1.0/latest/common_bsp/")
+YOCTO_BUILD_WEB_ATX=("http://shlinux22.ap.freescale.net/internal-only/Linux_IMX_5.10.X_2.1.0/latest/common_bsp/")
 
 wd=/nfsroot
 
@@ -132,6 +132,10 @@ while [ 1 ]; do
 						wget -N -q --backups=1 -r -l1 -nH --cut-dirs=2 --no-parent -A "*${IMG[$i]}*" \
 						--no-directories \
 							${YOCTO_BUILD_WEB_CHN[$j]}
+
+						wget -N -q --backups=1 -r -l1 -nH --cut-dirs=2 --no-parent -A "*${SOC[$i]}*" \
+						--no-directories \
+							${YOCTO_BUILD_WEB_CHN[$j]}imx-boot/
 						sleep 60
 					done
 
@@ -240,7 +244,13 @@ while [ 1 ]; do
 					esac
 
 					#submit the lava job and wait for completion
-					/home/r64343/workspace/lava-test/test/${SOC[$i]}_${BOARD[$i]}/start_ci_${BUILD[j]}.sh
+					uname -a | grep debian10
+					if [ $? -eq 0 ]
+					then
+						/home/r64343/workspace/lava-test/test/${SOC[$i]}_${BOARD[$i]}/start_ci_${BUILD[j]}_v2.sh
+					else
+						/home/r64343/workspace/lava-test/test/${SOC[$i]}_${BOARD[$i]}/start_ci_${BUILD[j]}_v2.sh
+					fi
 
 					#clean up the disk to avoid disk-full
 					sudo rm -rf *

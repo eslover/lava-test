@@ -1,6 +1,6 @@
 #!/bin/bash
 
-OUTPUT=`lavacli --uri http://admin:43p8nz0iwe0tb2scya3mrcls8kl0hxw9whf19bac0kdc40lxfu6rtikis00yrcy9teu35ky8kcnrxygcqrxs9m649x3u6dp9gwb36p845kd4ozpzbpq8ft7ufu0u1syz@10.192.242.47/RPC2/ jobs submit imx8mm_evk_vte_core.yaml`
+OUTPUT=`lavacli --uri http://admin:43p8nz0iwe0tb2scya3mrcls8kl0hxw9whf19bac0kdc40lxfu6rtikis00yrcy9teu35ky8kcnrxygcqrxs9m649x3u6dp9gwb36p845kd4ozpzbpq8ft7ufu0u1syz@10.192.242.47/RPC2/ jobs submit imx8ulp_evk_vte_release.yaml`
 
 if [ $? -eq 0 ]
 then
