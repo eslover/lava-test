@@ -244,6 +244,7 @@ while [ 1 ]; do
 					esac
 
 					#submit the lava job and wait for completion
+					cd /home/r64343/workspace/lava-test/test/${SOC[$i]}_${BOARD[$i]}
 					uname -a | grep debian10
 					if [ $? -eq 0 ]
 					then
