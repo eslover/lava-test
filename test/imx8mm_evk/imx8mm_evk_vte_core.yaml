@@ -46,8 +46,8 @@ actions:
       url: file:///nfsroot/imx8mmevkcore/image/Image-imx8mmevk.bin
       type: image
     nfsrootfs:
-      url: file:///nfsroot/imx8mmevkcore/image/imx8mmevk.tar
-      archive: tar
+      url: file:///nfsroot/imx8mmevkcore/image/imx8mmevk.tar.bz2
+      compression: bz2
     dtb:
       url: file:///nfsroot/imx8mmevkcore/image/imx8mm-evk.dtb
 

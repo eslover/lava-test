@@ -46,8 +46,8 @@ actions:
       url: file:///nfsroot/imx8ulpevkrelease/image/Image-imx8ulpevk.bin
       type: image
     nfsrootfs:
-      url: file:///nfsroot/imx8ulpevkrelease/image/imx8ulpevk.tar
-      archive: tar
+      url: file:///nfsroot/imx8ulpevkrelease/image/imx8ulpevk.tar.bz2
+      compression: bz2
     dtb:
       url: file:///nfsroot/imx8ulpevkrelease/image/imx8ulp-evk.dtb
 

@@ -176,9 +176,15 @@ while [ 1 ]; do
 					#create symbol link, try to find one if mulptile
 					ln -sf `find *${NFS[$i]}*.tar.bz2 | head -1` ${SOC[$i]}${BOARD[$i]}.tar.bz2;
 
-					#bunzip it firstly for the sake of the CPU high loading when mulitple board bootup
-					cat ${SOC[$i]}${BOARD[$i]}.tar.bz2 |  bunzip2 > ${SOC[$i]}${BOARD[$i]}.tar
-					rm -rf *.bz2
+					uname -a | grep debian10
+					if [ $? -eq 0 ]
+					then
+
+					else
+						#bunzip it firstly for the sake of the CPU high loading when mulitple board bootup
+						cat ${SOC[$i]}${BOARD[$i]}.tar.bz2 |  bunzip2 > ${SOC[$i]}${BOARD[$i]}.tar
+						rm -rf *.bz2
+					fi
 
 					#trick: on-the-fly to replace the u-boot/op-tee on imx6/7 or flash.bin on imx8
 					#serialization: for differnt build-type test,to use one board to test different
