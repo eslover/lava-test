@@ -179,6 +179,7 @@ while [ 1 ]; do
 					uname -a | grep debian10
 					if [ $? -eq 0 ]
 					then
+						echo "rootfs using bz2 file on Debian10"
 
 					else
 						#bunzip it firstly for the sake of the CPU high loading when mulitple board bootup

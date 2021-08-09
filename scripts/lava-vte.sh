@@ -5,11 +5,16 @@ determine_platform_dt()
 {
     local find=0
 
+    find=`grep "MX8ULP" /sys/devices/soc0/soc_id |wc -l`
+    if [ $find -eq 1 ]
+    then
+	vte=vte_mx89
+    fi
+
     find=`grep "MX8QM" /sys/devices/soc0/soc_id |wc -l`
     if [ $find -eq 1 ]
     then
-        #vte=vte_mx82
-	vte=vte_IMX8QM-MEK
+	vte=vte_mx83
     fi
 
     find=`grep "MX8QXP" /sys/devices/soc0/soc_id |wc -l`
