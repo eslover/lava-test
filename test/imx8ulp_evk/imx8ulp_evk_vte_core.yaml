@@ -40,7 +40,7 @@ actions:
 - deploy:
     namespace: test_case 
     timeout:
-      minutes: 10
+      minutes: 60
     to: tftp
     kernel:
       url: file:///nfsroot/imx8ulpevkcore/image/Image-imx8ulpevk.bin
@@ -73,7 +73,7 @@ actions:
     prompts:
     - 'root@(.*):~#'
     timeout:
-      minutes: 5
+      minutes: 60
 - test:
     failure_retry: 3
     namespace: test_case
